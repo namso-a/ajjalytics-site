@@ -1,0 +1,2109 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajjalytics | Hjemmesider der skaffer kunder</title>
+    <meta name="description" content="Professionelle hjemmesider til lokale virksomheder i Danmark. Fast pris 2.500 kr. Vedligeholdelse 300 kr./md. Gratis udkast inden for 12 timer.">
+    <meta property="og:title" content="Ajjalytics | Hjemmesider til lokale virksomheder">
+    <meta property="og:description" content="Professionelle hjemmesider til lokale virksomheder i Danmark. Fast pris, ingen overraskelser. Gratis udkast inden for 12 timer.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ajjalytics.dev">
+    <meta property="og:locale" content="da_DK">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>A</text></svg>">
+    <script type="application/ld+json">
+    [{
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Ajjalytics",
+        "description": "Professionelle hjemmesider til lokale virksomheder i Danmark",
+        "url": "https://ajjalytics.dev",
+        "email": "othman@ajjalytics.dev",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Aarhus",
+            "addressCountry": "DK"
+        },
+        "priceRange": "2500 DKK",
+        "areaServed": "Denmark"
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Webdesign",
+        "provider": {"@type": "ProfessionalService", "name": "Ajjalytics"},
+        "offers": {
+            "@type": "Offer",
+            "price": "2500",
+            "priceCurrency": "DKK",
+            "description": "Landingsside inkl. opsætning af domæne, hosting og HTTPS"
+        }
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "Hvor lang tid tager det?", "acceptedAnswer": {"@type": "Answer", "text": "I får et udkast inden for 12 timer, og den færdige side er typisk klar inden for 24 timer efter godkendelse."}},
+            {"@type": "Question", "name": "Skal jeg selv gøre noget teknisk?", "acceptedAnswer": {"@type": "Answer", "text": "Nej. Jeg sætter det hele op: domæne, hosting, email og HTTPS."}},
+            {"@type": "Question", "name": "Hvad hvis jeg ikke er tilfreds med udkastet?", "acceptedAnswer": {"@type": "Answer", "text": "Udkastet er gratis og uforpligtende. Kan vi ikke finde et design I er glade for, skylder I ingenting."}},
+            {"@type": "Question", "name": "Hvad dækker de 300 kr. om måneden?", "acceptedAnswer": {"@type": "Answer", "text": "Hosting, domænefornyelse, teknisk vedligeholdelse, sikkerhedsopdateringer og support."}},
+            {"@type": "Question", "name": "Hvorfor er det billigere end et bureau?", "acceptedAnswer": {"@type": "Answer", "text": "Jeg arbejder alene uden kontorleje og salgsafdeling, og bruger moderne værktøjer der gør processen hurtigere."}},
+            {"@type": "Question", "name": "Kan I lave mere end en landingsside?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Har I brug for flere undersider, webshop eller særlige integrationer, laver vi en pris der passer."}}
+        ]
+    }]
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ink:       #111111;
+            --ink-2:     #444444;
+            --ink-3:     #888888;
+            --paper:     #FAFAF8;
+            --paper-2:   #F2F0EC;
+            --paper-3:   #E8E4DC;
+            --accent:    #3D52D5;
+            --accent-dk: #2E3FA8;
+            --accent-soft: rgba(61, 82, 213, 0.08);
+            --accent-softer: rgba(61, 82, 213, 0.04);
+            --green:     #1F7A4A;
+            --green-soft: rgba(31, 122, 74, 0.08);
+            --red:       #B83232;
+            --red-soft:  rgba(184, 50, 50, 0.08);
+            --r:         10px;
+            --r-lg:      16px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.09), 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        img { display: block; max-width: 100%; }
+
+        /* ============================================================
+           UTILITY
+        ============================================================ */
+
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .serif {
+            font-family: 'Fraunces', Georgia, serif;
+        }
+
+        /* Scroll reveal — JS adds .is-visible */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ============================================================
+           NAV
+        ============================================================ */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(250, 250, 248, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        nav.scrolled {
+            border-color: var(--paper-3);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 0.875rem;
+            color: var(--ink-2);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--ink); }
+
+        .nav-cta {
+            background: var(--ink) !important;
+            color: #fff !important;
+            padding: 9px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.875rem !important;
+            transition: opacity 0.2s !important;
+        }
+
+        .nav-cta:hover { opacity: 0.8 !important; }
+
+        /* ============================================================
+           HERO
+        ============================================================ */
+
+        .hero-section {
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(175deg, var(--paper) 0%, #EEF0FB 50%, var(--paper) 100%);
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            right: -80px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(ellipse at center, rgba(61, 82, 213, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(ellipse at center, rgba(31, 122, 74, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            background: var(--accent-soft);
+            padding: 5px 14px 5px 10px;
+            border-radius: 100px;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 1.5px;
+            background: var(--accent);
+        }
+
+        .hero-h1 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+            font-weight: 400;
+            line-height: 1.12;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            color: var(--ink);
+        }
+
+        .hero-h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--ink-2);
+            line-height: 1.7;
+            max-width: 420px;
+            margin-bottom: 36px;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--accent), #5a4ed8);
+            color: #fff;
+            padding: 13px 26px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: transform 0.15s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -75%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::after { left: 125%; }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(61, 82, 213, 0.3);
+        }
+
+        .btn-primary svg {
+            transition: transform 0.2s;
+        }
+
+        .btn-primary:hover svg {
+            transform: translateX(3px);
+        }
+
+        .hero-note {
+            font-size: 0.82rem;
+            color: var(--ink-3);
+        }
+
+        /* Hero card — right column */
+        .hero-card {
+            background: #fff;
+            border-radius: var(--r-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            border: 1px solid var(--paper-3);
+        }
+
+        .hero-card-bar {
+            background: var(--paper-2);
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-bottom: 1px solid var(--paper-3);
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dot-r { background: #FF6057; }
+        .dot-y { background: #FFBD2E; }
+        .dot-g { background: #27C840; }
+
+        .hero-card-url {
+            margin-left: 8px;
+            background: #fff;
+            border-radius: 4px;
+            padding: 3px 10px;
+            font-size: 0.72rem;
+            color: var(--ink-3);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex: 1;
+        }
+
+        .hero-card-url svg {
+            color: var(--green);
+        }
+
+        .hero-card-content {
+            padding: 28px;
+        }
+
+        /* Mini site mockup inside the hero card */
+        .mini-site {}
+
+        .ms-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .ms-logo {
+            font-family: 'Fraunces', serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .ms-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .ms-links span {
+            font-size: 0.68rem;
+            color: var(--ink-3);
+        }
+
+        .ms-hero {
+            background: linear-gradient(135deg, #E8ECFF 0%, #F0E8FF 100%);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .ms-tag {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+
+        .ms-h {
+            font-family: 'Fraunces', serif;
+            font-size: 0.88rem;
+            font-weight: 400;
+            line-height: 1.3;
+            margin-bottom: 10px;
+            color: var(--ink);
+        }
+
+        .ms-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: 5px 14px;
+            border-radius: 5px;
+            font-size: 0.66rem;
+            font-weight: 500;
+        }
+
+        .ms-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+        }
+
+        .ms-card {
+            background: var(--paper-2);
+            border-radius: 6px;
+            padding: 10px 8px;
+            text-align: center;
+        }
+
+        .ms-card-icon {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .ms-card-label {
+            font-size: 0.6rem;
+            color: var(--ink-2);
+            font-weight: 500;
+        }
+
+        /* ============================================================
+           PROBLEMS
+        ============================================================ */
+
+        .problems-section {
+            padding: 96px 0;
+            background: var(--paper);
+        }
+
+        .problems-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .problems-left {
+            position: sticky;
+            top: 96px;
+        }
+
+        .section-label {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .section-h2 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 400;
+            line-height: 1.18;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+
+        .section-sub {
+            font-size: 0.95rem;
+            color: var(--ink-2);
+            line-height: 1.7;
+            max-width: 380px;
+        }
+
+        .problems-right {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .problem-item {
+            padding: 28px 0;
+            border-top: 1px solid var(--paper-3);
+            display: grid;
+            grid-template-columns: 28px 1fr;
+            gap: 20px;
+        }
+
+        .problem-item:last-child {
+            border-bottom: 1px solid var(--paper-3);
+        }
+
+        .problem-num {
+            font-family: 'Fraunces', serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--red);
+            background: var(--red-soft);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+        }
+
+        .problem-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            letter-spacing: -0.01em;
+        }
+
+        .problem-item p {
+            font-size: 0.9rem;
+            color: var(--ink-2);
+            line-height: 1.65;
+        }
+
+        /* ============================================================
+           BEFORE / AFTER
+        ============================================================ */
+
+        .comparison-section {
+            padding: 96px 0;
+            background: var(--paper-2);
+        }
+
+        .comparison-header {
+            text-align: center;
+            margin-bottom: 52px;
+        }
+
+        .comparison-header .section-h2 {
+            margin-bottom: 12px;
+        }
+
+        .comparison-header .section-sub {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .comp-panel {
+            background: #fff;
+            border-radius: var(--r-lg);
+            overflow: hidden;
+            border: 1px solid var(--paper-3);
+            box-shadow: var(--shadow-md);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .comp-panel.before { border-top: 3px solid var(--red); }
+        .comp-panel.after { border-top: 3px solid var(--green); }
+
+        .comp-panel:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .comp-panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--paper-3);
+        }
+
+        .comp-panel-tag {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .comp-panel.before .comp-panel-tag { color: var(--red); }
+        .comp-panel.after .comp-panel-tag { color: var(--green); }
+
+        .comp-panel-tag-indicator {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+        }
+
+        .comp-panel.before .comp-panel-tag-indicator { background: var(--red); }
+        .comp-panel.after .comp-panel-tag-indicator { background: var(--green); }
+
+        .comp-panel-note {
+            font-size: 0.72rem;
+            color: var(--ink-3);
+        }
+
+        /* Before mockup — intentionally janky */
+        .mock-b {
+            padding: 16px;
+            background: #EEE8D8;
+            font-family: 'Times New Roman', Times, serif;
+            min-height: 260px;
+        }
+
+        .mb-topbar {
+            background: #2A5F2A;
+            color: #FFFF00;
+            text-align: center;
+            padding: 5px 8px;
+            font-size: 0.82rem;
+            font-weight: bold;
+            margin-bottom: 2px;
+            letter-spacing: 0.03em;
+        }
+
+        .mb-underline-bar {
+            height: 4px;
+            background: repeating-linear-gradient(90deg, #FF0000 0 8px, #FFFFFF 8px 16px, #0000FF 16px 24px);
+            margin-bottom: 8px;
+        }
+
+        .mb-menu {
+            display: flex;
+            gap: 0;
+            margin-bottom: 10px;
+        }
+
+        .mb-menu-item {
+            background: #888;
+            color: #fff;
+            padding: 2px 8px;
+            font-size: 0.64rem;
+            border-right: 1px solid #aaa;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .mb-content {
+            font-size: 0.74rem;
+            color: #222;
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+
+        .mb-content b { color: #000; }
+
+        .mb-counter {
+            border: 2px inset #ccc;
+            background: #f5f5f5;
+            display: inline-block;
+            padding: 2px 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.68rem;
+            margin: 6px 0;
+        }
+
+        .mb-not-secure {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 10px;
+            padding: 4px 8px;
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 3px;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.64rem;
+            color: #856404;
+        }
+
+        /* After mockup */
+        .mock-a {
+            padding: 20px;
+            background: #fff;
+            min-height: 260px;
+        }
+
+        .ma-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--paper-3);
+            margin-bottom: 18px;
+        }
+
+        .ma-logo {
+            font-family: 'Fraunces', serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        .ma-nav-links {
+            display: flex;
+            gap: 14px;
+        }
+
+        .ma-nav-links span {
+            font-size: 0.64rem;
+            color: var(--ink-3);
+        }
+
+        .ma-hero-block {
+            background: linear-gradient(135deg, #F0F2FF 0%, #F8F0FF 100%);
+            border-radius: 8px;
+            padding: 16px 18px;
+            margin-bottom: 14px;
+        }
+
+        .ma-eyebrow {
+            font-size: 0.58rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        .ma-headline {
+            font-family: 'Fraunces', serif;
+            font-size: 0.82rem;
+            font-weight: 400;
+            line-height: 1.35;
+            margin-bottom: 10px;
+        }
+
+        .ma-cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: 5px 14px;
+            border-radius: 5px;
+            font-size: 0.62rem;
+            font-weight: 500;
+        }
+
+        .ma-badges {
+            display: flex;
+            gap: 8px;
+        }
+
+        .ma-badge {
+            flex: 1;
+            background: var(--paper-2);
+            border-radius: 6px;
+            padding: 8px 10px;
+            font-size: 0.6rem;
+        }
+
+        .ma-badge strong {
+            display: block;
+            color: var(--ink);
+            font-size: 0.62rem;
+            margin-bottom: 1px;
+        }
+
+        .ma-badge span {
+            color: var(--ink-3);
+        }
+
+        /* ============================================================
+           PORTFOLIO
+        ============================================================ */
+
+        .portfolio-section {
+            padding: 96px 0;
+            background: var(--paper);
+        }
+
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 52px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .portfolio-card {
+            background: #fff;
+            border-radius: var(--r-lg);
+            border: 1px solid var(--paper-3);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg), 0 0 40px var(--accent-softer);
+            border-color: rgba(61, 82, 213, 0.2);
+        }
+
+        .portfolio-bar {
+            background: var(--paper-2);
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-bottom: 1px solid var(--paper-3);
+        }
+
+        .portfolio-url {
+            margin-left: 8px;
+            background: #fff;
+            border-radius: 4px;
+            padding: 3px 10px;
+            font-size: 0.72rem;
+            color: var(--ink-3);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex: 1;
+        }
+
+        .portfolio-url svg { color: var(--green); }
+
+        .portfolio-body {
+            padding: 28px;
+        }
+
+        .portfolio-name {
+            font-family: 'Fraunces', serif;
+            font-size: 1.15rem;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .portfolio-desc {
+            font-size: 0.88rem;
+            color: var(--ink-2);
+            line-height: 1.65;
+            margin-bottom: 18px;
+        }
+
+        .portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--accent);
+            transition: gap 0.2s;
+        }
+
+        .portfolio-link:hover { gap: 10px; }
+
+        .portfolio-tags {
+            display: flex;
+            gap: 6px;
+            margin-top: 14px;
+        }
+
+        .portfolio-tag {
+            font-size: 0.68rem;
+            padding: 3px 10px;
+            border-radius: 100px;
+            background: var(--paper-2);
+            color: var(--ink-3);
+            font-weight: 500;
+        }
+
+        @media (max-width: 700px) {
+            .portfolio-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ============================================================
+           PROCESS
+        ============================================================ */
+
+        .process-section {
+            padding: 96px 0;
+            background: var(--paper);
+        }
+
+        .process-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: end;
+            margin-bottom: 64px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: var(--paper-3);
+            border: 1px solid var(--paper-3);
+            border-radius: var(--r-lg);
+            overflow: hidden;
+        }
+
+        .step {
+            background: var(--paper);
+            padding: 36px 32px;
+            transition: background 0.2s;
+        }
+
+        .step:hover {
+            background: #fff;
+        }
+
+        .step-number {
+            font-family: 'Fraunces', serif;
+            font-size: 2.4rem;
+            font-weight: 300;
+            background: linear-gradient(135deg, var(--accent), #7c6dd8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 20px;
+            opacity: 0.4;
+        }
+
+        .step h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 0.875rem;
+            color: var(--ink-2);
+            line-height: 1.65;
+        }
+
+        /* ============================================================
+           ABOUT
+        ============================================================ */
+
+        .about-section {
+            padding: 96px 0;
+            background: var(--paper);
+            border-top: 1px solid var(--paper-3);
+        }
+
+        .about-layout {
+            max-width: 640px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content h2 { text-align: center; }
+        .about-content p { margin-left: auto; margin-right: auto; }
+        .about-stats { justify-content: center; }
+
+        .about-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: var(--r-lg);
+            background: var(--paper-2);
+            border: 1px solid var(--paper-3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Fraunces', serif;
+            font-size: 3.6rem;
+            font-weight: 300;
+            color: var(--ink-3);
+        }
+
+        .about-content h2 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        .about-content p {
+            font-size: 0.95rem;
+            color: var(--ink-2);
+            line-height: 1.75;
+            margin-bottom: 14px;
+            max-width: 520px;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px solid var(--paper-3);
+        }
+
+        .about-stat {
+            text-align: left;
+        }
+
+        .about-stat-num {
+            font-family: 'Fraunces', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--accent);
+            line-height: 1.2;
+        }
+
+        .about-stat-label {
+            font-size: 0.78rem;
+            color: var(--ink-3);
+        }
+
+        /* ============================================================
+           PRICING — CONTEXT NOTE
+        ============================================================ */
+
+        .pricing-context {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .pricing-context-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--paper);
+            border: 1px solid var(--paper-3);
+            border-radius: 100px;
+            padding: 8px 20px;
+            font-size: 0.82rem;
+            color: var(--ink-2);
+        }
+
+        .pricing-context-box svg {
+            flex-shrink: 0;
+            color: var(--accent);
+        }
+
+        @media (max-width: 900px) {
+            .about-layout {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .about-photo {
+                width: 120px;
+                height: 120px;
+                font-size: 2.4rem;
+            }
+        }
+
+        /* ============================================================
+           PRICING
+        ============================================================ */
+
+        .pricing-section {
+            padding: 96px 0;
+            background: var(--paper-2);
+        }
+
+        .pricing-layout {
+            display: grid;
+            grid-template-columns: 1fr 480px;
+            gap: 64px;
+            align-items: start;
+        }
+
+        .pricing-left {}
+
+        .pricing-left .section-h2 {
+            margin-bottom: 16px;
+        }
+
+        .pricing-left .section-sub {
+            margin-bottom: 32px;
+        }
+
+        .pricing-reassurance {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .reassurance-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.9rem;
+            color: var(--ink-2);
+        }
+
+        .reassurance-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            color: var(--green);
+            margin-top: 1px;
+        }
+
+        .pricing-card {
+            background: #fff;
+            border-radius: var(--r-lg);
+            border: 1px solid var(--paper-3);
+            border-top: 3px solid var(--accent);
+            box-shadow: var(--shadow-lg), 0 0 60px var(--accent-softer);
+            overflow: hidden;
+        }
+
+        .pricing-card-top {
+            padding: 36px 36px 28px;
+            border-bottom: 1px solid var(--paper-3);
+        }
+
+        .price-main {
+            font-family: 'Fraunces', serif;
+            font-size: 3.2rem;
+            font-weight: 300;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin-bottom: 6px;
+            background: linear-gradient(135deg, var(--accent), #7c6dd8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .price-sub {
+            font-size: 0.88rem;
+            color: var(--ink-3);
+            margin-bottom: 20px;
+        }
+
+        .price-secondary {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 4px;
+            background: var(--paper-2);
+            padding: 8px 14px;
+            border-radius: 6px;
+        }
+
+        .price-secondary strong {
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .price-secondary span {
+            font-size: 0.82rem;
+            color: var(--ink-3);
+        }
+
+        .pricing-card-features {
+            padding: 28px 36px;
+            border-bottom: 1px solid var(--paper-3);
+        }
+
+        .pricing-card-features ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .pricing-card-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            color: var(--ink-2);
+        }
+
+        .check-icon {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            color: var(--green);
+        }
+
+        .pricing-card-cta {
+            padding: 28px 36px;
+        }
+
+        .btn-cta-full {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: var(--ink);
+            color: #fff;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: opacity 0.2s, transform 0.15s;
+        }
+
+        .btn-cta-full:hover {
+            opacity: 0.85;
+            transform: translateY(-1px);
+        }
+
+        .pricing-card-note {
+            margin-top: 12px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--ink-3);
+        }
+
+        /* ============================================================
+           FAQ
+        ============================================================ */
+
+        .faq-section {
+            padding: 96px 0;
+            background: var(--paper);
+        }
+
+        .faq-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .faq-left {
+            position: sticky;
+            top: 96px;
+        }
+
+        .faq-left .section-h2 {
+            margin-bottom: 16px;
+        }
+
+        .faq-left .section-sub {
+            margin-bottom: 28px;
+        }
+
+        .faq-contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.875rem;
+            color: var(--accent);
+            font-weight: 500;
+            transition: gap 0.2s;
+        }
+
+        .faq-contact-link:hover {
+            gap: 10px;
+        }
+
+        .faq-items {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .faq-item {
+            border-top: 1px solid var(--paper-3);
+        }
+
+        .faq-item:last-child {
+            border-bottom: 1px solid var(--paper-3);
+        }
+
+        .faq-q {
+            font-size: 0.975rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            padding: 20px 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            user-select: none;
+        }
+
+        .faq-q:hover { color: var(--accent); }
+
+        .faq-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-a {
+            font-size: 0.9rem;
+            color: var(--ink-2);
+            line-height: 1.7;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+            padding-bottom: 0;
+        }
+
+        .faq-item.open .faq-a {
+            max-height: 200px;
+            padding-bottom: 20px;
+        }
+
+        /* ============================================================
+           BOTTOM CTA
+        ============================================================ */
+
+        .bottom-cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #0f1629 0%, #1a1f3d 50%, #151932 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bottom-cta-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 400px;
+            background: radial-gradient(ellipse at center, rgba(61, 82, 213, 0.25) 0%, transparent 70%);
+            pointer-events: none;
+            animation: ctaGlow 6s ease-in-out infinite;
+        }
+
+        @keyframes ctaGlow {
+            0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+            50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+        }
+
+        .bottom-cta-inner {
+            text-align: center;
+            position: relative;
+        }
+
+        .bottom-cta-inner .section-h2 {
+            color: #fff;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            margin-bottom: 16px;
+        }
+
+        .bottom-cta-inner .section-h2 em {
+            font-style: italic;
+            opacity: 0.7;
+        }
+
+        .bottom-cta-sub {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 40px;
+            max-width: 420px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .bottom-cta-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-cta-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            color: var(--ink);
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.975rem;
+            transition: opacity 0.2s, transform 0.15s;
+        }
+
+        .btn-cta-email:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .bottom-cta-note {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* ============================================================
+           FOOTER
+        ============================================================ */
+
+        footer {
+            background: var(--ink);
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 32px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-logo {
+            font-family: 'Fraunces', serif;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .footer-right a {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.4);
+            transition: color 0.2s;
+        }
+
+        .footer-right a:hover {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.25);
+        }
+
+        /* ============================================================
+           RESPONSIVE
+        ============================================================ */
+
+        @media (max-width: 900px) {
+            .container { padding: 0 24px; }
+
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .hero-section { padding: 72px 0 64px; }
+
+            .hero-h1 { font-size: 2.4rem; }
+
+            .hero-card { max-width: 480px; }
+
+            .problems-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .problems-left {
+                position: static;
+            }
+
+            .process-header {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .pricing-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .faq-layout {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .faq-left {
+                position: static;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links a:not(.nav-cta) { display: none; }
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 0 20px; }
+            .process-steps { grid-template-columns: 1fr; }
+            .step { padding: 28px 24px; }
+            .pricing-card-top,
+            .pricing-card-features,
+            .pricing-card-cta { padding: 24px; }
+            .hero-h1 { font-size: 2rem; }
+            .price-main { font-size: 2.6rem; }
+            .bottom-cta-section { padding: 72px 0; }
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+============================================================ -->
+<nav id="main-nav">
+    <div class="container">
+        <div class="nav-inner">
+            <a href="#" class="logo">Ajjalytics</a>
+            <div class="nav-links">
+                <a href="#proces">Proces</a>
+                <a href="#priser">Priser</a>
+                <a href="mailto:othman@ajjalytics.dev?subject=Ny%20hjemmeside&body=Hej%20Othman%2C%0A%0AJeg%20er%20interesseret%20i%20at%20h%C3%B8re%20mere%20om%20en%20ny%20hjemmeside%20til%20min%20virksomhed.%0A%0AVirksomhed%3A%20%0ANuv%C3%A6rende%20hjemmeside%3A%20%0A%0AMvh" class="nav-cta">Skriv til mig</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero-section">
+    <div class="container">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <div class="hero-eyebrow reveal">Webudvikler i Aarhus</div>
+                <h1 class="hero-h1 reveal reveal-delay-1">
+                    Jeg bygger den hjemmeside<br>
+                    <em>I aldrig fik lavet</em>
+                </h1>
+                <p class="hero-sub reveal reveal-delay-2">
+                    De fleste lokale virksomheder ved godt at deres hjemmeside trænger til en opdatering, men det bliver aldrig til noget. Jeg gør det nemt: fast pris, ingen teknisk snak, og en færdig side inden for 24 timer.
+                </p>
+                <div class="hero-actions reveal reveal-delay-3">
+                    <a href="mailto:othman@ajjalytics.dev?subject=Ny%20hjemmeside&body=Hej%20Othman%2C%0A%0AJeg%20er%20interesseret%20i%20at%20h%C3%B8re%20mere%20om%20en%20ny%20hjemmeside%20til%20min%20virksomhed.%0A%0AVirksomhed%3A%20%0ANuv%C3%A6rende%20hjemmeside%3A%20%0A%0AMvh" class="btn-primary">
+                        Få et gratis udkast
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 7h10M8 3l4 4-4 4"/>
+                        </svg>
+                    </a>
+                    <span class="hero-note">Udkast inden for 12 timer &middot; Ingen forpligtelse</span>
+                </div>
+            </div>
+
+            <div class="reveal reveal-delay-2">
+                <div class="hero-card">
+                    <div class="hero-card-bar">
+                        <div class="dot dot-r"></div>
+                        <div class="dot dot-y"></div>
+                        <div class="dot dot-g"></div>
+                        <div class="hero-card-url">
+                            <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M8 0a8 8 0 100 16A8 8 0 008 0zm0 2a6 6 0 110 12A6 6 0 018 2zm0 1a5 5 0 100 10A5 5 0 008 3z" opacity=".3"/>
+                                <path d="M7 6V5a1 1 0 012 0v1h1a1 1 0 110 2H9v3a1 1 0 11-2 0V8H6a1 1 0 110-2h1z"/>
+                            </svg>
+                            tandklinik-hansen.dk
+                        </div>
+                    </div>
+                    <div class="hero-card-content">
+                        <div class="mini-site">
+                            <div class="ms-nav">
+                                <div class="ms-logo">Tandklinik Hansen</div>
+                                <div class="ms-links">
+                                    <span>Behandlinger</span>
+                                    <span>Om os</span>
+                                    <span>Book tid</span>
+                                </div>
+                            </div>
+                            <div class="ms-hero">
+                                <div class="ms-tag">Aarhus C</div>
+                                <div class="ms-h">Sunde tænder starter med&nbsp;den rigtige tandlæge</div>
+                                <span class="ms-btn">Book din tid nu</span>
+                            </div>
+                            <div class="ms-cards">
+                                <div class="ms-card">
+                                    <div class="ms-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D52D5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                                    <div class="ms-card-label">Online booking</div>
+                                </div>
+                                <div class="ms-card">
+                                    <div class="ms-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D52D5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+                                    <div class="ms-card-label">Sikker forbindelse</div>
+                                </div>
+                                <div class="ms-card">
+                                    <div class="ms-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D52D5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                                    <div class="ms-card-label">Google Maps</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     PROBLEMS
+============================================================ -->
+<section class="problems-section">
+    <div class="container">
+        <div class="problems-layout">
+            <div class="problems-left reveal">
+                <h2 class="section-h2">Tre ting der koster jer kunder online</h2>
+                <p class="section-sub">De fleste lokale virksomheder har mindst ét af disse problemer, og opdager det først, når kunderne allerede er gået et andet sted hen.</p>
+            </div>
+            <div class="problems-right">
+                <div class="problem-item reveal">
+                    <div class="problem-num">01</div>
+                    <div>
+                        <h3>Browseren advarer jeres besøgende</h3>
+                        <p>Uden HTTPS viser Chrome "Ikke sikker" ved siden af jeres adresse. Mange klikker væk med det samme, særligt hvis de skal afgive personoplysninger eller bestille tid.</p>
+                    </div>
+                </div>
+                <div class="problem-item reveal reveal-delay-1">
+                    <div class="problem-num">02</div>
+                    <div>
+                        <h3>Siden virker ikke på mobilen</h3>
+                        <p>Over halvdelen af alle besøg kommer fra en telefon. Hvis teksten er for lille eller siden loader langsomt, finder kunden en konkurrent inden I ved af det.</p>
+                    </div>
+                </div>
+                <div class="problem-item reveal reveal-delay-2">
+                    <div class="problem-num">03</div>
+                    <div>
+                        <h3>Ingen nem måde at booke på</h3>
+                        <p>Når en kunde er klar til at bestille, vil de gøre det med det samme. Skal de ringe eller skrive en mail, er mange væk. En simpel booking-knap ændrer det.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     BEFORE / AFTER
+============================================================ -->
+<section class="comparison-section">
+    <div class="container">
+        <div class="comparison-header reveal">
+            <h2 class="section-h2">Fra forældet til professionel</h2>
+            <p class="section-sub">Sådan ser det ud i praksis. Samme virksomhed, to meget forskellige oplevelser for kunden.</p>
+        </div>
+        <div class="comparison-grid">
+            <div class="comp-panel before reveal">
+                <div class="comp-panel-header">
+                    <div class="comp-panel-tag">
+                        <span class="comp-panel-tag-indicator"></span>
+                        Lokal hjemmeside
+                    </div>
+                    <div class="comp-panel-note">http://</div>
+                </div>
+                <div class="mock-b">
+                    <div class="mb-topbar">&#9733; TANDKLINIK JENSEN &#9733;</div>
+                    <div class="mb-underline-bar"></div>
+                    <div class="mb-menu">
+                        <div class="mb-menu-item">FORSIDE</div>
+                        <div class="mb-menu-item">OM OS</div>
+                        <div class="mb-menu-item">PRISER</div>
+                        <div class="mb-menu-item">KONTAKT</div>
+                    </div>
+                    <p class="mb-content"><b>Velkommen til vores hjemmeside!</b><br>Vi er en tandklinik som har eksisteret siden 1987 og tilbyder tandbehandling til hele familien. Vi er beliggende i centrum af byen.</p>
+                    <p class="mb-content">Ring til os for tidsbestilling: <b>86 12 34 56</b><br>Åbningstider: Mandag-fredag 8:00-16:00</p>
+                    <div class="mb-counter">Besøgende: 000847</div>
+                    <div class="mb-not-secure">
+                        <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm0 2a5 5 0 110 10A5 5 0 008 3zm0 2a1 1 0 00-1 1v2a1 1 0 002 0V6a1 1 0 00-1-1zm0 5a1 1 0 100 2 1 1 0 000-2z"/></svg>
+                        Ikke sikker &mdash; http://tandklinik-jensen.dk
+                    </div>
+                </div>
+            </div>
+
+            <div class="comp-panel after reveal reveal-delay-1">
+                <div class="comp-panel-header">
+                    <div class="comp-panel-tag">
+                        <span class="comp-panel-tag-indicator"></span>
+                        Med Ajjalytics
+                    </div>
+                    <div class="comp-panel-note">https://</div>
+                </div>
+                <div class="mock-a">
+                    <div class="ma-top">
+                        <div class="ma-logo">Tandklinik Jensen</div>
+                        <div class="ma-nav-links">
+                            <span>Behandlinger</span>
+                            <span>Om os</span>
+                            <span>Book tid</span>
+                        </div>
+                    </div>
+                    <div class="ma-hero-block">
+                        <div class="ma-eyebrow">Aarhus C &middot; Åbent hverdage 8–17</div>
+                        <div class="ma-headline">Sunde tænder starter med den rigtige tandlæge</div>
+                        <span class="ma-cta-btn">Book tid online</span>
+                    </div>
+                    <div class="ma-badges">
+                        <div class="ma-badge">
+                            <strong>Online booking</strong>
+                            <span>Book 24/7</span>
+                        </div>
+                        <div class="ma-badge">
+                            <strong>HTTPS</strong>
+                            <span>Sikker forbindelse</span>
+                        </div>
+                        <div class="ma-badge">
+                            <strong>Mobilvenlig</strong>
+                            <span>Virker overalt</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     PORTFOLIO
+============================================================ -->
+<section class="portfolio-section">
+    <div class="container">
+        <div class="portfolio-header reveal">
+            <h2 class="section-h2">Sider jeg har bygget</h2>
+        </div>
+        <div class="portfolio-grid">
+            <a href="https://matchvikar.vercel.app" target="_blank" rel="noopener" class="portfolio-card reveal">
+                <div class="portfolio-bar">
+                    <div class="dot dot-r"></div>
+                    <div class="dot dot-y"></div>
+                    <div class="dot dot-g"></div>
+                    <div class="portfolio-url">
+                        <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm0 2a6 6 0 110 12A6 6 0 018 2zm0 1a5 5 0 100 10A5 5 0 008 3z" opacity=".3"/><path d="M7 6V5a1 1 0 012 0v1h1a1 1 0 110 2H9v3a1 1 0 11-2 0V8H6a1 1 0 110-2h1z"/></svg>
+                        matchvikar.vercel.app
+                    </div>
+                </div>
+                <div class="portfolio-body">
+                    <div class="portfolio-name">MatchVikar</div>
+                    <p class="portfolio-desc">Platform der matcher vikarer med virksomheder. Moderne design med fokus på brugeroplevelse og hurtig onboarding.</p>
+                    <span class="portfolio-link">
+                        Besøg siden
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+                    </span>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Webapp</span>
+                        <span class="portfolio-tag">Responsivt</span>
+                        <span class="portfolio-tag">HTTPS</span>
+                    </div>
+                </div>
+            </a>
+            <a href="https://gofond.dk" target="_blank" rel="noopener" class="portfolio-card reveal reveal-delay-1">
+                <div class="portfolio-bar">
+                    <div class="dot dot-r"></div>
+                    <div class="dot dot-y"></div>
+                    <div class="dot dot-g"></div>
+                    <div class="portfolio-url">
+                        <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm0 2a6 6 0 110 12A6 6 0 018 2zm0 1a5 5 0 100 10A5 5 0 008 3z" opacity=".3"/><path d="M7 6V5a1 1 0 012 0v1h1a1 1 0 110 2H9v3a1 1 0 11-2 0V8H6a1 1 0 110-2h1z"/></svg>
+                        gofond.dk
+                    </div>
+                </div>
+                <div class="portfolio-body">
+                    <div class="portfolio-name">GoFond</div>
+                    <p class="portfolio-desc">Dansk virksomhedsside med fokus på troværdighed og klar kommunikation. Mobilvenligt design med kontaktformular.</p>
+                    <span class="portfolio-link">
+                        Besøg siden
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+                    </span>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Landingsside</span>
+                        <span class="portfolio-tag">SEO</span>
+                        <span class="portfolio-tag">HTTPS</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     PROCESS
+============================================================ -->
+<section class="process-section" id="proces">
+    <div class="container">
+        <div class="process-header">
+            <div class="reveal">
+                <h2 class="section-h2">Sådan foregår det</h2>
+            </div>
+            <div class="reveal reveal-delay-1">
+                <p class="section-sub">I behøver ikke forstå noget teknisk. Jeg klarer alt det praktiske. I godkender undervejs.</p>
+            </div>
+        </div>
+        <div class="process-steps">
+            <div class="step reveal">
+                <div class="step-number">01</div>
+                <h3>Vi taler sammen</h3>
+                <p>I fortæller hvad I har brug for. Jeg kigger på jeres nuværende hjemmeside og stiller de rigtige spørgsmål.</p>
+            </div>
+            <div class="step reveal reveal-delay-1">
+                <div class="step-number">02</div>
+                <h3>Jeg laver et udkast</h3>
+                <p>Inden for 12 timer har I et konkret design-forslag. Helt gratis, helt uforpligtende.</p>
+            </div>
+            <div class="step reveal reveal-delay-2">
+                <div class="step-number">03</div>
+                <h3>Vi finpudser</h3>
+                <p>Justeringer til I er tilfredse. Ingen ekstra regning. Det er en del af aftalen.</p>
+            </div>
+            <div class="step reveal reveal-delay-3">
+                <div class="step-number">04</div>
+                <h3>Siden går live</h3>
+                <p>Jeg sætter alt op: domæne, hosting, HTTPS. I skal ikke røre en finger.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     ABOUT
+============================================================ -->
+<section class="about-section">
+    <div class="container">
+        <div class="about-layout">
+            <div class="about-content">
+                <h2 class="reveal">Hej, jeg hedder Othman</h2>
+                <p class="reveal reveal-delay-1">Jeg er webudvikler i Aarhus og hjælper lokale virksomheder med at få en online tilstedeværelse der matcher kvaliteten af det arbejde de allerede laver.</p>
+                <p class="reveal reveal-delay-2">De fleste bureauer tager 10.000–25.000 kr. for en hjemmeside og sender jer en faktura med timer I ikke forstår. Jeg gør det anderledes: fast pris, direkte kommunikation, og en side der er klar inden for 24 timer.</p>
+                <div class="about-stats reveal reveal-delay-3">
+                    <div class="about-stat">
+                        <div class="about-stat-num">24t</div>
+                        <div class="about-stat-label">til færdig side</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-num">12t</div>
+                        <div class="about-stat-label">til første udkast</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-num">2.500 kr.</div>
+                        <div class="about-stat-label">fast pris, altid</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     PRICING
+============================================================ -->
+<section class="pricing-section" id="priser">
+    <div class="container">
+        <div class="pricing-layout">
+            <div class="pricing-left">
+                <div class="reveal">
+                    <h2 class="section-h2">Én fast pris.<br>Ingen overraskelser.</h2>
+                    <p class="section-sub">Ingen timepriser, ingen skjulte gebyrer, ingen kontrakter med lange bindingsperioder.</p>
+                </div>
+                <div class="pricing-reassurance reveal reveal-delay-1">
+                    <div class="reassurance-item">
+                        <svg class="reassurance-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M10 2l2.4 4.8 5.3.8-3.85 3.75.91 5.3L10 14.27 5.2 16.63l.91-5.3L2.26 7.58l5.3-.78L10 2z" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Gratis udkast. Ingen betaling før I er tilfredse med designet
+                    </div>
+                    <div class="reassurance-item">
+                        <svg class="reassurance-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M10 2l2.4 4.8 5.3.8-3.85 3.75.91 5.3L10 14.27 5.2 16.63l.91-5.3L2.26 7.58l5.3-.78L10 2z" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Opsig vedligeholdelse måned til måned, ingen binding
+                    </div>
+                    <div class="reassurance-item">
+                        <svg class="reassurance-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M10 2l2.4 4.8 5.3.8-3.85 3.75.91 5.3L10 14.27 5.2 16.63l.91-5.3L2.26 7.58l5.3-.78L10 2z" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Har I brug for mere? Vi aftaler en pris der passer
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal reveal-delay-1">
+                <div class="pricing-card">
+                    <div class="pricing-card-top">
+                        <div class="price-main">2.500 kr.</div>
+                        <div class="price-sub">Engangsbeløb &middot; Færdig landingsside inkl. opsætning</div>
+                        <div class="price-secondary">
+                            <strong>+ 300 kr.</strong>
+                            <span>/ md. for drift og support</span>
+                        </div>
+                    </div>
+                    <div class="pricing-card-features">
+                        <ul>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Moderne, mobilvenligt design
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                HTTPS og hurtig loadtid
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                SEO-optimeret, nemmere at finde på Google
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Online booking, kontaktformular og Google Maps
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Løbende opdateringer og teknisk support
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pricing-card-cta">
+                        <a href="mailto:othman@ajjalytics.dev?subject=Ny%20hjemmeside&body=Hej%20Othman%2C%0A%0AJeg%20er%20interesseret%20i%20at%20h%C3%B8re%20mere%20om%20en%20ny%20hjemmeside%20til%20min%20virksomhed.%0A%0AVirksomhed%3A%20%0ANuv%C3%A6rende%20hjemmeside%3A%20%0A%0AMvh" class="btn-cta-full">
+                            Skriv til mig
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 7h10M8 3l4 4-4 4"/>
+                            </svg>
+                        </a>
+                        <div class="pricing-card-note">Udkast inden for 12 timer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     FAQ
+============================================================ -->
+<section class="faq-section">
+    <div class="container">
+        <div class="faq-layout">
+            <div class="faq-left reveal">
+                <h2 class="section-h2">Gode spørgsmål</h2>
+                <p class="section-sub">Mangler I svar på noget, er I altid velkomne til at skrive.</p>
+                <a href="mailto:othman@ajjalytics.dev?subject=Ny%20hjemmeside&body=Hej%20Othman%2C%0A%0AJeg%20er%20interesseret%20i%20at%20h%C3%B8re%20mere%20om%20en%20ny%20hjemmeside%20til%20min%20virksomhed.%0A%0AVirksomhed%3A%20%0ANuv%C3%A6rende%20hjemmeside%3A%20%0A%0AMvh" class="faq-contact-link">
+                    othman@ajjalytics.dev
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 7h10M8 3l4 4-4 4"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="faq-items">
+                <div class="faq-item reveal">
+                    <div class="faq-q" onclick="toggleFaq(this)">Hvor lang tid tager det?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+                    <div class="faq-a">I får et udkast inden for 12 timer, og den færdige side er typisk klar inden for 24 timer efter godkendelse. Større projekter kan tage lidt længere, men vi aftaler altid en konkret tidsramme på forhånd, og jeg holder den.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-1">
+                    <div class="faq-q" onclick="toggleFaq(this)">Skal jeg selv gøre noget teknisk?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+                    <div class="faq-a">Nej. Jeg sætter det hele op: domæne, hosting, email og HTTPS. I skal bare fortælle mig hvad I har brug for og godkende resultatet.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-2">
+                    <div class="faq-q" onclick="toggleFaq(this)">Hvad hvis jeg ikke er tilfreds med udkastet?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+                    <div class="faq-a">Udkastet er gratis og uforpligtende. Kan vi ikke finde et design I er glade for, skylder I ingenting. Ingen regning, ingen dårlig samvittighed.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-3">
+                    <div class="faq-q" onclick="toggleFaq(this)">Hvad dækker de 300 kr. om måneden?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+                    <div class="faq-a">Hosting, domænefornyelse, teknisk vedligeholdelse, sikkerhedsopdateringer og support. Har I brug for tekstændringer eller mindre justeringer, klarer jeg det uden ekstraregning.</div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-q" onclick="toggleFaq(this)">Hvorfor er det billigere end et bureau?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+                    <div class="faq-a">Jeg arbejder alene uden kontorleje og salgsafdeling, og jeg bruger moderne værktøjer der gør processen hurtigere. I betaler for resultatet, ikke for overhead.</div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-q" onclick="toggleFaq(this)">Kan I lave mere end en landingsside?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+                    <div class="faq-a">Ja. Har I brug for flere undersider, webshop eller særlige integrationer, laver vi en pris der passer til netop jeres behov. Skriv til mig og beskriv projektet.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     BOTTOM CTA
+============================================================ -->
+<section class="bottom-cta-section">
+    <div class="container">
+        <div class="bottom-cta-inner reveal">
+            <h2 class="section-h2 serif">2.500 kr. Fast pris.<br><em>Udkast på 12 timer. Færdig side næste dag.</em></h2>
+            <p class="bottom-cta-sub">Skriv til mig, så har I et gratis udkast inden for 12 timer. Ingen forpligtelse, ingen faktura.</p>
+            <div class="bottom-cta-actions">
+                <a href="mailto:othman@ajjalytics.dev?subject=Ny%20hjemmeside&body=Hej%20Othman%2C%0A%0AJeg%20er%20interesseret%20i%20at%20h%C3%B8re%20mere%20om%20en%20ny%20hjemmeside%20til%20min%20virksomhed.%0A%0AVirksomhed%3A%20%0ANuv%C3%A6rende%20hjemmeside%3A%20%0A%0AMvh" class="btn-cta-email">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="1" y="3" width="14" height="10" rx="1.5"/>
+                        <path d="M1 5l7 5 7-5"/>
+                    </svg>
+                    othman@ajjalytics.dev
+                </a>
+                <span class="bottom-cta-note">Ingen forpligtelse &middot; Udkast inden for 12 timer</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-logo">Ajjalytics &middot; Aarhus</div>
+            <div class="footer-right">
+                <a href="mailto:othman@ajjalytics.dev?subject=Ny%20hjemmeside&body=Hej%20Othman%2C%0A%0AJeg%20er%20interesseret%20i%20at%20h%C3%B8re%20mere%20om%20en%20ny%20hjemmeside%20til%20min%20virksomhed.%0A%0AVirksomhed%3A%20%0ANuv%C3%A6rende%20hjemmeside%3A%20%0A%0AMvh">othman@ajjalytics.dev</a>
+                <span class="footer-copy">&copy; 2025 Ajjalytics</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    // Nav shadow on scroll
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 12);
+    }, { passive: true });
+
+    // Scroll reveal via IntersectionObserver
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // FAQ accordion — only one open at a time
+    function toggleFaq(q) {
+        const item = q.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+    }
+
+    // Immediately reveal anything already in viewport on load
+    setTimeout(() => {
+        revealEls.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                el.classList.add('is-visible');
+                revealObserver.unobserve(el);
+            }
+        });
+    }, 100);
+</script>
+
+</body>
+</html>
