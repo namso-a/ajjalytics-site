@@ -1,13 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3D52D5"/>
-      <stop offset="100%" style="stop-color:#5A4ED8"/>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6EE7B7"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
     </linearGradient>
   </defs>
-  <rect width="512" height="512" rx="96" ry="96" fill="url(#bg)"/>
-  <!-- Geometric A shape -->
-  <path d="M256 100 L370 400 L338 400 L310 328 L202 328 L174 400 L142 400 Z M256 168 L214 300 L298 300 Z" fill="#FFFFFF"/>
-  <!-- Small dot accent (like the period in the logo) -->
-  <circle cx="382" cy="392" r="12" fill="#FFFFFF" opacity="0.6"/>
+
+  <rect width="200" height="200" rx="40" fill="#0F172A"/>
+
+  <g transform="translate(100 105)">
+    <path d="M-35 45 L-60 0 L-35 -45" fill="none" stroke="url(#accent)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M35 45 L60 0 L35 -45" fill="none" stroke="url(#accent)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="15" y1="-33" x2="-15" y2="33" stroke="url(#accent)" stroke-width="7" stroke-linecap="round" opacity="0.6"/>
+    <circle cx="0" cy="-52" r="6" fill="url(#accent)"/>
+  </g>
 </svg>
