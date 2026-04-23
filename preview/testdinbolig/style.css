@@ -312,6 +312,10 @@ p { margin: 0 0 var(--space-4); }
 .testimonials-section { background: linear-gradient(180deg, var(--c-bg), #fff); }
 .testimonials { display: grid; gap: var(--space-5); grid-template-columns: 1fr; }
 @media (min-width: 768px) { .testimonials { grid-template-columns: repeat(3, 1fr); } }
+/* 2-column variant used for the product-page reviews accordion */
+.testimonials-2col { grid-template-columns: 1fr; }
+@media (min-width: 640px) { .testimonials-2col { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 768px) { .testimonials-2col { grid-template-columns: 1fr 1fr; } }
 .quote {
   background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius-lg);
   padding: var(--space-5) var(--space-5) var(--space-4);
