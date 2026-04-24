@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privatlivspolitik — Ajjalytics</title>
+    <meta name="description" content="Privatlivspolitik for Ajjalytics. Læs hvordan vi behandler personoplysninger i overensstemmelse med GDPR.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --ink:       #111111;
+            --ink-2:     #444444;
+            --ink-3:     #888888;
+            --paper:     #FAFAF8;
+            --paper-2:   #F2F0EC;
+            --paper-3:   #E8E4DC;
+            --accent:    #3D52D5;
+            --accent-dk: #2E3FA8;
+            --accent-soft: rgba(61, 82, 213, 0.08);
+            --r:         10px;
+            --r-lg:      16px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+        a:hover { color: var(--accent-dk); }
+
+        .container { max-width: 780px; margin: 0 auto; padding: 0 32px; }
+        .container-wide { max-width: 1040px; margin: 0 auto; padding: 0 32px; }
+
+        .serif { font-family: 'Fraunces', Georgia, serif; }
+
+        /* ============================================================
+           NAV
+        ============================================================ */
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(250, 250, 248, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--paper-3);
+        }
+        .nav-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            height: 64px;
+        }
+        .logo {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            text-decoration: none;
+        }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; align-items: center; gap: 32px; }
+        .nav-links a {
+            font-size: 0.875rem; color: var(--ink-2);
+            transition: color 0.2s; text-decoration: none;
+        }
+        .nav-links a:hover { color: var(--ink); }
+        .nav-cta {
+            background: var(--ink) !important; color: #fff !important;
+            padding: 9px 20px; border-radius: 6px;
+            font-weight: 500; font-size: 0.875rem !important;
+            transition: opacity 0.2s;
+        }
+        .nav-cta:hover { opacity: 0.85; }
+
+        /* ============================================================
+           PAGE HERO
+        ============================================================ */
+        .legal-hero {
+            padding: 64px 0 32px;
+            border-bottom: 1px solid var(--paper-3);
+        }
+        .legal-hero-inner { max-width: 780px; margin: 0 auto; padding: 0 32px; }
+        .legal-hero .eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 0.8rem; font-weight: 500;
+            color: var(--accent); letter-spacing: 0.04em;
+            text-transform: uppercase; margin-bottom: 14px;
+            background: var(--accent-soft);
+            padding: 5px 14px 5px 10px; border-radius: 100px;
+        }
+        .legal-hero .eyebrow::before {
+            content: ''; display: inline-block;
+            width: 20px; height: 1.5px; background: var(--accent);
+        }
+        .legal-hero h1 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            font-weight: 400;
+            line-height: 1.12;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            margin-bottom: 14px;
+        }
+        .legal-hero .meta {
+            font-size: 0.9rem;
+            color: var(--ink-3);
+        }
+        .legal-hero .back-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 0.875rem; color: var(--ink-2);
+            text-decoration: none; margin-bottom: 22px;
+            transition: color 0.15s;
+        }
+        .legal-hero .back-link:hover { color: var(--accent); }
+
+        /* ============================================================
+           BODY
+        ============================================================ */
+        .legal-body { padding: 48px 0 96px; }
+        .legal-body h2 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: -0.015em;
+            color: var(--ink);
+            margin: 48px 0 14px;
+            line-height: 1.3;
+        }
+        .legal-body h2:first-of-type { margin-top: 0; }
+        .legal-body p { margin: 0 0 14px; color: var(--ink-2); font-size: 1rem; }
+        .legal-body ul {
+            margin: 0 0 18px; padding-left: 22px;
+            color: var(--ink-2); font-size: 1rem;
+        }
+        .legal-body li { margin-bottom: 8px; }
+        .legal-body strong { color: var(--ink); font-weight: 600; }
+        .legal-body hr {
+            border: 0; border-top: 1px solid var(--paper-3);
+            margin: 40px 0 24px;
+        }
+        .company-card {
+            background: #fff;
+            border: 1px solid var(--paper-3);
+            border-radius: var(--r);
+            padding: 20px 24px;
+            box-shadow: var(--shadow-sm);
+            margin: 0 0 18px;
+        }
+        .company-card p { margin-bottom: 4px; }
+        .company-card p:last-child { margin-bottom: 0; }
+
+        /* ============================================================
+           FOOTER
+        ============================================================ */
+        footer {
+            background: #fff;
+            border-top: 1px solid var(--paper-3);
+            padding: 28px 0;
+            font-size: 0.85rem;
+            color: var(--ink-3);
+        }
+        .footer-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 16px; flex-wrap: wrap;
+        }
+        .footer-inner a { color: var(--ink-2); text-decoration: none; }
+        .footer-inner a:hover { color: var(--accent); }
+        .footer-legal-links {
+            display: flex; gap: 18px; flex-wrap: wrap;
+        }
+
+        @media (max-width: 720px) {
+            .container { padding: 0 20px; }
+            .container-wide { padding: 0 20px; }
+            .legal-hero-inner { padding: 0 20px; }
+            .nav-links a:not(.nav-cta) { display: none; }
+            .legal-hero { padding: 40px 0 24px; }
+            .legal-body { padding: 32px 0 64px; }
+            .legal-body h2 { margin-top: 36px; font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container-wide">
+        <div class="nav-inner">
+            <a href="/" class="logo">Ajjalytics</a>
+            <div class="nav-links">
+                <a href="/#proces">Proces</a>
+                <a href="/#priser">Priser</a>
+                <a href="mailto:othman@ajjalytics.dev?subject=Ny%20hjemmeside" class="nav-cta">Skriv til mig</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section class="legal-hero">
+    <div class="legal-hero-inner">
+        <a href="/" class="back-link">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7H2M6 3L2 7l4 4"/></svg>
+            Tilbage til forsiden
+        </a>
+        <div class="eyebrow">Juridisk</div>
+        <h1>Privatlivspolitik</h1>
+        <p class="meta">Senest opdateret: 24. april 2026</p>
+    </div>
+</section>
+
+<main class="legal-body">
+    <div class="container">
+
+        <h2>1. Dataansvarlig</h2>
+        <div class="company-card">
+            <p><strong>Ajjalytics</strong></p>
+            <p>Aarhus, Danmark</p>
+            <p>E-mail: <a href="mailto:othman@ajjalytics.dev">othman@ajjalytics.dev</a></p>
+        </div>
+        <p>Denne privatlivspolitik beskriver, hvordan Ajjalytics behandler personoplysninger i forbindelse med levering af hjemmesider og relaterede ydelser. Har du spørgsmål, er du velkommen til at skrive til mig på e-mail.</p>
+
+        <h2>2. Hvilke personoplysninger jeg behandler</h2>
+        <p>Afhængigt af hvordan du kontakter mig og hvad vi samarbejder om, kan jeg behandle følgende typer oplysninger:</p>
+        <ul>
+            <li><strong>Kontaktoplysninger</strong> — navn, e-mail, telefon, virksomhed, rolle</li>
+            <li><strong>Projekt- og dialogoplysninger</strong> — oplysninger du deler i forbindelse med udkast, tilbud eller samarbejde, herunder beskrivelse af nuværende hjemmeside, mål, deadlines og praktiske forhold</li>
+            <li><strong>Aftale- og kundeforholdsoplysninger</strong> — tilbud, aftalegrundlag, korrespondance, leverancer, fakturadata</li>
+        </ul>
+        <p>Du bedes som udgangspunkt ikke sende følsomme personoplysninger (fx helbredsoplysninger, CPR, oplysninger om strafbare forhold), medmindre det er nødvendigt for en konkret opgave.</p>
+
+        <h2>3. Formål med behandlingen</h2>
+        <p>Jeg behandler personoplysninger til følgende formål:</p>
+        <ul>
+            <li>At besvare henvendelser og udarbejde gratis udkast</li>
+            <li>At udarbejde tilbud, indgå aftaler og levere hjemmesider, inkl. domæne, hosting, HTTPS og eventuel vedligeholdelse</li>
+            <li>At administrere kundeforhold, fakturering og bogføring</li>
+            <li>At forbedre min egen arbejdsproces og drift</li>
+        </ul>
+
+        <h2>4. Behandlingsgrundlag (GDPR)</h2>
+        <p>Jeg behandler dine personoplysninger på følgende grundlag, afhængigt af situationen:</p>
+        <ul>
+            <li><strong>Aftale og forberedelse af aftale</strong> — når du anmoder om udkast eller vi leverer en ydelse</li>
+            <li><strong>Retlig forpligtelse</strong> — fx bogføringskrav ved fakturering</li>
+            <li><strong>Legitim interesse</strong> — besvarelse af henvendelser, drift, sikkerhed og rimelig opfølgning</li>
+        </ul>
+
+        <h2>5. Databehandlere og videregivelse</h2>
+        <p>Jeg deler kun personoplysninger, når det er nødvendigt, og typisk med leverandører der understøtter drift og levering, fx:</p>
+        <ul>
+            <li>Domæne- og hosting-leverandør til kundens hjemmeside</li>
+            <li>E-mail-udbyder til kundekorrespondance</li>
+            <li>Hosting-platform til Ajjalytics' egen hjemmeside (GitHub Pages)</li>
+            <li>Bogholderi og fakturasystem</li>
+        </ul>
+        <p>Når jeg bruger databehandlere, sikrer jeg aftalegrundlag, og at de kun behandler data efter min instruks.</p>
+        <p><strong>Jeg sælger ikke dine oplysninger til tredjepart.</strong></p>
+
+        <h2>6. Opbevaringsperiode</h2>
+        <p>Jeg opbevarer personoplysninger så længe det er nødvendigt for formålet, og sletter derefter. Typiske retningslinjer:</p>
+        <ul>
+            <li><strong>Henvendelser og leads uden aftale:</strong> normalt op til 12 måneder</li>
+            <li><strong>Kundeforhold:</strong> som udgangspunkt i kundeforholdets løbetid og derefter en periode nødvendig af hensyn til dokumentation og retlige krav</li>
+            <li><strong>Faktura- og regnskabsdata:</strong> opbevares i den periode der kræves efter bogføringsregler (normalt 5 år)</li>
+        </ul>
+
+        <h2>7. Dine rettigheder</h2>
+        <p>Du har rettigheder efter GDPR, herunder:</p>
+        <ul>
+            <li>Indsigt i dine oplysninger</li>
+            <li>Berigtigelse af urigtige oplysninger</li>
+            <li>Sletning i visse tilfælde</li>
+            <li>Begrænsning af behandling i visse tilfælde</li>
+            <li>Indsigelse mod behandling baseret på legitim interesse</li>
+            <li>Dataportabilitet i relevante tilfælde</li>
+        </ul>
+        <p>Kontakt mig på <a href="mailto:othman@ajjalytics.dev">othman@ajjalytics.dev</a>, hvis du vil udnytte dine rettigheder.</p>
+
+        <h2>8. Klage</h2>
+        <p>Du kan klage til <strong>Datatilsynet</strong> over min behandling af personoplysninger. Se mere på <a href="https://www.datatilsynet.dk" target="_blank" rel="noopener noreferrer">datatilsynet.dk</a>.</p>
+
+        <h2>9. Cookies og tracking</h2>
+        <p>Ajjalytics.dev bruger <strong>ingen cookies og ingen tracking-værktøjer</strong> — hverken Google Analytics, Meta Pixel eller lignende. Der indsamles ikke statistik om dit besøg her. Kundens egen hjemmeside kan have cookies efter aftale, og vil i så fald have sin egen privatlivspolitik og cookie-samtykke.</p>
+
+        <h2>10. Ændringer</h2>
+        <p>Jeg kan opdatere denne privatlivspolitik løbende. Den seneste version fremgår altid på ajjalytics.dev/privatlivspolitik. Ved væsentlige ændringer orienterer jeg, hvor det er muligt, direkte.</p>
+
+        <hr>
+        <p>Spørgsmål? Skriv til mig på <a href="mailto:othman@ajjalytics.dev">othman@ajjalytics.dev</a>.</p>
+
+    </div>
+</main>
+
+<footer>
+    <div class="container-wide">
+        <div class="footer-inner">
+            <div>Ajjalytics &middot; Aarhus</div>
+            <div class="footer-legal-links">
+                <a href="/privatlivspolitik.html">Privatlivspolitik</a>
+                <a href="/handelsbetingelser.html">Handelsbetingelser</a>
+                <a href="mailto:othman@ajjalytics.dev">othman@ajjalytics.dev</a>
+            </div>
+            <div>&copy; 2025 Ajjalytics</div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

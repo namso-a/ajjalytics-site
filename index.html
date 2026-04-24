@@ -33,12 +33,23 @@
         "@type": "Service",
         "serviceType": "Webdesign",
         "provider": {"@type": "ProfessionalService", "name": "Ajjalytics"},
-        "offers": {
-            "@type": "Offer",
-            "price": "2500",
-            "priceCurrency": "DKK",
-            "description": "Landingsside inkl. opsætning af domæne, hosting og HTTPS"
-        }
+        "offers": [
+            {
+                "@type": "Offer",
+                "price": "2500",
+                "priceCurrency": "DKK",
+                "description": "Landingsside inkl. opsætning af domæne, hosting og HTTPS"
+            },
+            {
+                "@type": "Offer",
+                "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "priceCurrency": "DKK",
+                    "minPrice": "5000"
+                },
+                "description": "Skræddersyede løsninger: webshop, flere undersider, integrationer, migrering — pris aftales individuelt"
+            }
+        ]
     },
     {
         "@context": "https://schema.org",
@@ -49,7 +60,7 @@
             {"@type": "Question", "name": "Hvad hvis jeg ikke er tilfreds med udkastet?", "acceptedAnswer": {"@type": "Answer", "text": "Udkastet er gratis og uforpligtende. Kan vi ikke finde et design I er glade for, skylder I ingenting."}},
             {"@type": "Question", "name": "Hvad dækker de 300 kr. om måneden?", "acceptedAnswer": {"@type": "Answer", "text": "Hosting, domænefornyelse, teknisk vedligeholdelse, sikkerhedsopdateringer og support."}},
             {"@type": "Question", "name": "Hvorfor er det billigere end et bureau?", "acceptedAnswer": {"@type": "Answer", "text": "Jeg arbejder alene uden kontorleje og salgsafdeling, og bruger moderne værktøjer der gør processen hurtigere."}},
-            {"@type": "Question", "name": "Kan I lave mere end en landingsside?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Har I brug for flere undersider, webshop eller særlige integrationer, laver vi en pris der passer."}}
+            {"@type": "Question", "name": "Kan I lave mere end en landingsside?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Til webshops, flere undersider, integrationer eller migrering fra andre platforme aftaler vi en skræddersyet pris der passer til omfanget — typisk 5.000–15.000 kr. Stadig fast pris, stadig ingen timepriser."}}
         ]
     }]
     </script>
@@ -820,7 +831,7 @@
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 24px;
         }
 
@@ -831,6 +842,8 @@
             box-shadow: var(--shadow-md);
             overflow: hidden;
             transition: transform 0.25s, box-shadow 0.25s;
+            display: flex;
+            flex-direction: column;
         }
 
         .portfolio-card:hover {
@@ -863,8 +876,30 @@
 
         .portfolio-url svg { color: var(--green); }
 
+        .portfolio-preview {
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            background: var(--paper-2);
+            border-bottom: 1px solid var(--paper-3);
+        }
+
+        .portfolio-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-card:hover .portfolio-preview img {
+            transform: scale(1.02);
+        }
+
         .portfolio-body {
-            padding: 28px;
+            padding: 24px 28px 28px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
 
         .portfolio-name {
@@ -1247,6 +1282,110 @@
             color: var(--ink-3);
         }
 
+        .pricing-eyebrow {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-soft);
+            padding: 4px 10px;
+            border-radius: 100px;
+            margin-bottom: 16px;
+        }
+
+        .pricing-card-custom {
+            background: var(--paper-2);
+            border-radius: var(--r-lg);
+            border: 1px solid var(--paper-3);
+            padding: 28px 30px;
+            margin-top: 20px;
+        }
+
+        .pricing-card-custom-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+
+        .pricing-card-custom h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+            margin: 0;
+        }
+
+        .pricing-card-custom-price {
+            font-family: 'Fraunces', serif;
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--ink-2);
+            letter-spacing: -0.01em;
+        }
+
+        .pricing-card-custom-sub {
+            font-size: 0.82rem;
+            color: var(--ink-3);
+            margin-bottom: 16px;
+        }
+
+        .pricing-card-custom ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .pricing-card-custom li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.87rem;
+            color: var(--ink-2);
+        }
+
+        .pricing-card-custom li .check-icon {
+            width: 14px;
+            height: 14px;
+            color: var(--ink-2);
+        }
+
+        .btn-cta-outline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: #fff;
+            color: var(--ink);
+            border: 1px solid var(--paper-3);
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: border-color 0.15s, transform 0.15s;
+        }
+
+        .btn-cta-outline:hover {
+            border-color: var(--ink-2);
+            transform: translateY(-1px);
+        }
+
+        .pricing-card-custom-note {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--ink-3);
+        }
+
         /* ============================================================
            FAQ
         ============================================================ */
@@ -1469,6 +1608,26 @@
         .footer-copy {
             font-size: 0.8rem;
             color: rgba(255,255,255,0.25);
+        }
+
+        .footer-legal {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            gap: 24px;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .footer-legal a {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.4);
+            transition: color 0.2s;
+        }
+
+        .footer-legal a:hover {
+            color: rgba(255,255,255,0.75);
         }
 
         /* ============================================================
@@ -1772,9 +1931,12 @@
                         matchvikar.vercel.app
                     </div>
                 </div>
+                <div class="portfolio-preview">
+                    <img src="img/portfolio/matchvikar.jpg" alt="Forhåndsvisning af MatchVikar-forsiden" loading="lazy" width="1440" height="900">
+                </div>
                 <div class="portfolio-body">
                     <div class="portfolio-name">MatchVikar</div>
-                    <p class="portfolio-desc">Platform der matcher vikarer med virksomheder. Moderne design med fokus på brugeroplevelse og hurtig onboarding.</p>
+                    <p class="portfolio-desc">Platform der matcher vikarer med vagtbureauer. Hero med levende eksempel på matching-flowet og tydelig dobbelt-CTA til begge brugertyper.</p>
                     <span class="portfolio-link">
                         Besøg siden
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
@@ -1796,16 +1958,46 @@
                         gofond.dk
                     </div>
                 </div>
+                <div class="portfolio-preview">
+                    <img src="img/portfolio/gofond.jpg" alt="Forhåndsvisning af Gofond-forsiden" loading="lazy" width="1440" height="900">
+                </div>
                 <div class="portfolio-body">
-                    <div class="portfolio-name">GoFond</div>
-                    <p class="portfolio-desc">Dansk virksomhedsside med fokus på troværdighed og klar kommunikation. Mobilvenligt design med kontaktformular.</p>
+                    <div class="portfolio-name">Gofond</div>
+                    <p class="portfolio-desc">Fondsansøgning for foreninger og studerende. Rolig grøn troværdigheds-æstetik, klart value prop og målbare resultater over fold.</p>
                     <span class="portfolio-link">
                         Besøg siden
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
                     </span>
                     <div class="portfolio-tags">
                         <span class="portfolio-tag">Landingsside</span>
-                        <span class="portfolio-tag">SEO</span>
+                        <span class="portfolio-tag">Blog</span>
+                        <span class="portfolio-tag">HTTPS</span>
+                    </div>
+                </div>
+            </a>
+            <a href="https://aarhusbiludlejning.dk" target="_blank" rel="noopener" class="portfolio-card reveal reveal-delay-2">
+                <div class="portfolio-bar">
+                    <div class="dot dot-r"></div>
+                    <div class="dot dot-y"></div>
+                    <div class="dot dot-g"></div>
+                    <div class="portfolio-url">
+                        <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm0 2a6 6 0 110 12A6 6 0 018 2zm0 1a5 5 0 100 10A5 5 0 008 3z" opacity=".3"/><path d="M7 6V5a1 1 0 012 0v1h1a1 1 0 110 2H9v3a1 1 0 11-2 0V8H6a1 1 0 110-2h1z"/></svg>
+                        aarhusbiludlejning.dk
+                    </div>
+                </div>
+                <div class="portfolio-preview">
+                    <img src="img/portfolio/aarhusbiludlejning.jpg" alt="Forhåndsvisning af Aarhus Biludlejning-forsiden" loading="lazy" width="1440" height="900">
+                </div>
+                <div class="portfolio-body">
+                    <div class="portfolio-name">Aarhus Biludlejning</div>
+                    <p class="portfolio-desc">Biludlejning og månedsabonnement i Aarhus. Mørk, sofistikeret æstetik med tydeligt booking-flow, bilpark og FAQ — "Du kører bare, vi klarer resten."</p>
+                    <span class="portfolio-link">
+                        Besøg siden
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+                    </span>
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Landingsside</span>
+                        <span class="portfolio-tag">Booking</span>
                         <span class="portfolio-tag">HTTPS</span>
                     </div>
                 </div>
@@ -1920,6 +2112,7 @@
             <div class="reveal reveal-delay-1">
                 <div class="pricing-card">
                     <div class="pricing-card-top">
+                        <span class="pricing-eyebrow">Landingsside</span>
                         <div class="price-main">2.500 kr.</div>
                         <div class="price-sub">Engangsbeløb &middot; Færdig landingsside inkl. opsætning</div>
                         <div class="price-secondary">
@@ -1971,6 +2164,53 @@
                         <div class="pricing-card-note">Udkast inden for 12 timer</div>
                     </div>
                 </div>
+
+                <div class="pricing-card-custom">
+                    <div class="pricing-card-custom-head">
+                        <h3>Skræddersyet løsning</h3>
+                        <div class="pricing-card-custom-price">Aftalt pris</div>
+                    </div>
+                    <div class="pricing-card-custom-sub">Til projekter der er mere end en landingsside — stadig fast pris, stadig ingen timepriser.</div>
+                    <ul>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Webshop med produkter og checkout
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Flere undersider og navigation
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Integrationer (booking, CRM, betaling)
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Migrering fra Wix, WordPress eller Squarespace
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Custom CSS-polering på jeres eksisterende platform
+                        </li>
+                    </ul>
+                    <a href="mailto:othman@ajjalytics.dev?subject=St%C3%B8rre%20projekt&body=Hej%20Othman%2C%0A%0AJeg%20har%20et%20projekt%20der%20er%20mere%20end%20en%20landingsside.%0A%0AKort%20om%20projektet%3A%20%0ANuv%C3%A6rende%20hjemmeside%3A%20%0A%C3%98nsket%20omfang%3A%20%0A%0AMvh" class="btn-cta-outline">
+                        Fortæl mig om projektet
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 7h10M8 3l4 4-4 4"/>
+                        </svg>
+                    </a>
+                    <div class="pricing-card-custom-note">Typisk 5.000–15.000 kr. afhængigt af omfang</div>
+                </div>
             </div>
         </div>
     </div>
@@ -2016,7 +2256,7 @@
                 </div>
                 <div class="faq-item reveal">
                     <div class="faq-q" onclick="toggleFaq(this)">Kan I lave mere end en landingsside?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-                    <div class="faq-a">Ja. Har I brug for flere undersider, webshop eller særlige integrationer, laver vi en pris der passer til netop jeres behov. Skriv til mig og beskriv projektet.</div>
+                    <div class="faq-a">Ja. Til webshops, flere undersider, integrationer (booking, CRM, betaling) eller migrering fra andre platforme aftaler vi en skræddersyet pris der passer til omfanget — typisk 5.000–15.000 kr. Stadig fast pris, stadig ingen timepriser. Skriv til mig og beskriv projektet.</div>
                 </div>
             </div>
         </div>
@@ -2058,6 +2298,10 @@
                 <a href="mailto:othman@ajjalytics.dev?subject=Ny%20hjemmeside&body=Hej%20Othman%2C%0A%0AJeg%20er%20interesseret%20i%20at%20h%C3%B8re%20mere%20om%20en%20ny%20hjemmeside%20til%20min%20virksomhed.%0A%0AVirksomhed%3A%20%0ANuv%C3%A6rende%20hjemmeside%3A%20%0A%0AMvh">othman@ajjalytics.dev</a>
                 <span class="footer-copy">&copy; 2025 Ajjalytics</span>
             </div>
+        </div>
+        <div class="footer-legal">
+            <a href="privatlivspolitik.html">Privatlivspolitik</a>
+            <a href="handelsbetingelser.html">Handelsbetingelser</a>
         </div>
     </div>
 </footer>
