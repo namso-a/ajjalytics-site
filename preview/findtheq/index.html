@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find The Q — Monthly urban treasure hunts in Copenhagen &amp; Aarhus</title>
+<meta name="description" content="Join a monthly urban treasure hunt in Copenhagen or Aarhus. 89 DKK per hunter, 700 DKK cash prize pool. The more hunters, the bigger the treasure.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.findtheq.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="draft-banner">
+  <strong>Udkast til Simon</strong> · Forslag til forside og “How it works” · Preview på ajjalytics.dev
+</div>
+
+<header class="header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html" aria-label="Find The Q — home">
+      <img src="https://www.findtheq.com/cdn/shop/files/Dark_grey_-_white_transparent_bg.png?v=1754313281&width=120" alt="Find The Q logo" width="36" height="36">
+      <span>Find The Q</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="active">Home</a>
+      <a href="#hunts">Our Hunts</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="#testimonials">Hunters</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-actions">
+      <a href="#hunts" class="btn btn-primary btn-sm">Book a hunt</a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav" data-menu-toggle>
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<aside id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+  <button class="menu-toggle mobile-nav-close" aria-label="Close menu" data-menu-close>
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+  </button>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#hunts">Our Hunts</a></li>
+    <li><a href="how-it-works.html">How it works</a></li>
+    <li><a href="#testimonials">Hunters</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#">Leaderboard</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <a href="#hunts" class="btn btn-primary btn-block mobile-nav-cta">Book a hunt</a>
+</aside>
+<div class="backdrop" data-menu-close></div>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <span class="eyebrow on-dark"><span class="eyebrow-dot"></span> Why Find The Q?</span>
+        <h1 style="margin-top: var(--space-3);">Ordinary weekends don't come with <span class="accent">strategy, adrenaline, and prize money.</span></h1>
+        <p class="hero-lead">You <strong>solve</strong>. You <strong>explore</strong>. You <strong>race</strong>. You <strong>win</strong> — or someone else does.</p>
+        <div class="hero-ctas">
+          <a href="#hunts" class="btn btn-primary btn-lg">See upcoming hunts</a>
+          <a href="how-it-works.html" class="btn btn-ghost-light btn-lg">How it works</a>
+        </div>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">From</span>
+            <span class="hero-meta-value">89 DKK</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">Prize pool</span>
+            <span class="hero-meta-value">700 DKK</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">Duration</span>
+            <span class="hero-meta-value">1–4 hrs</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="https://www.findtheq.com/cdn/shop/files/copenhagen.jpg?v=1768612446&width=1600" alt="Copenhagen treasure hunt scene">
+        <div class="hero-visual-badge">
+          <div class="hero-visual-badge-text">
+            <span class="hero-visual-badge-title">Copenhagen</span>
+            <span class="hero-visual-badge-sub">Last Sunday of every month · 13:00</span>
+          </div>
+          <span class="hero-visual-badge-price">89 DKK</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming hunts -->
+  <section id="hunts">
+    <div class="container">
+      <div class="section-head-row">
+        <div class="section-head">
+          <span class="eyebrow"><span class="eyebrow-dot"></span> Upcoming hunts</span>
+          <h2 style="margin-top: var(--space-3);">Pick your city. Secure your spot.</h2>
+          <p>More hunters = bigger treasure. Hunts only launch once the minimum number of players is reached.</p>
+        </div>
+      </div>
+      <div class="hunts-grid">
+        <article class="hunt-card">
+          <div class="hunt-card-media">
+            <img src="https://www.findtheq.com/cdn/shop/files/copenhagen.jpg?v=1768612446&width=1600" alt="Copenhagen treasure hunt">
+            <span class="hunt-card-status"><span class="hunt-card-status-dot"></span> Unlocked</span>
+          </div>
+          <div class="hunt-card-body">
+            <h3 class="hunt-card-city">Copenhagen</h3>
+            <p class="hunt-card-schedule">Last Sunday of every month · 13:00</p>
+            <div class="hunt-card-meta">
+              <div class="hunt-card-meta-item">
+                <span class="hunt-card-meta-label">Ticket</span>
+                <span class="hunt-card-meta-value">89 DKK</span>
+              </div>
+              <div class="hunt-card-meta-item">
+                <span class="hunt-card-meta-label">Treasure</span>
+                <span class="hunt-card-meta-value">700 DKK</span>
+              </div>
+            </div>
+            <p class="hunt-card-note">English · 1–4 hours · Starts from the heart of the city</p>
+            <div class="hunt-card-cta">
+              <a href="#" class="btn btn-primary btn-block">Book Copenhagen hunt</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hunt-card">
+          <div class="hunt-card-media">
+            <img src="https://www.findtheq.com/cdn/shop/files/Aarhus_1faa8c10-a732-471f-ae3f-fad9c409a538.jpg?v=1768310865&width=1600" alt="Aarhus treasure hunt">
+            <span class="hunt-card-status locked"><span class="hunt-card-status-dot"></span> Unlocks at 10 hunters</span>
+          </div>
+          <div class="hunt-card-body">
+            <h3 class="hunt-card-city">Aarhus</h3>
+            <p class="hunt-card-schedule">April 26th · 13:00 · Pop-up, one date only</p>
+            <div class="hunt-card-meta">
+              <div class="hunt-card-meta-item">
+                <span class="hunt-card-meta-label">Ticket</span>
+                <span class="hunt-card-meta-value">89 DKK</span>
+              </div>
+              <div class="hunt-card-meta-item">
+                <span class="hunt-card-meta-label">Treasure</span>
+                <span class="hunt-card-meta-value">700 DKK</span>
+              </div>
+            </div>
+            <p class="hunt-card-note">English · 1–4 hours · Refund if the hunt doesn't unlock</p>
+            <div class="hunt-card-cta">
+              <a href="#" class="btn btn-dark btn-block">Reserve Aarhus spot</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stat bar -->
+  <section class="section-tight">
+    <div class="container">
+      <div class="stat-bar">
+        <div class="stat-item">
+          <span class="stat-value">2</span>
+          <span class="stat-label">Cities (Copenhagen + Aarhus)</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">89<small style="font-size:1.1rem; color: var(--c-ink-200); font-weight: var(--fw-medium); margin-left:.15em;">DKK</small></span>
+          <span class="stat-label">Ticket price per hunter</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">700<small style="font-size:1.1rem; color: var(--c-ink-200); font-weight: var(--fw-medium); margin-left:.15em;">DKK</small></span>
+          <span class="stat-label">Cash prize, grows with hunters</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">1–4<small style="font-size:1.1rem; color: var(--c-ink-200); font-weight: var(--fw-medium); margin-left:.35em;">hrs</small></span>
+          <span class="stat-label">Designed to be finished same day</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works (teaser) -->
+  <section id="how" style="background: var(--c-surface-2);">
+    <div class="container">
+      <div class="section-head" style="text-align: center; margin-left: auto; margin-right: auto;">
+        <span class="eyebrow" style="justify-content: center;"><span class="eyebrow-dot"></span> How it works</span>
+        <h2 style="margin-top: var(--space-3);">Three steps. One treasure.</h2>
+        <p style="margin-left: auto; margin-right: auto;">After you book, the first clue lands in your inbox at the start time. Designed to be completed in 1–4 hours.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <span class="step-num">Step 01</span>
+          <h3 class="step-title">Join the Hunt</h3>
+          <p class="step-body">Secure your spot in your desired hunt.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+          </div>
+          <span class="step-num">Step 02</span>
+          <h3 class="step-title">The Trail</h3>
+          <p class="step-body">Receive your start time and the first clue by e-mail.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M3 12h18"/><path d="M12 8V4"/><path d="M8 4h8"/></svg>
+          </div>
+          <span class="step-num">Step 03</span>
+          <h3 class="step-title">Treasure</h3>
+          <p class="step-body">Solve, move, race to the treasure. First hunter there wins.</p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: var(--space-6);">
+        <a href="how-it-works.html" class="btn btn-secondary">See the full 4-step walkthrough →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust bar -->
+  <section class="section-tight">
+    <div class="container">
+      <div class="trust-bar">
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="trust-text">
+            <span class="trust-title">Refund if hunt doesn't unlock</span>
+            <span class="trust-sub">Not enough hunters? You get your money back.</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div class="trust-text">
+            <span class="trust-title">Secure checkout</span>
+            <span class="trust-sub">Apple Pay · MobilePay · Visa · Mastercard</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="trust-text">
+            <span class="trust-title">1–4 hours · same day</span>
+            <span class="trust-sub">Start at 13:00, home in time for dinner.</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="trust-text">
+            <span class="trust-title">Hunts run in English</span>
+            <span class="trust-sub">No prior knowledge required.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" style="background: var(--c-ink-950); color: #fff;">
+    <div class="container">
+      <div class="section-head" style="margin-bottom: var(--space-7);">
+        <span class="eyebrow on-dark"><span class="eyebrow-dot"></span> Hunters</span>
+        <h2 style="margin-top: var(--space-3); color: #fff;">They came, they solved, they raced.</h2>
+        <p style="color: var(--c-ink-300);">Short clips from past hunters. Names shown, quotes from their post-hunt reactions.</p>
+      </div>
+      <div class="testimonials-grid">
+        <article class="testimonial">
+          <div class="testimonial-media">
+            <img src="https://www.findtheq.com/cdn/shop/files/preview_images/4c9395090c6f4d05a17860402156a616.thumbnail.0000000000_600x.jpg?v=1771884714" alt="Peter M joining the Copenhagen hunt">
+            <button class="testimonial-play" aria-label="Play clip">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+          </div>
+          <div class="testimonial-body">
+            <p class="testimonial-quote">Peter joined our Copenhagen hunt — this was his experience.</p>
+            <div class="testimonial-author">
+              <div>
+                <div class="testimonial-author-name">Peter M.</div>
+                <div class="testimonial-author-meta">Copenhagen hunt</div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial">
+          <div class="testimonial-media">
+            <img src="https://www.findtheq.com/cdn/shop/files/preview_images/5a539d7a92bc49ea9cff400d8ae27624.thumbnail.0000000000_600x.jpg?v=1771885680" alt="Elisa S at a clue">
+            <button class="testimonial-play" aria-label="Play clip">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+          </div>
+          <div class="testimonial-body">
+            <p class="testimonial-quote">At a clue, but now what?</p>
+            <div class="testimonial-author">
+              <div>
+                <div class="testimonial-author-name">Elisa S.</div>
+                <div class="testimonial-author-meta">Mid-hunt reaction</div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial">
+          <div class="testimonial-media">
+            <img src="https://www.findtheq.com/cdn/shop/files/preview_images/f6679818e313453983538dd88d04904d.thumbnail.0000000000_600x.jpg?v=1772054775" alt="Elisa S finding the treasure">
+            <button class="testimonial-play" aria-label="Play clip">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+          </div>
+          <div class="testimonial-body">
+            <p class="testimonial-quote">Found the treasure — reaction.</p>
+            <div class="testimonial-author">
+              <div>
+                <div class="testimonial-author-name">Elisa S.</div>
+                <div class="testimonial-author-meta">Winner reaction</div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ mini -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-head" style="text-align: center; margin-left: auto; margin-right: auto; margin-bottom: var(--space-6);">
+        <span class="eyebrow" style="justify-content: center;"><span class="eyebrow-dot"></span> Common questions</span>
+        <h2 style="margin-top: var(--space-3);">Before you book.</h2>
+      </div>
+      <div class="faq-mini">
+        <div class="faq-item">
+          <h3 class="faq-q">How do I actually get the first clue?</h3>
+          <p class="faq-a">By e-mail, at the start time (13:00 on hunt day). You solve it on your phone, then go find the real-world location.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">What if the hunt doesn't unlock?</h3>
+          <p class="faq-a">Hunts only launch once enough hunters have joined. If we don't hit the minimum, your 89 DKK is refunded — no action needed from your side.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">Do I need to be clever at riddles?</h3>
+          <p class="faq-a">No prior knowledge required. Clues reward logic, observation, and willingness to move. A smartphone is enough.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">Can I hunt as a team?</h3>
+          <p class="faq-a">Yes — come alone or with friends. The ticket is per hunter; bigger teams just mean more brains on the clue.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section>
+    <div class="container">
+      <div class="cta-band">
+        <h2>Your next Sunday afternoon.</h2>
+        <p>Find The Q is a monthly treasure hunt set in the real world. Some join to win the treasure. Others join for the experience.</p>
+        <div class="cta-band-ctas">
+          <a href="#hunts" class="btn btn-primary btn-lg">See upcoming hunts</a>
+          <a href="how-it-works.html" class="btn btn-ghost-light btn-lg">Read how it works</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="footer-logo" href="index.html">
+          <img src="https://www.findtheq.com/cdn/shop/files/Dark_grey_-_white_transparent_bg.png?v=1754313281&width=120" alt="">
+          <span>Find The Q</span>
+        </a>
+        <p>A monthly treasure hunt set in the real world. Some join to win the treasure. Others join for the experience.</p>
+      </div>
+      <div>
+        <h4 class="footer-title">Explore</h4>
+        <ul class="footer-links">
+          <li><a href="#hunts">Our Hunts</a></li>
+          <li><a href="#">Previous Hunts</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="#">Leaderboard</a></li>
+          <li><a href="#">Treasure Ladder</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Company</h4>
+        <ul class="footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Contact</h4>
+        <ul class="footer-links">
+          <li><a href="mailto:simon@findtheq.com">simon@findtheq.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-bottom-text">© 2025 Find The Q · CVR 45791203</span>
+      <div class="footer-pay">
+        <span class="footer-pay-badge">MobilePay</span>
+        <span class="footer-pay-badge">Apple Pay</span>
+        <span class="footer-pay-badge">Google Pay</span>
+        <span class="footer-pay-badge">Visa</span>
+        <span class="footer-pay-badge">Mastercard</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
