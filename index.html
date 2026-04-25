@@ -333,29 +333,6 @@
             align-items: center;
         }
 
-        .hero-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--accent);
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            background: var(--accent-soft);
-            padding: 5px 14px 5px 10px;
-            border-radius: 100px;
-        }
-
-        .hero-eyebrow::before {
-            content: '';
-            display: inline-block;
-            width: 20px;
-            height: 1.5px;
-            background: var(--accent);
-        }
-
         .hero-h1 {
             font-family: 'Fraunces', Georgia, serif;
             font-size: clamp(2.4rem, 4.5vw, 3.6rem);
@@ -440,49 +417,6 @@
 
         .btn-primary:hover svg {
             transform: translateX(3px);
-        }
-
-        .hero-note {
-            font-size: 0.82rem;
-            color: var(--ink-3);
-        }
-
-        .hero-availability {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--green-soft);
-            color: var(--green);
-            padding: 7px 14px 7px 12px;
-            border-radius: 100px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            letter-spacing: 0.005em;
-        }
-        .hero-availability-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--green);
-            position: relative;
-            flex-shrink: 0;
-        }
-        .hero-availability-dot::after {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 50%;
-            background: var(--green);
-            opacity: 0.3;
-            animation: hero-availability-pulse 2.4s ease-out infinite;
-        }
-        @keyframes hero-availability-pulse {
-            0%   { transform: scale(1);   opacity: 0.45; }
-            70%  { transform: scale(2.2); opacity: 0;    }
-            100% { transform: scale(2.2); opacity: 0;    }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .hero-availability-dot::after { animation: none; opacity: 0; }
         }
 
         /* Hero card — right column */
@@ -1307,28 +1241,6 @@
             margin-right: auto;
         }
 
-        .pricing-reassurance {
-            display: flex;
-            gap: 18px 32px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .reassurance-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.88rem;
-            color: var(--ink-2);
-        }
-
-        .reassurance-icon {
-            width: 18px;
-            height: 18px;
-            flex-shrink: 0;
-            color: var(--green);
-        }
-
         .pricing-card {
             background: #fff;
             border-radius: var(--r-lg);
@@ -1754,12 +1666,6 @@
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
-            .pricing-reassurance {
-                gap: 12px;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
             .faq-layout {
                 grid-template-columns: 1fr;
                 gap: 36px;
@@ -1838,7 +1744,6 @@
     <div class="container">
         <div class="hero-inner">
             <div class="hero-text">
-                <div class="hero-eyebrow reveal">Webudvikler i Aarhus</div>
                 <h1 class="hero-h1 reveal reveal-delay-1">
                     Jeg bygger den hjemmeside<br>
                     <em class="rotator" id="hero-rotator" data-phrases='["I aldrig fik lavet","I altid har drømt om","der skaffer kunder"]'>I aldrig fik lavet</em>
@@ -1853,12 +1758,6 @@
                             <path d="M2 7h10M8 3l4 4-4 4"/>
                         </svg>
                     </a>
-                    <!-- AVAILABILITY: opdater dette tal manuelt når kalenderen ændrer sig -->
-                    <span class="hero-availability">
-                        <span class="hero-availability-dot" aria-hidden="true"></span>
-                        3 pladser ledige denne måned
-                    </span>
-                    <span class="hero-note">Udkast inden for 12 timer &middot; Ingen forpligtelse</span>
                 </div>
             </div>
 
@@ -2205,26 +2104,6 @@
             <div class="pricing-heading reveal">
                 <h2 class="section-h2">Fast pris.<br>Ingen overraskelser.</h2>
                 <p class="section-sub">To pakker, aftalt på forhånd. Ingen timepriser, ingen skjulte gebyrer, ingen kontrakter med lange bindingsperioder. Vælg den der passer jeres projekt.</p>
-                <div class="pricing-reassurance">
-                    <div class="reassurance-item">
-                        <svg class="reassurance-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
-                            <path d="M10 2l2.4 4.8 5.3.8-3.85 3.75.91 5.3L10 14.27 5.2 16.63l.91-5.3L2.26 7.58l5.3-.78L10 2z" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Gratis udkast. Ingen betaling før I er tilfredse
-                    </div>
-                    <div class="reassurance-item">
-                        <svg class="reassurance-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
-                            <path d="M10 2l2.4 4.8 5.3.8-3.85 3.75.91 5.3L10 14.27 5.2 16.63l.91-5.3L2.26 7.58l5.3-.78L10 2z" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Månedlig drift, ingen binding
-                    </div>
-                    <div class="reassurance-item">
-                        <svg class="reassurance-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
-                            <path d="M10 2l2.4 4.8 5.3.8-3.85 3.75.91 5.3L10 14.27 5.2 16.63l.91-5.3L2.26 7.58l5.3-.78L10 2z" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Fast pris — ingen timepriser
-                    </div>
-                </div>
             </div>
 
             <div class="pricing-cards-grid">
