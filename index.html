@@ -107,6 +107,21 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Subtle paper-grain across the whole page — gives flat surfaces tactile texture */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.18;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 220px;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            body::before { opacity: 0.1; }
+        }
+
         a { color: inherit; text-decoration: none; }
         img { display: block; max-width: 100%; }
 
@@ -355,6 +370,11 @@
             transition: opacity 0.28s ease;
             vertical-align: bottom;
             white-space: nowrap;
+            padding-bottom: 10px;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' preserveAspectRatio='none'%3E%3Cpath d='M2 6 C 15 2, 30 7, 50 4 C 70 2, 85 7, 98 4' stroke='%233D52D5' stroke-width='2.2' stroke-linecap='round' fill='none' opacity='0.75'/%3E%3C/svg%3E");
+            background-position: left bottom 2px;
+            background-repeat: no-repeat;
+            background-size: 100% 7px;
         }
         .rotator.fading { opacity: 0; }
 
@@ -1489,27 +1509,9 @@
 
         .bottom-cta-section {
             padding: 100px 0;
-            background: linear-gradient(135deg, #0f1629 0%, #1a1f3d 50%, #151932 100%);
+            background: #111111;
             position: relative;
             overflow: hidden;
-        }
-
-        .bottom-cta-section::before {
-            content: '';
-            position: absolute;
-            top: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 700px;
-            height: 400px;
-            background: radial-gradient(ellipse at center, rgba(61, 82, 213, 0.25) 0%, transparent 70%);
-            pointer-events: none;
-            animation: ctaGlow 6s ease-in-out infinite;
-        }
-
-        @keyframes ctaGlow {
-            0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
-            50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
         }
 
         .bottom-cta-inner {
