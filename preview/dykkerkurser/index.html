@@ -165,9 +165,11 @@ nav {
   min-height: 100svh;
   display: flex; align-items: center;
   background:
-    radial-gradient(ellipse at 20% 70%, rgba(0, 100, 160, 0.38) 0%, transparent 55%),
-    radial-gradient(ellipse at 80% 20%, rgba(0, 180, 220, 0.14) 0%, transparent 50%),
-    linear-gradient(155deg, #020d1a 0%, #051828 40%, #082540 100%);
+    radial-gradient(ellipse at 20% 70%, rgba(0, 100, 160, 0.32) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 20%, rgba(0, 180, 220, 0.10) 0%, transparent 50%),
+    linear-gradient(155deg, rgba(2,13,26,0.88) 0%, rgba(5,24,40,0.72) 50%, rgba(8,37,64,0.55) 100%),
+    url('https://dykkerkurser.dk/wp-content/uploads/2026/02/dykkerkurser-fyn-1024x768.jpg') center/cover no-repeat;
+  background-color: #051828;
 }
 .bubble {
   position: absolute; border-radius: 50%;
@@ -290,7 +292,24 @@ nav {
   text-transform: uppercase;
   padding: 4px 12px; border-radius: 0 0 8px 8px;
 }
-.course-icon { font-size: 1.8rem; margin-bottom: 14px; }
+.course-img {
+  width: calc(100% + 56px);
+  height: 170px;
+  margin: -28px -28px 22px;
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+  position: relative;
+}
+.course-img::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(8,17,30,0) 50%, rgba(8,17,30,0.55) 100%);
+  border-radius: inherit;
+}
+.course-card.featured .course-img {
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+}
 .course-tag {
   display: inline-block;
   font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em;
@@ -309,6 +328,50 @@ nav {
 .course-card .btn { width: 100%; justify-content: center; }
 
 /* ============================================================
+   PRICE TABLE (full course list inline)
+============================================================ */
+.price-table {
+  margin-top: 56px;
+  background: var(--deep);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 32px clamp(20px, 4vw, 40px);
+}
+.price-table-header {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+  gap: 8px 20px; margin-bottom: 22px;
+}
+.price-table-header h3 {
+  font-size: 1.4rem; font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+}
+.price-table-header span { font-size: 0.82rem; color: var(--ink-3); }
+.price-rows { list-style: none; padding: 0; margin: 0 0 24px; }
+.price-rows li {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 16px; padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+.price-rows li:last-child { border-bottom: none; }
+.price-rows .pname {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600; color: var(--ink);
+}
+.price-rows .pname small {
+  display: block; font-family: 'Inter', sans-serif; font-weight: 400;
+  font-size: 0.78rem; color: var(--ink-3); margin-top: 2px; letter-spacing: 0;
+}
+.price-rows .pcost {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700; color: var(--cyan);
+  white-space: nowrap; text-align: right;
+}
+.price-table-cta {
+  display: flex; justify-content: center;
+  padding-top: 6px;
+}
+
+/* ============================================================
    INSTRUCTOR
 ============================================================ */
 .instructor-grid {
@@ -317,13 +380,18 @@ nav {
 }
 .instructor-photo-wrap { display: flex; justify-content: center; }
 .instructor-photo {
-  width: 180px; height: 180px; border-radius: 50%;
+  width: 200px; height: 200px; border-radius: 50%;
   background: linear-gradient(135deg, #0a2a44 0%, #0e3656 60%, #0a2a44 100%);
-  border: 3px solid rgba(0,200,224,0.28);
+  border: 3px solid rgba(0,200,224,0.32);
   display: flex; align-items: center; justify-content: center;
   overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
 }
-.instructor-photo svg { opacity: 0.45; }
+.instructor-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .creds { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 18px; }
 .cred {
   font-size: 0.73rem; font-weight: 600;
@@ -666,7 +734,8 @@ footer {
     <div class="courses-grid">
 
       <div class="course-card">
-        <div class="course-icon">🌊</div>
+        <div class="course-img" role="img" aria-label="Prøvedyk på Fyn"
+             style="background-image: url('https://dykkerkurser.dk/wp-content/uploads/2026/02/60464-1B2C.webp')"></div>
         <div class="course-tag">Begynder · Ingen erfaring nødvendig</div>
         <h3>Prøvedyk</h3>
         <p class="course-outcome">Oplev undervandsverdenen for allerførste gang — sikkert, guidet og uforglemmeligt. Ingen erfaring eller certificering nødvendig.</p>
@@ -677,7 +746,8 @@ footer {
 
       <div class="course-card featured">
         <div class="featured-pill">Mest populær</div>
-        <div class="course-icon">🏅</div>
+        <div class="course-img" role="img" aria-label="PADI Open Water Diver-træning"
+             style="background-image: url('https://dykkerkurser.dk/wp-content/uploads/2026/02/60462-1B2C1.jpg')"></div>
         <div class="course-tag">Begynder → Certificeret dykker</div>
         <h3>PADI Open Water Diver</h3>
         <p class="course-outcome">På 3 dage går du fra nybegynder til fuldt certificeret dykker — klar til at udforske havet selvstændigt til 18 meters dybde overalt i verden.</p>
@@ -687,7 +757,8 @@ footer {
       </div>
 
       <div class="course-card">
-        <div class="course-icon">🤿</div>
+        <div class="course-img" role="img" aria-label="PADI Advanced Open Water-træning"
+             style="background-image: url('https://dykkerkurser.dk/wp-content/uploads/2026/02/60463-1B2C1.jpg')"></div>
         <div class="course-tag">Videregående · Kræver Open Water</div>
         <h3>PADI Advanced Open Water</h3>
         <p class="course-outcome">Udvid dine grænser. Dyk til 30 meter, navigér præcist under vand og byg de færdigheder der gør dig til en tryg og selvstændig dykker.</p>
@@ -697,10 +768,59 @@ footer {
       </div>
 
     </div>
-    <p style="text-align:center; margin-top: 28px; color: var(--ink-3); font-size: 0.875rem;">
-      Se alle kurser og specialiseringer →
-      <a href="https://dykkerkurser.dk/priser" style="color: var(--cyan);" target="_blank" rel="noopener">Se fuld prisliste</a>
-    </p>
+
+    <!-- Full price table — keeps visitors in the demo -->
+    <div class="price-table">
+      <div class="price-table-header">
+        <h3>Alle kurser &amp; priser</h3>
+        <span>Inklusive udstyr og certificering, hvor ikke andet er angivet</span>
+      </div>
+      <ul class="price-rows">
+        <li>
+          <span class="pname">Prøvedyk i pool <small>For nybegyndere — ingen erfaring nødvendig</small></span>
+          <span class="pcost">699 kr</span>
+        </li>
+        <li>
+          <span class="pname">Prøvedyk i friluft <small>Dit første rigtige dyk i åbent vand</small></span>
+          <span class="pcost">999 kr</span>
+        </li>
+        <li>
+          <span class="pname">PADI Open Water Diver <small>Fuld certificering — verdensgyldig</small></span>
+          <span class="pcost">4.800 kr</span>
+        </li>
+        <li>
+          <span class="pname">PADI Advanced Open Water <small>Udvidet dybde og specialfærdigheder</small></span>
+          <span class="pcost">fra 3.999 kr</span>
+        </li>
+        <li>
+          <span class="pname">PADI Rescue Diver <small>Træning i nødsituationer og førstehjælp under vand</small></span>
+          <span class="pcost">4.199 kr</span>
+        </li>
+        <li>
+          <span class="pname">EFR — Førstehjælp <small>Internationalt anerkendt førstehjælpskursus</small></span>
+          <span class="pcost">1.498 kr</span>
+        </li>
+        <li>
+          <span class="pname">PADI Dive Master <small>Bliv professionel dykkeleder</small></span>
+          <span class="pcost">10.799 kr</span>
+        </li>
+        <li>
+          <span class="pname">Specialiseringer <small>Wreck, Deep, Night, Nitrox m.fl.</small></span>
+          <span class="pcost">2.198 – 3.499 kr</span>
+        </li>
+        <li>
+          <span class="pname">1:1 Personlig undervisning <small>Eget tempo, fuldt fokus på dig</small></span>
+          <span class="pcost">500 kr / session</span>
+        </li>
+        <li>
+          <span class="pname">Udstyrsleje <small>Hvis du ikke selv har udstyr med</small></span>
+          <span class="pcost">200 – 399 kr</span>
+        </li>
+      </ul>
+      <div class="price-table-cta">
+        <a href="#kontakt" class="btn btn-outline">Spørg om kursus</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -710,11 +830,9 @@ footer {
     <div class="eyebrow">Din instruktør</div>
     <div class="instructor-grid">
       <div class="instructor-photo-wrap">
-        <div class="instructor-photo" aria-hidden="true">
-          <svg width="90" height="110" viewBox="0 0 90 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="45" cy="36" r="24" fill="rgba(0,200,224,0.5)"/>
-            <path d="M5 105 C5 78 20 66 45 66 C70 66 85 78 85 105" fill="rgba(0,200,224,0.4)"/>
-          </svg>
+        <div class="instructor-photo">
+          <img src="https://dykkerkurser.dk/wp-content/uploads/2026/02/efr-instructor1.jpg"
+               alt="Instruktør — Fynboens Dykkerkurser" loading="lazy">
         </div>
       </div>
       <div>
@@ -902,7 +1020,7 @@ footer {
       <div class="footer-logo">Fynboens <em>Dykkerkurser</em></div>
       <div class="footer-links">
         <a href="#kurser">Kurser</a>
-        <a href="https://dykkerkurser.dk/priser" target="_blank" rel="noopener">Alle priser</a>
+        <a href="#kurser">Alle priser</a>
         <a href="#kontakt">Kontakt</a>
         <a href="tel:23618386">23 61 83 86</a>
       </div>
