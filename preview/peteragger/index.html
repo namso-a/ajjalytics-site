@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Peter Agger Anlægsgartner — anlæg, vedligeholdelse og havekonsulent i Aarhus og Østjylland siden 1987.">
+<meta name="robots" content="noindex, nofollow">
+<title>Peter Agger Anlægsgartner — Aarhus og Østjylland siden 1987</title>
+<style>
+  :root {
+    --cream: #f5f1e6;
+    --paper: #fbf8f0;
+    --ink: #1d1a14;
+    --ink-soft: #4a4538;
+    --moss: #3f5e3c;
+    --moss-dark: #2a4128;
+    --bark: #6b4a2a;
+    --terracotta: #b04f2c;
+    --rule: #d6cdb6;
+    --shadow: 0 1px 2px rgba(29,26,20,0.06), 0 8px 32px rgba(29,26,20,0.05);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: Georgia, "Iowan Old Style", "Times New Roman", serif; font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; margin: 0; }
+  h1 { font-size: clamp(2rem, 5vw, 3.4rem); }
+  h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); margin-bottom: 0.6em; }
+  h3 { font-size: 1.2rem; margin-bottom: 0.3em; }
+  p { margin: 0 0 1em; }
+  a { color: var(--moss-dark); text-decoration: none; border-bottom: 1px solid currentColor; }
+  a:hover { color: var(--terracotta); }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  .btn { display: inline-block; padding: 14px 24px; border-radius: 4px; font-weight: 600; font-size: 15px; border: 1px solid transparent; cursor: pointer; transition: all 0.15s ease; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--moss-dark); color: var(--paper); border-bottom-color: transparent; }
+  .btn-primary:hover { background: var(--ink); color: var(--paper); }
+  .btn-secondary { background: transparent; color: var(--ink); border: 1px solid var(--ink); border-bottom-color: var(--ink); }
+  .btn-secondary:hover { background: var(--ink); color: var(--paper); }
+  .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 14px; }
+
+  /* HEADER */
+  header {
+    background: var(--cream);
+    border-bottom: 1px solid var(--rule);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
+    gap: 32px;
+  }
+  .logo { display: flex; align-items: center; gap: 12px; border: 0; }
+  .logo-mark { width: 36px; height: 36px; flex-shrink: 0; }
+  .logo-text { font-family: Georgia, serif; font-size: 22px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
+  .logo-sub { display: block; font-family: -apple-system, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin-top: -2px; }
+  nav ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 32px; flex-wrap: wrap; }
+  nav a { font-size: 15px; color: var(--ink); border-bottom: none; font-weight: 500; }
+  nav a:hover { color: var(--terracotta); }
+  .header-cta { display: flex; align-items: center; gap: 18px; }
+  .phone-link { font-size: 15px; font-weight: 600; color: var(--ink); border: none; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(155deg, var(--cream) 0%, #ebe2c4 100%);
+    padding: 80px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -120px;
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle, rgba(63,94,60,0.08), transparent 70%);
+    pointer-events: none;
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; }
+  .hero h1 { color: var(--ink); margin-bottom: 22px; }
+  .hero-rim { font-family: Georgia, serif; font-style: italic; font-size: 1.2rem; color: var(--moss-dark); margin-bottom: 24px; line-height: 1.45; }
+  .hero-lead { font-size: 1.1rem; color: var(--ink-soft); margin-bottom: 32px; max-width: 520px; line-height: 1.55; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-trust { display: flex; gap: 28px; margin-top: 42px; padding-top: 28px; border-top: 1px solid var(--rule); flex-wrap: wrap; font-size: 13px; color: var(--ink-soft); }
+  .hero-trust-item { display: flex; align-items: center; gap: 8px; }
+  .hero-trust-item svg { color: var(--moss-dark); flex-shrink: 0; }
+  .hero-visual { aspect-ratio: 4/5; border-radius: 6px; overflow: hidden; box-shadow: var(--shadow); position: relative; background: var(--cream); }
+  .hero-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(29,26,20,0) 60%, rgba(29,26,20,0.5) 100%); pointer-events: none; }
+  .hero-visual-tag { position: absolute; bottom: 22px; left: 24px; right: 24px; color: var(--paper); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; z-index: 2; }
+
+  /* SERVICES */
+  .services {
+    padding: 96px 0;
+    background: var(--paper);
+  }
+  .services-head { max-width: 720px; margin: 0 auto 56px; text-align: center; }
+  .services-head p { color: var(--ink-soft); font-size: 1.05rem; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .service-card {
+    background: var(--cream);
+    border-radius: 6px;
+    padding: 30px 26px;
+    border: 1px solid var(--rule);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  }
+  .service-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--moss); }
+  .service-icon { width: 40px; height: 40px; color: var(--moss-dark); margin-bottom: 18px; }
+  .service-card h3 { color: var(--ink); }
+  .service-card p { font-size: 14px; color: var(--ink-soft); margin: 0; }
+  .services-other { text-align: center; margin-top: 36px; font-size: 14px; color: var(--ink-soft); }
+
+  /* PORTFOLIO */
+  .portfolio {
+    padding: 96px 0;
+    background: var(--cream);
+  }
+  .portfolio-head { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 48px; flex-wrap: wrap; }
+  .portfolio-head h2 { max-width: 540px; }
+  .portfolio-head p { color: var(--ink-soft); margin: 0; max-width: 360px; }
+  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .portfolio-card {
+    background: var(--paper);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .portfolio-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .portfolio-img { aspect-ratio: 4/3; overflow: hidden; background: var(--cream); }
+  .portfolio-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+  .portfolio-card:hover .portfolio-img img { transform: scale(1.04); }
+  .portfolio-body { padding: 18px 22px 22px; }
+  .portfolio-tag { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terracotta); font-weight: 600; margin-bottom: 4px; }
+  .portfolio-title { font-family: Georgia, serif; font-size: 1.05rem; color: var(--ink); font-weight: 600; }
+  .portfolio-foot { text-align: center; margin-top: 40px; }
+  .portfolio-foot a { font-size: 14px; font-weight: 600; }
+
+  /* QUOTE */
+  .quote {
+    padding: 96px 0;
+    background: var(--paper);
+  }
+  .quote-block {
+    max-width: 820px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .quote-block .eyebrow { display: inline-block; }
+  .quote-block blockquote { font-family: Georgia, serif; font-style: italic; font-size: 1.45rem; line-height: 1.5; color: var(--ink); margin: 16px 0 18px; padding: 0 24px; }
+  .quote-block cite { font-style: normal; font-size: 14px; color: var(--ink-soft); }
+  .quote-block cite strong { color: var(--ink); font-weight: 600; }
+
+  /* CTA BLOCK */
+  .cta-block {
+    padding: 96px 0;
+    background: var(--moss-dark);
+    color: var(--paper);
+    text-align: center;
+  }
+  .cta-block h2 { color: var(--paper); max-width: 720px; margin: 0 auto 18px; }
+  .cta-block p { max-width: 580px; margin: 0 auto 36px; font-size: 1.1rem; opacity: 0.92; }
+  .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .cta-block .btn-primary { background: var(--paper); color: var(--moss-dark); }
+  .cta-block .btn-primary:hover { background: var(--cream); color: var(--ink); }
+  .cta-block .btn-secondary { color: var(--paper); border-color: var(--paper); }
+  .cta-block .btn-secondary:hover { background: var(--paper); color: var(--moss-dark); }
+  .cta-contacts { display: flex; gap: 32px; justify-content: center; margin-top: 32px; flex-wrap: wrap; font-size: 14px; opacity: 0.85; }
+  .cta-contacts a { color: var(--paper); border-bottom-color: rgba(251,248,240,0.4); }
+  .cta-contacts strong { display: block; color: var(--paper); opacity: 1; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 4px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 64px 0 32px;
+    font-size: 14px;
+  }
+  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+  .footer-brand .logo-text { color: var(--cream); }
+  .footer-brand .logo-sub { color: rgba(245,241,230,0.6); }
+  .footer-brand p { color: rgba(245,241,230,0.7); margin-top: 16px; max-width: 280px; line-height: 1.55; }
+  footer h4 { font-family: Georgia, serif; font-size: 1rem; margin: 0 0 14px; color: var(--paper); }
+  footer ul { list-style: none; padding: 0; margin: 0; }
+  footer li { margin-bottom: 8px; }
+  footer a { color: rgba(245,241,230,0.75); border-bottom: none; }
+  footer a:hover { color: var(--paper); }
+  .footer-meta { padding-top: 24px; border-top: 1px solid rgba(245,241,230,0.12); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; color: rgba(245,241,230,0.55); font-size: 13px; }
+  address { font-style: normal; }
+
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { max-width: 480px; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    nav ul { gap: 22px; }
+  }
+  @media (max-width: 640px) {
+    .hero { padding: 56px 0 64px; }
+    .services, .portfolio, .quote, .cta-block { padding: 72px 0; }
+    .services-grid, .portfolio-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .header-row nav { display: none; }
+    .header-cta .phone-link { display: none; }
+    h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <a href="/" class="logo" aria-label="Peter Agger forside">
+      <svg class="logo-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="18" cy="18" r="17" fill="#3f5e3c"/>
+        <path d="M18 7 C25.5 12 27 17 18 27 C9 17 10.5 12 18 7 Z" fill="#f5f1e6"/>
+        <path d="M18 10.5 L18 26" stroke="#3f5e3c" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <span>
+        <span class="logo-text">Peter Agger</span>
+        <span class="logo-sub">Anlægsgartner siden 1987</span>
+      </span>
+    </a>
+    <nav aria-label="Hovednavigation">
+      <ul>
+        <li><a href="#services">Ydelser</a></li>
+        <li><a href="#portfolio">Portefølje</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="header-cta">
+      <a href="tel:+4528355113" class="phone-link">28 35 51 13</a>
+      <a href="#kontakt" class="btn btn-primary">Beskriv dit projekt</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <div class="eyebrow">Anlægsgartner i Aarhus og Østjylland siden 1987</div>
+      <h1>Smukke, grønne og naturlige haver — bygget på 38 års håndværk.</h1>
+      <p class="hero-rim">"Har du ondt i maven og ukrudt i haven, så ring til Agger, han kommer og hakker!"</p>
+      <p class="hero-lead">Anlæg, vedligeholdelse og havekonsulent — drevet af ægteparret Peter og Joyce. Vi laver projekter fra forhaver til kommunale udbud, altid med håndværksgaranti og DAG-medlemskab.</p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn btn-primary">Beskriv dit projekt</a>
+        <a href="tel:+4528355113" class="btn btn-secondary">Ring 28 35 51 13</a>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6l-8-4z"/></svg>
+          <span>DAG · Håndværkergaranti</span>
+        </div>
+        <div class="hero-trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span>FACET-tilknyttet · lærlingeuddannelse</span>
+        </div>
+        <div class="hero-trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>38 års erfaring</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="https://peteragger.com/seekings/uploads/Bel%C3%A6gning-Risskov.jpg" alt="Belægning, Risskov — projekt af Peter Agger" loading="eager" decoding="async">
+      <div class="hero-visual-tag">Projekt · Belægning, Risskov</div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="services-head">
+      <h2>Vores ydelser</h2>
+      <p>Vi tager hele haven — fra konsulentbistand før byggestart til daglig vedligeholdelse efter projektet er kørt.</p>
+    </div>
+    <div class="services-grid">
+
+      <article class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="7" height="7" rx="0.5"/><rect x="14" y="3" width="7" height="7" rx="0.5"/><rect x="3" y="14" width="7" height="7" rx="0.5"/><rect x="14" y="14" width="7" height="7" rx="0.5"/>
+        </svg>
+        <h3>Belægning</h3>
+        <p>Sandsten, granit, tegl, klinker. Indkørsler, terrasser og gangstier udført med fald, fugemørtel og kantsikring.</p>
+      </article>
+
+      <article class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 2C8 6 8 11 12 16 16 11 16 6 12 2z"/><path d="M5 22c0-4 3-7 7-7s7 3 7 7"/>
+        </svg>
+        <h3>Beplantning</h3>
+        <p>Staudebed, bunddække, hække og træer. Tilpasset jordbund, lysforhold og hvor meget pleje I har lyst til at give.</p>
+      </article>
+
+      <article class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="12" x2="21" y2="12"/><line x1="6" y1="6" x2="6" y2="18"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="18" y1="6" x2="18" y2="18"/>
+        </svg>
+        <h3>Hegn &amp; låger</h3>
+        <p>Træhegn, raftehegn, læhegn og indkørselslåger. Opsat i frostsikker dybde med tryktest af lodret og vandret linje.</p>
+      </article>
+
+      <article class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M17 8c0-3-2.5-6-5-6S7 5 7 8c0 2 1 4 3 5"/><path d="M14 13c-1 1-2 3-2 5"/><path d="M12 22h0"/><path d="M9 13L4 8"/><path d="M15 13l5-5"/>
+        </svg>
+        <h3>Træfældning &amp; træpleje</h3>
+        <p>Kontrolleret fældning, beskæring og formklip. Rodfræsning, oprydning og bortkørsel som del af opgaven.</p>
+      </article>
+
+      <article class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 12c2-3 5-3 7 0s5 3 7 0 5-3 4 0"/><path d="M3 18c2-3 5-3 7 0s5 3 7 0 5-3 4 0"/>
+        </svg>
+        <h3>Pleje &amp; vedligeholdelse</h3>
+        <p>Faste serviceaftaler eller enkeltbesøg. Græsslåning, lugning, hækklipning, snerydning og glatførebekæmpelse.</p>
+      </article>
+
+      <article class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="3"/><path d="M12 2v3"/><path d="M12 19v3"/><path d="M4.22 4.22l2.12 2.12"/><path d="M17.66 17.66l2.12 2.12"/><path d="M2 12h3"/><path d="M19 12h3"/><path d="M4.22 19.78l2.12-2.12"/><path d="M17.66 6.34l2.12-2.12"/>
+        </svg>
+        <h3>Havekonsulent</h3>
+        <p>Få en plan før spaden går i jorden. Sparring om planteringsdesign, materialer og budget — typisk 1-2 timers besøg.</p>
+      </article>
+
+    </div>
+
+    <p class="services-other">Plus græsanlæg, legepladser, nedgravning af trampoliner og andre haveopgaver — <a href="https://peteragger.com/vi-udforer/">se den fulde liste</a>.</p>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <div class="wrap">
+    <div class="portfolio-head">
+      <h2>Udvalgte projekter</h2>
+      <p>38 års arbejde rundt om i Østjylland. Klik dig rundt — flere projekter ligger på <a href="https://peteragger.com/inspiration/">inspirationssiden</a>.</p>
+    </div>
+    <div class="portfolio-grid">
+
+      <article class="portfolio-card">
+        <div class="portfolio-img"><img src="https://peteragger.com/seekings/uploads/Ny-sandstensbel%C3%A6gning-farve-mix-karamel.jpg" alt="Ny sandstensbelægning, farvemix karamel" loading="lazy" decoding="async"></div>
+        <div class="portfolio-body">
+          <div class="portfolio-tag">Belægning</div>
+          <div class="portfolio-title">Ny sandstensbelægning — farvemix karamel</div>
+        </div>
+      </article>
+
+      <article class="portfolio-card">
+        <div class="portfolio-img"><img src="https://peteragger.com/seekings/uploads/beplantning-i-lille-gaardhave2.jpg" alt="Beplantning i lille gårdhave" loading="lazy" decoding="async"></div>
+        <div class="portfolio-body">
+          <div class="portfolio-tag">Beplantning</div>
+          <div class="portfolio-title">Beplantning i lille gårdhave</div>
+        </div>
+      </article>
+
+      <article class="portfolio-card">
+        <div class="portfolio-img"><img src="https://peteragger.com/seekings/uploads/opsaetning-af-hegn-og-laage2.jpg" alt="Opsætning af hegn og låge" loading="lazy" decoding="async"></div>
+        <div class="portfolio-body">
+          <div class="portfolio-tag">Hegn</div>
+          <div class="portfolio-title">Opsætning af hegn og låge</div>
+        </div>
+      </article>
+
+      <article class="portfolio-card">
+        <div class="portfolio-img"><img src="https://peteragger.com/seekings/uploads/belaegning-lystrup.jpg" alt="Belægningsopgaver i Lystrup" loading="lazy" decoding="async"></div>
+        <div class="portfolio-body">
+          <div class="portfolio-tag">Belægning</div>
+          <div class="portfolio-title">Belægningsopgaver, Lystrup</div>
+        </div>
+      </article>
+
+      <article class="portfolio-card">
+        <div class="portfolio-img"><img src="https://peteragger.com/seekings/uploads/tilstprojektthumb.jpg" alt="Projekt i Tilst" loading="lazy" decoding="async"></div>
+        <div class="portfolio-body">
+          <div class="portfolio-tag">Total-projekt</div>
+          <div class="portfolio-title">Projekt i Tilst</div>
+        </div>
+      </article>
+
+      <article class="portfolio-card">
+        <div class="portfolio-img"><img src="https://peteragger.com/seekings/uploads/hh1.jpg" alt="Have i Hornslet" loading="lazy" decoding="async"></div>
+        <div class="portfolio-body">
+          <div class="portfolio-tag">Total-projekt</div>
+          <div class="portfolio-title">Have i Hornslet</div>
+        </div>
+      </article>
+
+    </div>
+    <div class="portfolio-foot">
+      <a href="https://peteragger.com/inspiration/">Se hele porteføljen →</a>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="wrap">
+    <div class="quote-block">
+      <div class="eyebrow">Hvad kunderne siger</div>
+      <blockquote>[Citat fra en konkret kunde indsættes her — fx en privatkunde der beskriver hvordan I løste deres haveprojekt]</blockquote>
+      <cite><strong>Placeholder</strong> — udfyldes med faktisk kunde + lokation når sitet går live</cite>
+    </div>
+  </div>
+</section>
+
+<section class="cta-block" id="kontakt">
+  <div class="wrap">
+    <div class="eyebrow" style="color: rgba(245,241,230,0.7);">Næste skridt</div>
+    <h2>Beskriv dit projekt — vi vender tilbage inden for 24 timer</h2>
+    <p>Send os et par linjer om hvad I tænker, så ringer vi tilbage med et oplæg I kan bruge til budget.</p>
+    <div class="cta-actions">
+      <a href="https://peteragger.com/din-opgave/" class="btn btn-primary">Beskriv dit projekt</a>
+      <a href="mailto:peter@peteragger.com" class="btn btn-secondary">Send en mail</a>
+    </div>
+    <div class="cta-contacts">
+      <div>
+        <strong>Peter</strong>
+        <a href="tel:+4528355113">+45 28 35 51 13</a><br>
+        <a href="mailto:peter@peteragger.com">peter@peteragger.com</a>
+      </div>
+      <div>
+        <strong>Joyce</strong>
+        <a href="tel:+4528359594">+45 28 35 95 94</a><br>
+        <a href="mailto:joyce@peteragger.com">joyce@peteragger.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <div class="logo">
+          <svg class="logo-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="18" cy="18" r="17" fill="#3f5e3c"/>
+            <path d="M18 7 C25.5 12 27 17 18 27 C9 17 10.5 12 18 7 Z" fill="#f5f1e6"/>
+            <path d="M18 10.5 L18 26" stroke="#3f5e3c" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <span>
+            <span class="logo-text">Peter Agger</span>
+            <span class="logo-sub">Anlægsgartner siden 1987</span>
+          </span>
+        </div>
+        <p>Anlæg, vedligeholdelse og havekonsulent i Aarhus og Østjylland. Drevet af ægteparret Peter og Joyce.</p>
+      </div>
+
+      <div>
+        <h4>Ydelser</h4>
+        <ul>
+          <li><a href="https://peteragger.com/vi-udforer/belaegning/">Belægning</a></li>
+          <li><a href="https://peteragger.com/vi-udforer/graes/">Græs</a></li>
+          <li><a href="https://peteragger.com/vi-udforer/hegn/">Hegn</a></li>
+          <li><a href="https://peteragger.com/vi-udforer/traefaeldning/">Træfældning</a></li>
+          <li><a href="https://peteragger.com/vi-udforer/havekonsulent/">Havekonsulent</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Kontakt</h4>
+        <address>
+          Bygvangen 24<br>
+          8200 Aarhus N
+        </address>
+        <ul style="margin-top: 14px;">
+          <li><a href="tel:+4528355113">Peter: +45 28 35 51 13</a></li>
+          <li><a href="tel:+4528359594">Joyce: +45 28 35 95 94</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Tilknytning</h4>
+        <ul>
+          <li>DAG-medlem</li>
+          <li>Håndværkergaranti</li>
+          <li>FACET-tilknyttet</li>
+          <li><a href="https://www.houzz.dk/pro/peteragger">Houzz-profil</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="footer-meta">
+      <span>© Peter Agger Anlægsgartner · CVR 15348445</span>
+      <span>Udkast af Ajjalytics — <a href="https://ajjalytics.dev">ajjalytics.dev</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
