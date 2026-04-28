@@ -50,9 +50,7 @@
 
   /* HEADER */
   header {
-    background: rgba(247, 242, 231, 0.88);
-    backdrop-filter: saturate(140%) blur(10px);
-    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    background: var(--cream);
     border-bottom: 1px solid var(--rule);
     position: sticky;
     top: 0;
@@ -62,19 +60,18 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 0;
-    gap: 28px;
+    padding: 18px 0;
+    gap: 32px;
   }
-  .logo { display: flex; align-items: center; gap: 11px; border: 0; line-height: 1; flex-shrink: 0; }
-  .logo-mark { width: 30px; height: 30px; flex-shrink: 0; }
-  .logo-text { font-family: Georgia, "Iowan Old Style", serif; font-size: 20px; font-weight: 600; color: var(--ink); letter-spacing: -0.015em; line-height: 1; white-space: nowrap; }
-  .logo-sub { font-family: -apple-system, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); padding-left: 11px; margin-left: 11px; border-left: 1px solid var(--rule); line-height: 1; white-space: nowrap; }
-  nav ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 22px; flex-wrap: nowrap; }
-  nav a { font-size: 14px; color: var(--ink-soft); border-bottom: none; font-weight: 500; letter-spacing: 0.005em; transition: color 0.15s ease; white-space: nowrap; }
-  nav a:hover { color: var(--ink); }
-  .header-cta { display: flex; align-items: center; gap: 18px; flex-shrink: 0; }
-  .phone-link { font-size: 14px; font-weight: 600; color: var(--ink); border: none; letter-spacing: 0.02em; font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .btn-header { padding: 9px 18px; font-size: 14px; border-radius: 3px; white-space: nowrap; }
+  .logo { display: flex; align-items: center; gap: 12px; border: 0; }
+  .logo-mark { width: 36px; height: 36px; flex-shrink: 0; }
+  .logo-text { font-family: Georgia, serif; font-size: 22px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
+  .logo-sub { display: block; font-family: -apple-system, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin-top: -2px; }
+  nav ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 32px; flex-wrap: wrap; }
+  nav a { font-size: 15px; color: var(--ink); border-bottom: none; font-weight: 500; }
+  nav a:hover { color: var(--terracotta); }
+  .header-cta { display: flex; align-items: center; gap: 18px; }
+  .phone-link { font-size: 15px; font-weight: 600; color: var(--ink); border: none; }
 
   /* HERO */
   .hero {
@@ -235,7 +232,7 @@
   }
   .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
   .footer-brand .logo-text { color: var(--cream); }
-  .footer-brand .logo-sub { color: rgba(247,242,231,0.55); border-left-color: rgba(247,242,231,0.18); }
+  .footer-brand .logo-sub { color: rgba(247,242,231,0.6); }
   .footer-brand p { color: rgba(247,242,231,0.7); margin-top: 16px; max-width: 280px; line-height: 1.55; }
   footer h4 { font-family: Georgia, serif; font-size: 1rem; margin: 0 0 14px; color: var(--paper); }
   footer ul { list-style: none; padding: 0; margin: 0; }
@@ -272,27 +269,26 @@
 <header>
   <div class="wrap header-row">
     <a href="/" class="logo" aria-label="Aktiv Ude forside">
-      <svg class="logo-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="16" cy="16" r="15" fill="#3d5a3a"/>
-        <path d="M16 6.5 C23 11 24 16 16 25 C8 16 9 11 16 6.5 Z" fill="#f7f2e7"/>
-        <path d="M16 9.5 L16 24" stroke="#3d5a3a" stroke-width="1.4" stroke-linecap="round"/>
+      <svg class="logo-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="18" cy="18" r="17" fill="#3d5a3a"/>
+        <path d="M18 7 C25.5 12 27 17 18 27 C9 17 10.5 12 18 7 Z" fill="#f7f2e7"/>
+        <path d="M18 10.5 L18 26" stroke="#3d5a3a" stroke-width="1.4" stroke-linecap="round"/>
       </svg>
-      <span class="logo-text">aktiv ude</span>
-      <span class="logo-sub">Siden 1985</span>
+      <span>
+        <span class="logo-text">aktiv ude</span>
+        <span class="logo-sub">siden 1985</span>
+      </span>
     </a>
     <nav aria-label="Hovednavigation">
       <ul>
-        <li><a href="#naturlegepladser">Naturlegepladser</a></li>
-        <li><a href="#fitness">Naturfitness</a></li>
-        <li><a href="#faciliteter">Udendørs faciliteter</a></li>
-        <li><a href="#saerlige">Særlige behov</a></li>
-        <li><a href="#lagertilbud">Lagertilbud</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#solutions">Løsninger</a></li>
+        <li><a href="#audience">Målgrupper</a></li>
+        <li><a href="#referencer">Referencer</a></li>
       </ul>
     </nav>
     <div class="header-cta">
       <a href="tel:+4521350799" class="phone-link">21 35 07 99</a>
-      <a href="#kontakt" class="btn btn-primary btn-header">Få et tilbud</a>
+      <a href="#kontakt" class="btn btn-primary">Få et tilbud</a>
     </div>
   </div>
 </header>
@@ -513,13 +509,15 @@
 
       <div class="footer-brand">
         <div class="logo">
-          <svg class="logo-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="16" cy="16" r="15" fill="#3d5a3a"/>
-            <path d="M16 7.5 C20.4 11.4 22 15.6 16 23.5 C10 15.6 11.6 11.4 16 7.5 Z" fill="#f7f2e7"/>
-            <path d="M16 11 L16 22.5" stroke="#3d5a3a" stroke-width="0.9" stroke-linecap="round"/>
+          <svg class="logo-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="18" cy="18" r="17" fill="#3d5a3a"/>
+            <path d="M18 7 C25.5 12 27 17 18 27 C9 17 10.5 12 18 7 Z" fill="#f7f2e7"/>
+            <path d="M18 10.5 L18 26" stroke="#3d5a3a" stroke-width="1.4" stroke-linecap="round"/>
           </svg>
-          <span class="logo-text">aktiv ude</span>
-          <span class="logo-sub">Siden 1985</span>
+          <span>
+            <span class="logo-text">aktiv ude</span>
+            <span class="logo-sub">siden 1985</span>
+          </span>
         </div>
         <p>Naturlegepladser og udendørs fitness i træ til skoler, daginstitutioner og kommuner. Bygget i Danmark, leveret med pædagogisk indsigt.</p>
       </div>
