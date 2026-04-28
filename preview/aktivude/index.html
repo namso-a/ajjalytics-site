@@ -98,11 +98,10 @@
   .hero-trust { display: flex; gap: 32px; margin-top: 42px; padding-top: 28px; border-top: 1px solid var(--rule); flex-wrap: wrap; }
   .hero-trust-item strong { display: block; font-family: Georgia, serif; font-size: 1.6rem; color: var(--moss-dark); line-height: 1; margin-bottom: 4px; }
   .hero-trust-item span { font-size: 13px; color: var(--ink-soft); }
-  .hero-visual { aspect-ratio: 4/5; border-radius: 6px; overflow: hidden; box-shadow: var(--shadow); position: relative; background: linear-gradient(160deg, #708858 0%, #3d5a3a 60%, #2b4128 100%); }
-  .hero-visual-inner { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 36px; color: var(--paper); }
-  .hero-visual-tag { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.75; margin-bottom: 8px; }
-  .hero-visual-cite { font-family: Georgia, serif; font-style: italic; font-size: 1.15rem; line-height: 1.4; }
-  .hero-visual svg { position: absolute; bottom: 0; left: 0; width: 100%; opacity: 0.18; }
+  .hero-visual { aspect-ratio: 4/5; border-radius: 6px; overflow: hidden; box-shadow: var(--shadow); position: relative; background: var(--cream); }
+  .hero-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(31,26,18,0) 55%, rgba(31,26,18,0.55) 100%); pointer-events: none; }
+  .hero-visual-tag { position: absolute; bottom: 24px; left: 28px; right: 28px; color: var(--paper); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; z-index: 2; }
 
   /* AUDIENCE STRIP */
   .audience {
@@ -148,19 +147,16 @@
     transition: transform 0.18s ease, box-shadow 0.18s ease;
   }
   .solution-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
-  .solution-img { aspect-ratio: 4/3; background-size: cover; background-position: center; position: relative; }
-  .solution-img-1 { background: linear-gradient(135deg, #6b8a52, #3d5a3a); }
-  .solution-img-2 { background: linear-gradient(135deg, #8b6b3d, #5a4525); }
-  .solution-img-3 { background: linear-gradient(135deg, #708858, #4a6a4a); }
-  .solution-img-4 { background: linear-gradient(135deg, #b8825a, #8b5a35); }
-  .solution-img-5 { background: linear-gradient(135deg, #5a7a52, #2b4128); }
-  .solution-img-6 { background: linear-gradient(135deg, #a8704a, #6b4a2a); }
+  .solution-img { aspect-ratio: 4/3; overflow: hidden; background: var(--cream); }
+  .solution-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+  .solution-card:hover .solution-img img { transform: scale(1.04); }
   .solution-body { padding: 22px; flex-grow: 1; display: flex; flex-direction: column; }
   .solution-body h3 { font-size: 1.1rem; }
   .solution-body p { font-size: 14px; color: var(--ink-soft); margin-bottom: 16px; flex-grow: 1; }
   .solution-meta { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px solid var(--rule); }
-  .solution-price { font-size: 13px; color: var(--ink-soft); }
-  .solution-price strong { font-family: Georgia, serif; font-size: 1.05rem; color: var(--ink); font-weight: 600; }
+  .solution-price { font-size: 13px; color: var(--ink-soft); display: flex; align-items: baseline; gap: 6px; }
+  .solution-price .placeholder { font-family: Georgia, serif; font-size: 1.05rem; color: var(--ink); font-weight: 600; padding: 1px 8px; background: rgba(176, 79, 44, 0.08); border-radius: 3px; }
+  .solution-price small { font-size: 11px; color: var(--terracotta); font-style: italic; }
   .solution-link { font-size: 14px; font-weight: 600; color: var(--moss-dark); border: none; }
 
   /* OUTLET BANNER */
@@ -325,14 +321,9 @@
         </div>
       </div>
     </div>
-    <div class="hero-visual" role="img" aria-label="Naturlegeplads i træ">
-      <svg viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0 200 L0 140 Q40 100 80 130 Q140 70 200 110 Q260 60 320 100 Q360 80 400 120 L400 200 Z" fill="#1f1a12"/>
-      </svg>
-      <div class="hero-visual-inner">
-        <div class="hero-visual-tag">Reference · Højbjerg Skole</div>
-        <p class="hero-visual-cite">"Den blev bygget i 2019 og bliver brugt af 380 elever hver dag. Den står stadig som ny."</p>
-      </div>
+    <div class="hero-visual">
+      <img src="https://aktivude.dk/wp-content/uploads/2026/01/naturlegeplads-header-2025.jpg" alt="Naturlegeplads i træ — Aktiv Ude" loading="eager" decoding="async">
+      <div class="hero-visual-tag">Naturlegeplads · leveret af Aktiv Ude</div>
     </div>
   </div>
 </section>
@@ -394,67 +385,67 @@
     <div class="solutions-grid">
 
       <article class="solution-card">
-        <div class="solution-img solution-img-1" role="img" aria-label="Naturlegeplads i træ"></div>
+        <div class="solution-img"><img src="https://aktivude.dk/wp-content/uploads/2026/01/kombiredskab-skoven.jpg.webp" alt="Naturlegeplads i træ" loading="lazy" decoding="async"></div>
         <div class="solution-body">
           <h3>Naturlegepladser</h3>
           <p>Komplette legepladser i FSC-certificeret træ. Legehuse, gyngestativ, legetårn, balanceredskaber.</p>
           <div class="solution-meta">
-            <div class="solution-price">Fra <strong>75.000 kr</strong></div>
+            <div class="solution-price">Fra <span class="placeholder">[fra-pris]</span> <small>udfyldes</small></div>
             <a href="#naturlegepladser" class="solution-link">Se mere →</a>
           </div>
         </div>
       </article>
 
       <article class="solution-card">
-        <div class="solution-img solution-img-2" role="img" aria-label="Naturfitness udendørs"></div>
+        <div class="solution-img"><img src="https://aktivude.dk/wp-content/uploads/2026/01/Naturfitness-trekant2.jpg" alt="Naturfitness udendørs" loading="lazy" decoding="async"></div>
         <div class="solution-body">
           <h3>Naturfitness</h3>
-          <p>Udendørs fitness-stationer i træ og stål. Holdbare, vejrbestandige, motionsanlæg til offentlige områder.</p>
+          <p>Udendørs fitness-stationer i træ og stål. Holdbare, vejrbestandige motionsanlæg til offentlige områder.</p>
           <div class="solution-meta">
-            <div class="solution-price">Fra <strong>45.000 kr</strong></div>
+            <div class="solution-price">Fra <span class="placeholder">[fra-pris]</span> <small>udfyldes</small></div>
             <a href="#fitness" class="solution-link">Se mere →</a>
           </div>
         </div>
       </article>
 
       <article class="solution-card">
-        <div class="solution-img solution-img-3" role="img" aria-label="Multihus og legeborg"></div>
+        <div class="solution-img"><img src="https://aktivude.dk/wp-content/uploads/2026/01/legehus-Anne.jpg" alt="Legehus i træ" loading="lazy" decoding="async"></div>
         <div class="solution-body">
-          <h3>Legehuse & multihuse</h3>
+          <h3>Legehuse &amp; multihuse</h3>
           <p>Robuste legehuse, legeborge og multihuse i forskellige størrelser. Bygget til daglig brug i institutioner.</p>
           <div class="solution-meta">
-            <div class="solution-price">Fra <strong>22.000 kr</strong></div>
+            <div class="solution-price">Fra <span class="placeholder">[fra-pris]</span> <small>udfyldes</small></div>
             <a href="#legehuse" class="solution-link">Se mere →</a>
           </div>
         </div>
       </article>
 
       <article class="solution-card">
-        <div class="solution-img solution-img-4" role="img" aria-label="Forhindringsbane"></div>
+        <div class="solution-img"><img src="https://aktivude.dk/wp-content/uploads/2026/01/naturlegepladser-balanceredskaber-vredet-balanceedderkop2-1.jpg" alt="Balanceredskaber" loading="lazy" decoding="async"></div>
         <div class="solution-body">
-          <h3>Forhindringsbaner</h3>
+          <h3>Balance &amp; forhindringsbaner</h3>
           <p>Aktivitetsbaner der udfordrer motorik og samarbejde. Tilpasses jeres areal og aldersgruppe.</p>
           <div class="solution-meta">
-            <div class="solution-price">Fra <strong>38.000 kr</strong></div>
+            <div class="solution-price">Fra <span class="placeholder">[fra-pris]</span> <small>udfyldes</small></div>
             <a href="#forhindringsbaner" class="solution-link">Se mere →</a>
           </div>
         </div>
       </article>
 
       <article class="solution-card">
-        <div class="solution-img solution-img-5" role="img" aria-label="Sandkasse og rutschebane"></div>
+        <div class="solution-img"><img src="https://aktivude.dk/wp-content/uploads/2026/01/naturlegepladser-rutschebaner-snabelrutschebane6-1.jpg" alt="Rutschebane og sandkasse" loading="lazy" decoding="async"></div>
         <div class="solution-body">
-          <h3>Sandkasser & rutschebaner</h3>
+          <h3>Sandkasser &amp; rutschebaner</h3>
           <p>Klassisk legepladsudstyr. Sandkasser, rutschebaner og enkeltelementer der kan suppleres til eksisterende anlæg.</p>
           <div class="solution-meta">
-            <div class="solution-price">Fra <strong>8.500 kr</strong></div>
+            <div class="solution-price">Fra <span class="placeholder">[fra-pris]</span> <small>udfyldes</small></div>
             <a href="#sandkasser" class="solution-link">Se mere →</a>
           </div>
         </div>
       </article>
 
       <article class="solution-card">
-        <div class="solution-img solution-img-6" role="img" aria-label="Inkluderende legeplads"></div>
+        <div class="solution-img"><img src="https://aktivude.dk/wp-content/uploads/2026/01/naturlegepladser-vandleg-saerlige-anlaeg-med-vandleg5-1.jpg" alt="Inkluderende vandleg-anlæg" loading="lazy" decoding="async"></div>
         <div class="solution-body">
           <h3>Inkluderende anlæg</h3>
           <p>Tilgængelige legepladser med ramper, sansestimulerende elementer og kørestolsvenlige redskaber.</p>
@@ -488,16 +479,16 @@
     </div>
 
     <div class="proof-quote">
-      <blockquote>"Aktiv Ude forstod hvad en skolegård faktisk skal kunne — ikke bare hvordan den skal se ud. Det gjorde processen meget nemmere for os."</blockquote>
-      <cite><strong>Inspektør, mellemstor folkeskole · Aarhus Kommune</strong> — placeholder, faktiske referencer indsættes</cite>
+      <blockquote>[Citat fra en faktisk kunde indsættes her — fx en skoleinspektør eller kommunal forvalter der beskriver hvordan I forstod deres behov]</blockquote>
+      <cite><strong>Placeholder</strong> — udfyldes med faktisk kunde + kommune når sitet går live</cite>
     </div>
 
     <div class="proof-logos">
-      <div class="proof-logo"><strong>Aarhus Kommune</strong>Flere skoler og daginstitutioner</div>
-      <div class="proof-logo"><strong>Viborg Kommune</strong>Kommunale legepladser</div>
-      <div class="proof-logo"><strong>Silkeborg Kommune</strong>Park- og fritidsanlæg</div>
-      <div class="proof-logo"><strong>Privat daginstitution</strong>Bjerringbro</div>
-      <div class="proof-logo"><strong>Specialskole</strong>Midtjylland</div>
+      <div class="proof-logo"><strong>[Skole-reference]</strong>Navn + kommune</div>
+      <div class="proof-logo"><strong>[Daginstitution]</strong>Navn + by</div>
+      <div class="proof-logo"><strong>[Kommune]</strong>Type af leverance</div>
+      <div class="proof-logo"><strong>[Special-behov]</strong>Specialskole eller bosted</div>
+      <div class="proof-logo"><strong>[Privat]</strong>Privat institution</div>
     </div>
   </div>
 </section>
