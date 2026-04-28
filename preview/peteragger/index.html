@@ -7,726 +7,1086 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Peter Agger Anlægsgartner — Aarhus og Østjylland siden 1987</title>
 <style>
+  /* ========================================================
+     EDITORIAL MAGAZINE — peteragger
+     palette: warm paper + umber ink + rust accent + subtle moss
+     type: bold sans display + Georgia body serif
+     layout: asymmetric 12-col grid, ruler dividers, drop caps
+     ======================================================== */
+
   :root {
-    --sand: #efe7cf;
-    --sand-light: #f6f0dd;
-    --paper: #fdf9ec;
-    --ink: #16140e;
-    --ink-soft: #5a5444;
-    --ink-mute: #8b8472;
-    --rust: #a8472a;
-    --rust-soft: #c25a39;
-    --leaf: #2e4628;
-    --rule: #c9bf9c;
-    --rule-soft: #ddd1ad;
+    --paper:        #faf5e9;
+    --paper-deep:   #f3ecd6;
+    --paper-card:   #fffaee;
+    --ink:          #1c1611;
+    --ink-medium:   #4a4032;
+    --ink-soft:     #7e7158;
+    --rust:         #a4472b;
+    --rust-deep:    #82351e;
+    --moss:         #3a5530;
+    --rule:         #d8cfb6;
+    --rule-soft:    #e6dec5;
+
+    --serif: Georgia, "Iowan Old Style", "Iowan Old Style W01", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+    --shadow-card: 0 1px 0 rgba(28,22,17,0.04), 0 18px 40px -22px rgba(28,22,17,0.18);
   }
 
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Segoe UI Variable", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--ink);
-    background: var(--sand);
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink-medium);
+    background: var(--paper);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
-  h1, h2, h3, h4 { font-family: inherit; font-weight: 700; letter-spacing: -0.02em; line-height: 1.08; margin: 0; }
-  h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); font-weight: 800; }
-  h2 { font-size: clamp(1.7rem, 3.4vw, 2.6rem); margin-bottom: 0.4em; }
-  h3 { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.01em; }
-  p { margin: 0 0 14px; }
-  a { color: var(--rust); text-decoration: none; }
-  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  ::selection { background: var(--rust); color: var(--paper); }
 
-  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
-  .wrap-tight { max-width: 940px; margin: 0 auto; padding: 0 32px; }
+  /* type system */
+  h1, h2, h3, h4, .display { font-family: var(--sans); color: var(--ink); margin: 0; line-height: 1.05; letter-spacing: -0.022em; font-weight: 800; }
+  h1 { font-size: clamp(2.6rem, 6.5vw, 5.2rem); }
+  h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); letter-spacing: -0.018em; }
+  h3 { font-size: 1.18rem; font-weight: 700; letter-spacing: -0.005em; }
+  p { margin: 0 0 18px; }
+  a { color: var(--ink); text-decoration: none; transition: color 160ms ease; }
+  a:hover { color: var(--rust); }
+  a:focus-visible { outline: 2px solid var(--rust); outline-offset: 3px; border-radius: 2px; }
+  strong { color: var(--ink); font-weight: 600; }
 
-  /* tiny utility */
-  .micro { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); }
-  .label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--rust); }
+  /* utilities */
+  .mono { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
+  .kicker { font-family: var(--sans); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rust); font-weight: 700; }
+  .rule { display: block; height: 1px; background: var(--ink); border: 0; margin: 0; }
+  .rule-soft { display: block; height: 1px; background: var(--rule); border: 0; margin: 0; }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 32px; }
+  .container-tight { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
 
-  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 999px; font-weight: 600; font-size: 14.5px; border: 1.5px solid transparent; transition: all 0.18s ease; cursor: pointer; }
+  /* buttons (editorial: underline-driven, minimal) */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 26px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border: 1.5px solid var(--ink);
+    color: var(--ink);
+    background: transparent;
+    cursor: pointer;
+    transition: background 160ms ease, color 160ms ease;
+  }
+  .btn:hover { background: var(--ink); color: var(--paper); }
   .btn-fill { background: var(--ink); color: var(--paper); }
-  .btn-fill:hover { background: var(--rust); text-decoration: none; }
-  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
-  .btn-ghost:hover { background: var(--ink); color: var(--paper); text-decoration: none; }
+  .btn-fill:hover { background: var(--rust); border-color: var(--rust); color: var(--paper); }
 
-  /* HEADER — flat top bar, no sticky */
-  .topbar {
-    background: var(--sand);
-    border-bottom: 1px solid var(--rule-soft);
+  /* ===================== MASTHEAD ===================== */
+  .masthead {
+    border-bottom: 1px solid var(--ink);
+    background: var(--paper);
   }
-  .topbar-inner {
+  .masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .masthead-meta {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: flex;
+    gap: 22px;
+  }
+  .masthead-meta span::before { content: "·"; margin-right: 22px; color: var(--ink-soft); }
+  .masthead-meta span:first-child::before { content: ""; margin: 0; }
+
+  .masthead-main {
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
     gap: 40px;
     padding: 22px 0;
   }
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 14px;
+  .wordmark {
+    font-family: var(--sans);
+    font-weight: 900;
+    font-size: clamp(22px, 2.5vw, 30px);
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    line-height: 1;
+    border: 0;
+  }
+  .wordmark .amp { color: var(--rust); font-style: italic; font-weight: 600; padding: 0 4px; }
+
+  .masthead-nav { justify-self: center; }
+  .masthead-nav ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 0; align-items: center; }
+  .masthead-nav li { position: relative; }
+  .masthead-nav li + li::before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 14px;
+    background: var(--rule);
+    margin: 0 22px;
+    vertical-align: middle;
+  }
+  .masthead-nav a {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     color: var(--ink);
   }
-  .brand:hover { text-decoration: none; }
-  .monogram {
-    width: 46px;
-    height: 46px;
-    background: var(--ink);
-    color: var(--sand);
-    display: grid;
-    place-items: center;
-    font-weight: 800;
-    font-size: 17px;
+  .masthead-nav a:hover { color: var(--rust); }
+
+  .masthead-actions { display: flex; align-items: center; gap: 18px; }
+  .masthead-phone {
+    font-family: var(--sans);
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
     letter-spacing: 0.02em;
-    border-radius: 4px;
-    flex-shrink: 0;
+    border: 0;
   }
-  .brand-name { font-size: 18px; font-weight: 700; line-height: 1.1; }
-  .brand-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); margin-top: 2px; }
 
-  .topbar nav { justify-self: center; }
-  .topbar nav ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 36px; }
-  .topbar nav a { color: var(--ink); font-size: 14.5px; font-weight: 500; }
-  .topbar nav a:hover { color: var(--rust); text-decoration: none; }
-
-  .topbar-actions { display: flex; align-items: center; gap: 18px; }
-  .topbar-phone { color: var(--ink); font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
-  .topbar-phone:hover { color: var(--rust); text-decoration: none; }
-
-  /* HERO — asymmetric editorial */
+  /* ===================== HERO POSTER ===================== */
   .hero {
-    padding: 90px 0 110px;
-    border-bottom: 1px solid var(--rule-soft);
+    padding: 56px 0 88px;
+    border-bottom: 1px solid var(--rule);
   }
   .hero-grid {
     display: grid;
-    grid-template-columns: 1.05fr 1fr;
-    gap: 70px;
+    grid-template-columns: 7fr 5fr;
+    gap: 56px;
     align-items: end;
   }
-  .hero-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 36px;
-  }
-  .hero-eyebrow::before {
-    content: "";
-    width: 38px;
-    height: 1px;
-    background: var(--rust);
-  }
-  .hero-eyebrow span { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); }
-  .hero h1 { color: var(--ink); margin-bottom: 28px; max-width: 12ch; }
-  .hero h1 em { font-style: italic; font-weight: 700; color: var(--rust); }
-  .hero-rim {
+  .hero-text { padding-bottom: 8px; }
+  .hero .kicker { display: inline-block; margin-bottom: 22px; }
+  .hero h1 { color: var(--ink); margin-bottom: 28px; max-width: 11ch; }
+  .hero h1 em {
+    font-family: var(--serif);
     font-style: italic;
-    font-size: 1.18rem;
-    color: var(--ink-soft);
+    font-weight: 400;
+    color: var(--rust);
+    letter-spacing: -0.005em;
+  }
+  .hero-rim {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.05rem, 1.3vw, 1.22rem);
+    line-height: 1.45;
+    color: var(--ink-medium);
     border-left: 2px solid var(--rust);
-    padding-left: 18px;
-    margin: 0 0 30px;
-    max-width: 30em;
+    padding: 4px 0 4px 22px;
+    margin: 0 0 32px;
+    max-width: 32em;
   }
-  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 0; }
+  .hero-byline { color: var(--ink-soft); font-size: 14px; max-width: 32em; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
 
-  .hero-photo {
-    aspect-ratio: 5/6;
-    overflow: hidden;
-    border-radius: 2px;
-    position: relative;
-  }
-  .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .hero-photo-meta {
-    position: absolute;
-    left: -16px;
-    bottom: 32px;
-    background: var(--sand);
-    color: var(--ink);
-    padding: 14px 22px 14px 18px;
-    border-left: 3px solid var(--rust);
-    font-size: 13px;
-    line-height: 1.4;
-    max-width: 240px;
-  }
-  .hero-photo-meta strong { display: block; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rust); margin-bottom: 4px; }
-
-  /* TRUST STRIP — simple inline list with dots */
-  .trust-strip {
-    background: var(--paper);
-    border-bottom: 1px solid var(--rule-soft);
-    padding: 24px 0;
-  }
-  .trust-strip-inner {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 28px;
-    font-size: 13.5px;
-    color: var(--ink-soft);
-  }
-  .trust-strip-inner span { display: inline-flex; align-items: center; gap: 8px; }
-  .trust-strip-inner span svg { color: var(--leaf); flex-shrink: 0; }
-  .trust-strip-inner em { font-style: normal; color: var(--ink-mute); }
-
-  /* PORTFOLIO — featured + asymmetric grid */
-  .portfolio {
-    padding: 110px 0;
-    background: var(--paper);
-  }
-  .section-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 40px;
-    margin-bottom: 48px;
-    flex-wrap: wrap;
-  }
-  .section-head h2 { max-width: 22ch; }
-  .section-head-meta {
-    color: var(--ink-soft);
-    max-width: 320px;
-    font-size: 14.5px;
-  }
-
-  .portfolio-feature {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 56px;
-    align-items: center;
-    margin-bottom: 64px;
-  }
-  .portfolio-feature .feature-img {
-    aspect-ratio: 4/3;
-    overflow: hidden;
-    border-radius: 2px;
-  }
-  .portfolio-feature .feature-img img { width: 100%; height: 100%; object-fit: cover; }
-  .feature-text .label { margin-bottom: 12px; display: inline-block; }
-  .feature-text h3 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); margin-bottom: 14px; line-height: 1.18; }
-  .feature-text p { color: var(--ink-soft); font-size: 15.5px; max-width: 38ch; }
-
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-  }
-  .portfolio-grid figure { margin: 0; }
-  .portfolio-grid figure img {
+  .hero-poster { position: relative; }
+  .hero-poster figure { margin: 0; }
+  .hero-poster img {
     width: 100%;
-    aspect-ratio: 1/1;
+    aspect-ratio: 3/4;
     object-fit: cover;
     display: block;
-    border-radius: 2px;
-    transition: filter 0.25s ease;
   }
-  .portfolio-grid figure:hover img { filter: brightness(1.05) saturate(1.1); }
-  .portfolio-grid figcaption { font-size: 13px; margin-top: 10px; color: var(--ink); }
-  .portfolio-grid figcaption .label { font-size: 11px; display: block; margin-bottom: 2px; }
-
-  .portfolio-foot {
-    margin-top: 48px;
-    text-align: right;
-    padding-top: 28px;
-    border-top: 1px solid var(--rule-soft);
-  }
-  .portfolio-foot a { font-size: 14px; font-weight: 700; color: var(--ink); }
-  .portfolio-foot a::after { content: "  →"; color: var(--rust); }
-  .portfolio-foot a:hover { color: var(--rust); text-decoration: none; }
-
-  /* ABOUT — split with portrait placeholder + bio */
-  .about {
-    padding: 110px 0;
-    background: var(--sand-light);
-    border-top: 1px solid var(--rule-soft);
-    border-bottom: 1px solid var(--rule-soft);
-  }
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.3fr;
-    gap: 72px;
-    align-items: start;
-  }
-  .about-stat {
+  .hero-poster figcaption {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--ink);
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 14px 22px;
-    border-top: 1px solid var(--rule);
-    padding-top: 20px;
+    gap: 6px 16px;
+    font-family: var(--sans);
+    font-size: 12px;
   }
-  .about-stat dt { font-size: 28px; font-weight: 800; color: var(--ink); line-height: 1; font-variant-numeric: tabular-nums; }
-  .about-stat dd { margin: 0; font-size: 13.5px; color: var(--ink-soft); align-self: center; }
-  .about-stat dt + dd { padding-top: 4px; }
-  .about-content h2 { margin-bottom: 24px; }
-  .about-content p { color: var(--ink-soft); font-size: 16px; max-width: 48ch; }
-  .about-content p strong { color: var(--ink); font-weight: 700; }
-  .about-people {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 22px;
-    margin-top: 32px;
+  .hero-poster figcaption .num {
+    grid-row: 1 / 3;
+    font-family: var(--sans);
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1;
+    letter-spacing: -0.02em;
   }
-  .about-person {
-    background: var(--paper);
-    padding: 22px 24px;
-    border-radius: 2px;
-    border: 1px solid var(--rule-soft);
-  }
-  .about-person h4 { font-size: 14px; margin-bottom: 4px; }
-  .about-person h4 + .micro { margin-bottom: 10px; }
-  .about-person ul { list-style: none; padding: 0; margin: 14px 0 0; font-size: 13.5px; }
-  .about-person ul li { padding: 4px 0; color: var(--ink-soft); }
-  .about-person ul a { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .hero-poster figcaption strong { display: block; color: var(--ink); font-size: 13px; letter-spacing: 0.02em; margin-bottom: 2px; }
+  .hero-poster figcaption span { color: var(--ink-soft); }
 
-  /* SERVICES — single column, clean inline list with rules */
-  .services {
-    padding: 110px 0;
-    background: var(--paper);
-  }
-  .services-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    border-top: 1px solid var(--rule-soft);
-  }
-  .service-row {
-    display: grid;
-    grid-template-columns: 32px 1fr;
-    gap: 18px;
-    padding: 26px 0;
-    border-bottom: 1px solid var(--rule-soft);
-    align-items: start;
-  }
-  .service-row:nth-child(odd) { padding-right: 32px; border-right: 1px solid var(--rule-soft); }
-  .service-row:nth-child(even) { padding-left: 32px; }
-  .service-row svg { color: var(--leaf); margin-top: 4px; }
-  .service-row h3 { margin-bottom: 4px; }
-  .service-row p { font-size: 14px; color: var(--ink-soft); margin: 0; }
-
-  .services-other {
-    margin-top: 32px;
-    text-align: center;
-    font-size: 14px;
-    color: var(--ink-soft);
-  }
-
-  /* QUOTE — full width, single-side rule */
-  .quote {
-    padding: 90px 0;
+  /* ===================== TRUST DATELINE ===================== */
+  .dateline {
     background: var(--ink);
     color: var(--paper);
+    padding: 18px 0;
   }
-  .quote-grid {
+  .dateline-inner {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 32px;
+    font-family: var(--sans);
+    font-size: 11.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--paper);
+    font-weight: 600;
+  }
+  .dateline-inner span { display: inline-flex; align-items: center; gap: 10px; }
+  .dateline-inner span svg { color: var(--rust); }
+  .dateline-inner .sep {
+    color: rgba(250,245,233,0.35);
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  /* ===================== FEATURE SPREAD ===================== */
+  .feature {
+    padding: 110px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .feature-head {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 48px;
-    align-items: center;
-    max-width: 980px;
-    margin: 0 auto;
+    grid-template-columns: 7fr 5fr;
+    align-items: end;
+    gap: 56px;
+    margin-bottom: 56px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--ink);
   }
-  .quote-mark {
-    font-family: Georgia, serif;
-    font-size: 100px;
-    line-height: 0.8;
+  .feature-head h2 { color: var(--ink); max-width: 14ch; }
+  .feature-head .meta { color: var(--ink-soft); font-size: 14px; max-width: 30em; line-height: 1.55; }
+
+  .feature-spread {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .feature-spread figure { margin: 0; }
+  .feature-spread figure img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+  }
+  .feature-spread figcaption {
+    margin-top: 14px;
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .feature-text .kicker { display: inline-block; margin-bottom: 14px; }
+  .feature-text h3 { font-size: clamp(1.4rem, 2.2vw, 1.85rem); color: var(--ink); margin-bottom: 18px; line-height: 1.18; }
+  .feature-text .lede {
+    font-size: 17px;
+    color: var(--ink-medium);
+    line-height: 1.65;
+  }
+  .feature-text .lede::first-letter {
+    font-family: var(--serif);
+    font-size: 4.4em;
+    float: left;
+    line-height: 0.9;
+    padding: 8px 12px 0 0;
     color: var(--rust);
     font-weight: 700;
   }
-  .quote blockquote {
-    margin: 0;
-    font-size: clamp(1.2rem, 2.2vw, 1.7rem);
-    font-weight: 400;
-    color: var(--paper);
-    line-height: 1.4;
-  }
-  .quote cite { display: block; margin-top: 18px; font-style: normal; font-size: 13px; color: rgba(253,249,236,0.65); letter-spacing: 0.04em; }
-  .quote cite em { color: var(--rust-soft); font-style: normal; }
+  .feature-text .lede + p { color: var(--ink-medium); font-size: 16px; }
 
-  /* CTA — split layout */
-  .cta {
+  /* ===================== PORTFOLIO INDEX ===================== */
+  .portfolio {
     padding: 110px 0;
-    background: var(--sand);
+    background: var(--paper-deep);
+    border-bottom: 1px solid var(--rule);
   }
-  .cta-grid {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 64px;
+  .portfolio-head {
+    display: flex;
+    justify-content: space-between;
     align-items: end;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding-bottom: 24px;
+    margin-bottom: 48px;
+    border-bottom: 1px solid var(--ink);
   }
-  .cta-text h2 { margin-bottom: 16px; }
-  .cta-text p { color: var(--ink-soft); font-size: 16px; max-width: 36ch; margin-bottom: 28px; }
-  .cta-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .portfolio-head h2 { color: var(--ink); max-width: 18ch; }
+  .portfolio-head .meta { color: var(--ink-soft); font-size: 14px; max-width: 26em; line-height: 1.55; }
 
-  .cta-card {
-    background: var(--paper);
-    border: 1px solid var(--rule-soft);
-    padding: 32px;
-    border-radius: 2px;
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 32px 24px;
   }
-  .cta-card h3 { font-size: 14px; margin-bottom: 18px; }
-  .cta-contacts { display: grid; gap: 18px; }
-  .cta-contact { padding-top: 14px; border-top: 1px solid var(--rule-soft); }
-  .cta-contact:first-child { padding-top: 0; border-top: 0; }
-  .cta-contact .name { font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 6px; }
-  .cta-contact .role { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 8px; }
-  .cta-contact a { display: block; font-size: 13.5px; color: var(--ink); padding: 1px 0; font-variant-numeric: tabular-nums; }
-  .cta-contact a:hover { color: var(--rust); text-decoration: none; }
+  /* asymmetric cells */
+  .portfolio-grid > .item:nth-child(1) { grid-column: span 7; }
+  .portfolio-grid > .item:nth-child(2) { grid-column: span 5; }
+  .portfolio-grid > .item:nth-child(3) { grid-column: span 5; }
+  .portfolio-grid > .item:nth-child(4) { grid-column: span 7; }
 
-  /* FOOTER — single horizontal line */
-  footer {
+  .portfolio-grid figure { margin: 0; }
+  .portfolio-grid figure img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    transition: filter 240ms ease;
+  }
+  .portfolio-grid figure:hover img { filter: brightness(1.03) saturate(1.05); }
+  .portfolio-grid figcaption {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--ink);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 4px 14px;
+    align-items: baseline;
+    font-family: var(--sans);
+  }
+  .portfolio-grid figcaption .num {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--rust);
+    letter-spacing: 0.04em;
+    font-variant-numeric: tabular-nums;
+  }
+  .portfolio-grid figcaption .title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .portfolio-grid figcaption .tag {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .portfolio-foot {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .portfolio-foot a {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink);
+    border-bottom: 2px solid var(--rust);
+    padding-bottom: 2px;
+  }
+  .portfolio-foot .meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+
+  /* ===================== ABOUT SPREAD ===================== */
+  .about {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .about-head { margin-bottom: 56px; padding-bottom: 24px; border-bottom: 1px solid var(--ink); }
+  .about-head .kicker { margin-bottom: 16px; display: inline-block; }
+  .about-head h2 { max-width: 18ch; color: var(--ink); }
+
+  .about-spread {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .about-text { columns: 1; max-width: 38em; }
+  .about-text p:first-child::first-letter {
+    font-family: var(--serif);
+    font-size: 4.4em;
+    float: left;
+    line-height: 0.9;
+    padding: 8px 12px 0 0;
+    color: var(--rust);
+    font-weight: 700;
+  }
+  .about-pullquote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.5rem, 2.4vw, 1.85rem);
+    line-height: 1.32;
+    color: var(--ink);
+    border-top: 2px solid var(--rust);
+    border-bottom: 1px solid var(--ink);
+    padding: 28px 0 26px;
+    margin: 36px 0;
+    max-width: 28em;
+  }
+  .about-pullquote .mono { display: block; margin-top: 12px; color: var(--ink-soft); font-style: normal; }
+
+  .about-side {
+    border-left: 1px solid var(--rule);
+    padding-left: 40px;
+  }
+  .stats { margin-bottom: 40px; }
+  .stat {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .stat:first-child { padding-top: 0; }
+  .stat-num {
+    font-family: var(--sans);
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 0.9;
+    letter-spacing: -0.025em;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-num em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--rust); font-size: 0.7em; vertical-align: super; margin-left: 2px; }
+  .stat-label { font-size: 13.5px; color: var(--ink-medium); line-height: 1.5; align-self: center; }
+
+  .people { display: grid; grid-template-columns: 1fr; gap: 18px; }
+  .person {
+    background: var(--paper-card);
+    border: 1px solid var(--rule);
+    padding: 22px 24px;
+    position: relative;
+  }
+  .person::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 36px;
+    height: 4px;
+    background: var(--rust);
+  }
+  .person-name {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .person-role {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 14px;
+  }
+  .person-contact {
+    display: grid;
+    gap: 4px;
+    font-size: 14px;
+    font-family: var(--sans);
+  }
+  .person-contact a { color: var(--ink); font-variant-numeric: tabular-nums; }
+  .person-contact a:hover { color: var(--rust); }
+
+  /* ===================== SERVICES INDEX ===================== */
+  .services {
+    padding: 120px 0;
+    background: var(--paper-deep);
+    border-bottom: 1px solid var(--rule);
+  }
+  .services-head {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    align-items: end;
+    gap: 56px;
+    padding-bottom: 24px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .services-head h2 { color: var(--ink); max-width: 16ch; }
+  .services-head .meta { color: var(--ink-soft); font-size: 14px; max-width: 28em; line-height: 1.55; }
+
+  .services-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .services-list li {
+    display: grid;
+    grid-template-columns: 70px 1fr 2fr;
+    gap: 32px;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+    transition: background 200ms ease;
+  }
+  .services-list li:hover { background: var(--paper); }
+  .services-list .num {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    color: var(--rust);
+    font-weight: 700;
+  }
+  .services-list .name {
+    font-family: var(--sans);
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .services-list .desc {
+    color: var(--ink-medium);
+    font-size: 15px;
+    line-height: 1.55;
+    max-width: 38em;
+  }
+  .services-foot {
+    text-align: right;
+    padding-top: 24px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .services-foot a {
+    color: var(--ink);
+    border-bottom: 1px solid var(--rust);
+    padding-bottom: 2px;
+  }
+
+  /* ===================== TESTIMONIAL ===================== */
+  .testimonial {
+    padding: 120px 0;
     background: var(--ink);
-    color: rgba(253,249,236,0.7);
-    padding: 48px 0 32px;
-    font-size: 13.5px;
+    color: var(--paper);
+    text-align: center;
+  }
+  .testimonial .container-tight { display: flex; flex-direction: column; align-items: center; }
+  .testimonial .kicker { color: rgba(164,71,43,0.95); margin-bottom: 32px; }
+  .testimonial blockquote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    line-height: 1.32;
+    color: var(--paper);
+    margin: 0 0 28px;
+    max-width: 22ch;
+    position: relative;
+  }
+  .testimonial blockquote::before {
+    content: "“";
+    font-family: var(--serif);
+    font-size: 100px;
+    color: var(--rust);
+    line-height: 0;
+    position: relative;
+    top: 28px;
+    margin-right: 6px;
+    font-style: normal;
+  }
+  .testimonial cite {
+    font-style: normal;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(250,245,233,0.55);
+  }
+  .testimonial cite em { color: var(--rust); font-style: normal; }
+
+  /* ===================== KOLOFON / CTA ===================== */
+  .kolofon {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--ink);
+  }
+  .kolofon-head {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: 56px;
+    align-items: end;
+    margin-bottom: 56px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .kolofon-head h2 { max-width: 16ch; color: var(--ink); }
+  .kolofon-head .meta { color: var(--ink-soft); font-size: 14px; max-width: 26em; line-height: 1.55; }
+
+  .kolofon-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--ink);
+    background: var(--paper-card);
+  }
+  .kolofon-card {
+    padding: 36px 32px;
+    border-right: 1px solid var(--rule);
+  }
+  .kolofon-card:last-child { border-right: 0; }
+  .kolofon-card .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--rust);
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .kolofon-card h3 { font-size: 1.15rem; color: var(--ink); margin-bottom: 14px; line-height: 1.2; }
+  .kolofon-card p { font-size: 14.5px; line-height: 1.55; color: var(--ink-medium); margin-bottom: 16px; }
+  .kolofon-card .contact-line { font-family: var(--sans); font-size: 14px; }
+  .kolofon-card .contact-line a { color: var(--ink); font-variant-numeric: tabular-nums; display: block; padding: 2px 0; font-weight: 600; }
+  .kolofon-card .contact-line a:hover { color: var(--rust); }
+  .kolofon-card .contact-line .role { color: var(--ink-soft); font-size: 11px; font-family: var(--mono); letter-spacing: 0.14em; text-transform: uppercase; margin-top: 12px; margin-bottom: 4px; font-weight: 500; display: block; }
+
+  .kolofon-actions {
+    margin-top: 56px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  /* ===================== FOOTER ===================== */
+  footer {
+    padding: 36px 0 32px;
+    background: var(--paper);
   }
   .footer-row {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 48px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid rgba(253,249,236,0.12);
-    margin-bottom: 24px;
+    grid-template-columns: auto 1fr auto;
+    gap: 32px;
+    align-items: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 18px;
   }
-  footer a { color: rgba(253,249,236,0.85); }
-  footer a:hover { color: var(--rust-soft); text-decoration: none; }
-  footer .monogram { background: var(--paper); color: var(--ink); }
-  footer .brand-name { color: var(--paper); }
-  footer .brand-tag { color: rgba(253,249,236,0.5); }
-  .footer-col-title { color: var(--paper); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
-  footer ul { list-style: none; padding: 0; margin: 0; }
-  footer ul li { padding: 4px 0; }
+  .footer-mark {
+    font-family: var(--sans);
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+  .footer-mark .amp { color: var(--rust); }
   .footer-meta {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-    color: rgba(253,249,236,0.45);
-    font-size: 12.5px;
+    justify-self: center;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-align: center;
   }
-  address { font-style: normal; }
+  .footer-meta span + span::before { content: " · "; color: var(--rule); }
+  .footer-cred {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .footer-cred a { color: var(--ink); }
 
-  /* RESPONSIVE */
-  @media (max-width: 1024px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-    .hero-photo { max-width: 540px; aspect-ratio: 4/5; }
-    .portfolio-feature { grid-template-columns: 1fr; gap: 28px; }
-    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-    .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    .cta-grid { grid-template-columns: 1fr; gap: 40px; }
-    .footer-row { grid-template-columns: 1fr; gap: 32px; }
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width: 1100px) {
+    .hero-grid,
+    .feature-head,
+    .feature-spread,
+    .about-spread,
+    .services-head,
+    .kolofon-head { grid-template-columns: 1fr; gap: 48px; }
+    .feature-head, .services-head { align-items: start; }
+    .hero-poster { max-width: 560px; }
+    .about-side { border-left: 0; padding-left: 0; padding-top: 32px; border-top: 1px solid var(--rule); }
+    .portfolio-grid > .item:nth-child(n) { grid-column: span 6; }
+    .kolofon-cards { grid-template-columns: 1fr; }
+    .kolofon-card { border-right: 0; border-bottom: 1px solid var(--rule); }
+    .kolofon-card:last-child { border-bottom: 0; }
   }
   @media (max-width: 720px) {
-    .topbar-inner { grid-template-columns: auto auto; gap: 16px; }
-    .topbar nav { display: none; }
-    .topbar-phone { display: none; }
-    .hero { padding: 64px 0 72px; }
-    .hero-photo-meta { left: 0; bottom: 0; }
-    .portfolio, .about, .services, .cta { padding: 72px 0; }
-    .services-grid { grid-template-columns: 1fr; }
-    .service-row:nth-child(odd) { padding-right: 0; border-right: 0; }
-    .service-row:nth-child(even) { padding-left: 0; }
-    .about-people { grid-template-columns: 1fr; }
+    .container, .container-tight { padding: 0 22px; }
+    .masthead-meta { display: none; }
+    .masthead-main { gap: 16px; grid-template-columns: 1fr auto; }
+    .masthead-nav, .masthead-phone { display: none; }
+    .hero { padding: 40px 0 56px; }
+    .hero-grid { gap: 36px; }
+    .feature, .portfolio, .about, .services, .testimonial, .kolofon { padding: 72px 0; }
+    .portfolio-grid { gap: 28px 18px; }
+    .portfolio-grid > .item:nth-child(n) { grid-column: span 12; }
+    .services-list li { grid-template-columns: 50px 1fr; }
+    .services-list .desc { grid-column: 2; padding-top: 6px; }
+    .footer-row { grid-template-columns: 1fr; text-align: center; gap: 12px; }
+    .footer-meta { justify-self: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
   }
 </style>
 </head>
 <body>
 
-<header class="topbar">
-  <div class="wrap topbar-inner">
-    <a href="/" class="brand">
-      <span class="monogram">PA</span>
-      <span>
-        <span class="brand-name">Peter Agger</span>
-        <span class="brand-tag">Anlægsgartner · 1987</span>
-      </span>
-    </a>
-    <nav aria-label="Hovednavigation">
+<!-- ================== MASTHEAD ================== -->
+<header class="masthead">
+  <div class="container masthead-top">
+    <div class="masthead-meta">
+      <span>Aarhus &amp; Østjylland</span>
+      <span>Etableret 1987</span>
+      <span>DAG-medlem · Håndværkergaranti</span>
+    </div>
+    <div class="masthead-meta">
+      <span>Bygvangen 24, 8200 Aarhus N</span>
+    </div>
+  </div>
+  <div class="container masthead-main">
+    <a href="/" class="wordmark">PETER<span class="amp">&amp;</span>JOYCE AGGER</a>
+    <nav class="masthead-nav" aria-label="Hovednavigation">
       <ul>
+        <li><a href="#feature">Feature</a></li>
         <li><a href="#portfolio">Portefølje</a></li>
         <li><a href="#about">Om os</a></li>
         <li><a href="#services">Ydelser</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
     </nav>
-    <div class="topbar-actions">
-      <a href="tel:+4528355113" class="topbar-phone">28 35 51 13</a>
+    <div class="masthead-actions">
+      <a href="tel:+4528355113" class="masthead-phone">+45 28 35 51 13</a>
       <a href="#kontakt" class="btn btn-fill">Beskriv dit projekt</a>
     </div>
   </div>
 </header>
 
+<!-- ================== HERO ================== -->
 <section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="hero-eyebrow"><span>Aarhus &amp; Østjylland · siden 1987</span></div>
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <span class="kicker">Anlægsgartner siden 1987</span>
       <h1>Den have I egentlig <em>burde</em> have haft hele tiden.</h1>
       <p class="hero-rim">"Har du ondt i maven og ukrudt i haven, så ring til Agger — han kommer og hakker."</p>
+      <p class="hero-byline">Ægteparret <strong>Peter og Joyce Agger</strong> driver et lille familie­firma med fokus på anlæg, vedligeholdelse og havekonsulent — for private og kommunale haver i Østjylland.</p>
       <div class="hero-actions">
         <a href="#kontakt" class="btn btn-fill">Beskriv dit projekt</a>
-        <a href="tel:+4528355113" class="btn btn-ghost">Ring 28 35 51 13</a>
+        <a href="tel:+4528355113" class="btn">Ring 28 35 51 13</a>
       </div>
     </div>
-    <div class="hero-photo">
-      <img src="https://peteragger.com/seekings/uploads/Bel%C3%A6gning-Risskov.jpg" alt="Belægning, Risskov — projekt af Peter Agger" loading="eager" decoding="async">
-      <div class="hero-photo-meta">
-        <strong>Belægning</strong>
-        Risskov · privatprojekt
-      </div>
+    <div class="hero-poster">
+      <figure>
+        <img src="https://peteragger.com/seekings/uploads/Bel%C3%A6gning-Risskov.jpg" alt="Belægning, Risskov — privatprojekt" loading="eager" decoding="async">
+        <figcaption>
+          <span class="num">№01</span>
+          <strong>Belægning, Risskov</strong>
+          <span></span>
+          <span>Privatprojekt · sandstensbelægning med fald mod afløb</span>
+        </figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<section class="trust-strip">
-  <div class="wrap trust-strip-inner">
-    <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6l-8-4z"/></svg> DAG-medlem · Håndværkergaranti</span>
-    <em>·</em>
-    <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> FACET-tilknyttet</span>
-    <em>·</em>
-    <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 38 års erfaring</span>
-    <em>·</em>
-    <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 6 8 11 12 16 16 11 16 6 12 2z"/></svg> Miljøvenlig profil</span>
+<!-- ================== TRUST DATELINE ================== -->
+<div class="dateline" aria-label="Tilknytning og certifikater">
+  <div class="container dateline-inner">
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6l-8-4z"/></svg> DAG-medlem</span>
+    <span class="sep">/</span>
+    <span>Håndværkergaranti</span>
+    <span class="sep">/</span>
+    <span>FACET-tilknyttet</span>
+    <span class="sep">/</span>
+    <span>38 år i faget</span>
+    <span class="sep">/</span>
+    <span>CVR 15348445</span>
   </div>
-</section>
+</div>
 
-<section class="portfolio" id="portfolio">
-  <div class="wrap">
-    <div class="section-head">
+<!-- ================== FEATURE SPREAD ================== -->
+<section class="feature" id="feature">
+  <div class="container">
+    <header class="feature-head">
       <div>
-        <div class="label">Udvalgte projekter</div>
-        <h2>Lavet i Østjylland — siden 1987.</h2>
+        <span class="kicker">Aktuelt projekt — Sandstensbelægning</span>
+        <h2 style="margin-top:14px;">Et stykke håndværk der bliver smukkere over årene.</h2>
       </div>
-      <p class="section-head-meta">Et udsnit af de seneste haver, gårdrenoveringer, terrasser og belægninger. Klik dig rundt for kontekst og dimensioner.</p>
-    </div>
+      <p class="meta">Hver belægning er et lille studie i materiale, fald og fuge. Her er et udvalgt projekt vi for nyligt afsluttede — en privat indkørsel og terrasse i sandsten med farvemix karamel.</p>
+    </header>
 
-    <article class="portfolio-feature">
-      <div class="feature-img">
+    <div class="feature-spread">
+      <figure>
         <img src="https://peteragger.com/seekings/uploads/Ny-sandstensbel%C3%A6gning-farve-mix-karamel.jpg" alt="Ny sandstensbelægning — farvemix karamel" loading="lazy" decoding="async">
-      </div>
+        <figcaption>№02 · Ny sandstensbelægning · farvemix karamel</figcaption>
+      </figure>
       <div class="feature-text">
-        <span class="label">Belægning</span>
-        <h3>Ny sandstensbelægning — farvemix karamel</h3>
-        <p>Indkørsel og terrasse i sandsten med fuget overgang og sat med fald mod afløb. Materialet patinerer naturligt over årene.</p>
+        <span class="kicker">Materiale &amp; metode</span>
+        <h3>Sandsten patinerer naturligt — derfor sætter vi det med plads til at ælde.</h3>
+        <p class="lede">Sandsten er et levende materiale. Det skifter farve, optager sol, mørkner i regn og ælder med ynde — hvis det bliver lagt rigtigt. Vi sætter det med fugemørtel der følger materialets bevægelse, og kantsikrer med stødfri overgang til græs.</p>
+        <p>Indkørslen i Risskov er udført med fald mod afløb, så regnvand ikke samler sig ved garageporten. Farvemix karamel giver dybde uden at virke uroligt — særligt når det patinerer.</p>
       </div>
-    </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================== PORTFOLIO INDEX ================== -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <header class="portfolio-head">
+      <div>
+        <span class="kicker">Udvalgte projekter</span>
+        <h2 style="margin-top:14px;">Lavet i Østjylland — fire haver, én håndskrift.</h2>
+      </div>
+      <p class="meta">Et udsnit af de seneste haver, gårdrenoveringer og belægninger. Klik dig rundt, eller se hele porteføljen for kontekst og dimensioner.</p>
+    </header>
 
     <div class="portfolio-grid">
-      <figure>
+      <figure class="item">
         <img src="https://peteragger.com/seekings/uploads/beplantning-i-lille-gaardhave2.jpg" alt="Beplantning i lille gårdhave" loading="lazy" decoding="async">
         <figcaption>
-          <span class="label">Beplantning</span>
-          Beplantning i lille gårdhave
+          <span class="num">№03</span>
+          <span class="title">Beplantning i lille gårdhave</span>
+          <span class="tag">Beplantning</span>
         </figcaption>
       </figure>
-      <figure>
+      <figure class="item">
         <img src="https://peteragger.com/seekings/uploads/opsaetning-af-hegn-og-laage2.jpg" alt="Opsætning af hegn og låge" loading="lazy" decoding="async">
         <figcaption>
-          <span class="label">Hegn</span>
-          Opsætning af hegn og låge
+          <span class="num">№04</span>
+          <span class="title">Opsætning af hegn og låge</span>
+          <span class="tag">Hegn</span>
         </figcaption>
       </figure>
-      <figure>
+      <figure class="item">
         <img src="https://peteragger.com/seekings/uploads/belaegning-lystrup.jpg" alt="Belægningsopgaver, Lystrup" loading="lazy" decoding="async">
         <figcaption>
-          <span class="label">Belægning</span>
-          Belægningsopgaver, Lystrup
+          <span class="num">№05</span>
+          <span class="title">Belægningsopgaver, Lystrup</span>
+          <span class="tag">Belægning</span>
         </figcaption>
       </figure>
-      <figure>
+      <figure class="item">
         <img src="https://peteragger.com/seekings/uploads/hh1.jpg" alt="Have i Hornslet" loading="lazy" decoding="async">
         <figcaption>
-          <span class="label">Total-projekt</span>
-          Have i Hornslet
+          <span class="num">№06</span>
+          <span class="title">Have i Hornslet</span>
+          <span class="tag">Total-projekt</span>
         </figcaption>
       </figure>
     </div>
 
     <div class="portfolio-foot">
       <a href="https://peteragger.com/inspiration/">Se hele porteføljen — 19 projekter</a>
+      <span class="meta">Aarhus · Risskov · Lystrup · Hornslet · Tilst</span>
     </div>
   </div>
 </section>
 
+<!-- ================== ABOUT SPREAD ================== -->
 <section class="about" id="about">
-  <div class="wrap about-grid">
-    <div class="about-content">
-      <span class="label">Om Peter &amp; Joyce</span>
-      <h2 style="margin-top:14px;">Et lille familie­firma. Drevet siden 1987.</h2>
-      <p>Peter startede firmaet alene i 1987. Senere trådte Joyce til, og i dag drives <strong>Peter Agger Anlægsgartner</strong> som et ægtepar. Peter tager kunderne på anlægsopgaver og lærlinge­plejen; Joyce sidder med vedligeholdelses­kunder, plante­opgaver og det administrative.</p>
-      <p>Det er et bevidst valg at holde firmaet småt nok til, at I taler med de samme to mennesker fra første tilbud til sidste plante­opgave 10 år senere.</p>
-    </div>
+  <div class="container">
+    <header class="about-head">
+      <span class="kicker">Om Peter &amp; Joyce</span>
+      <h2 style="margin-top:14px;">Et familie­firma. Drevet siden 1987 — af de samme to mennesker.</h2>
+    </header>
 
-    <div>
-      <dl class="about-stat">
-        <dt>1987</dt><dd>Året Peter startede firmaet — i en tid hvor anlægs­gartner­faget stadig var håndværk uden lasertryl.</dd>
-        <dt>2</dt><dd>Lokationer · Bygvangen 24, 8200 Aarhus N</dd>
-        <dt>DAG</dt><dd>Medlemskab af Danske Anlægsgartner — det giver jer Håndværker­garantien og en klagenævns­ordning hvis det går galt.</dd>
-      </dl>
+    <div class="about-spread">
+      <div class="about-text">
+        <p>Peter startede firmaet i 1987 — i en tid hvor anlægsgartner­faget stadig var håndværk uden lasertryl. Senere trådte Joyce til, og i dag drives <strong>Peter Agger Anlægsgartner</strong> som et ægtepar fra Bygvangen i Aarhus N.</p>
 
-      <div class="about-people">
-        <article class="about-person">
-          <h4>Peter Agger</h4>
-          <span class="micro">Anlægsopgaver · tilbud</span>
-          <ul>
-            <li><a href="tel:+4528355113">+45 28 35 51 13</a></li>
-            <li><a href="mailto:peter@peteragger.com">peter@peteragger.com</a></li>
-          </ul>
-        </article>
-        <article class="about-person">
-          <h4>Joyce Agger</h4>
-          <span class="micro">Vedligeholdelse · planter</span>
-          <ul>
-            <li><a href="tel:+4528359594">+45 28 35 95 94</a></li>
-            <li><a href="mailto:joyce@peteragger.com">joyce@peteragger.com</a></li>
-          </ul>
-        </article>
+        <blockquote class="about-pullquote">
+          "Vi vil hellere være de samme to mennesker fra første tilbud til sidste plante­opgave 10 år senere — end et stort firma I aldrig kommer til at kende."
+          <span class="mono">— Peter &amp; Joyce</span>
+        </blockquote>
+
+        <p>Peter tager kunderne på anlægs­opgaver, tilbud og lærlinge­plejen. Joyce sidder med vedligeholdelses­kunder, plante­opgaver og det administrative. Det er et bevidst valg at holde firmaet småt nok til, at I taler med os — ikke en koordinator.</p>
+        <p>Vi er <strong>DAG-medlemmer</strong> (det giver Håndværker­garantien og en klagenævns­ordning hvis det går galt) og <strong>FACET-tilknyttet</strong> for lærlingeuddannelsen.</p>
       </div>
+
+      <aside class="about-side">
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-num">1987</span>
+            <span class="stat-label">Året Peter startede firmaet — håndværk uden afkortninger.</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">38<em>år</em></span>
+            <span class="stat-label">Sammen­lagt erfaring som anlægsgartnere i Østjylland.</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">2</span>
+            <span class="stat-label">Ejere · ægteparret Peter og Joyce Agger.</span>
+          </div>
+        </div>
+
+        <div class="people">
+          <article class="person">
+            <div class="person-name">Peter Agger</div>
+            <div class="person-role">Anlæg · tilbud · lærlinge</div>
+            <div class="person-contact">
+              <a href="tel:+4528355113">+45 28 35 51 13</a>
+              <a href="mailto:peter@peteragger.com">peter@peteragger.com</a>
+            </div>
+          </article>
+          <article class="person">
+            <div class="person-name">Joyce Agger</div>
+            <div class="person-role">Vedligeholdelse · planter · admin</div>
+            <div class="person-contact">
+              <a href="tel:+4528359594">+45 28 35 95 94</a>
+              <a href="mailto:joyce@peteragger.com">joyce@peteragger.com</a>
+            </div>
+          </article>
+        </div>
+      </aside>
     </div>
   </div>
 </section>
 
+<!-- ================== SERVICES INDEX ================== -->
 <section class="services" id="services">
-  <div class="wrap-tight">
-    <div class="section-head">
+  <div class="container">
+    <header class="services-head">
       <div>
-        <div class="label">Hvad vi laver</div>
-        <h2>Hele haven — fra første skitse til daglig drift.</h2>
+        <span class="kicker">Hvad vi laver</span>
+        <h2 style="margin-top:14px;">Hele haven — fra første skitse til daglig drift.</h2>
       </div>
-    </div>
+      <p class="meta">Seks hovedydelser. Derudover tager vi græsanlæg, legepladser, nedgravning af trampoliner og andre haveopgaver i fast pris eller på timer.</p>
+    </header>
 
-    <div class="services-grid">
-      <div class="service-row">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-        <div>
-          <h3>Belægning</h3>
-          <p>Sandsten, granit, tegl, klinker. Indkørsler og terrasser sat med fald, fugemørtel og kantsikring.</p>
-        </div>
-      </div>
-      <div class="service-row">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 6 8 11 12 16 16 11 16 6 12 2z"/><path d="M5 22c0-4 3-7 7-7s7 3 7 7"/></svg>
-        <div>
-          <h3>Beplantning</h3>
-          <p>Staudebed, bunddække, hække, træer. Tilpasset jordbund, lys og hvor meget pleje I har lyst til at give.</p>
-        </div>
-      </div>
-      <div class="service-row">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="6" y1="6" x2="6" y2="18"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="18" y1="6" x2="18" y2="18"/></svg>
-        <div>
-          <h3>Hegn &amp; låger</h3>
-          <p>Træhegn, raftehegn, læhegn og indkørselslåger — opsat i frostsikker dybde med lod og vater.</p>
-        </div>
-      </div>
-      <div class="service-row">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M5 12c0-4 3-7 7-7s7 3 7 7"/><path d="M9 8L4 3"/><path d="M15 8l5-5"/></svg>
-        <div>
-          <h3>Træfældning &amp; træpleje</h3>
-          <p>Kontrolleret fældning, beskæring og formklip. Rodfræsning, oprydning og bortkørsel som del af opgaven.</p>
-        </div>
-      </div>
-      <div class="service-row">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c2-3 5-3 7 0s5 3 7 0 5-3 4 0"/><path d="M3 18c2-3 5-3 7 0s5 3 7 0 5-3 4 0"/></svg>
-        <div>
-          <h3>Pleje &amp; vedligeholdelse</h3>
-          <p>Faste serviceaftaler eller enkeltbesøg. Græs, hække, lugning, snerydning og glatførebekæmpelse.</p>
-        </div>
-      </div>
-      <div class="service-row">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3"/><path d="M12 19v3"/><path d="M4.22 4.22l2.12 2.12"/><path d="M17.66 17.66l2.12 2.12"/><path d="M2 12h3"/><path d="M19 12h3"/></svg>
-        <div>
-          <h3>Havekonsulent</h3>
-          <p>Få en plan før spaden går i jorden. Planteringsdesign, materialer og budget — typisk 1-2 timers besøg.</p>
-        </div>
-      </div>
-    </div>
+    <ol class="services-list">
+      <li>
+        <span class="num">№ 01</span>
+        <span class="name">Belægning</span>
+        <span class="desc">Sandsten, granit, tegl, klinker. Indkørsler og terrasser sat med fald, fugemørtel og kantsikring.</span>
+      </li>
+      <li>
+        <span class="num">№ 02</span>
+        <span class="name">Beplantning</span>
+        <span class="desc">Staudebed, bunddække, hække og træer. Tilpasset jordbund, lys og hvor meget pleje I har lyst til at give.</span>
+      </li>
+      <li>
+        <span class="num">№ 03</span>
+        <span class="name">Hegn &amp; låger</span>
+        <span class="desc">Træhegn, raftehegn, læhegn og indkørselslåger — opsat i frostsikker dybde med lod og vater.</span>
+      </li>
+      <li>
+        <span class="num">№ 04</span>
+        <span class="name">Træfældning &amp; træpleje</span>
+        <span class="desc">Kontrolleret fældning, beskæring og formklip. Rodfræsning, oprydning og bortkørsel som del af opgaven.</span>
+      </li>
+      <li>
+        <span class="num">№ 05</span>
+        <span class="name">Pleje &amp; vedligeholdelse</span>
+        <span class="desc">Faste serviceaftaler eller enkeltbesøg. Græs, hække, lugning, snerydning og glatførebekæmpelse.</span>
+      </li>
+      <li>
+        <span class="num">№ 06</span>
+        <span class="name">Havekonsulent</span>
+        <span class="desc">Få en plan før spaden går i jorden. Planteringsdesign, materialer og budget — typisk 1-2 timers besøg.</span>
+      </li>
+    </ol>
 
-    <p class="services-other">Plus græsanlæg, legepladser, nedgravning af trampoliner og andre haveopgaver — <a href="https://peteragger.com/vi-udforer/">se den fulde liste</a>.</p>
+    <p class="services-foot">Plus græsanlæg, legepladser, nedgravning af trampoliner og andre haveopgaver — <a href="https://peteragger.com/vi-udforer/">se den fulde liste</a></p>
   </div>
 </section>
 
-<section class="quote">
-  <div class="wrap">
-    <div class="quote-grid">
-      <div class="quote-mark" aria-hidden="true">"</div>
-      <div>
-        <blockquote>[Citat fra en konkret kunde indsættes her — fx en privatkunde der beskriver hvordan I løste deres haveprojekt.]</blockquote>
-        <cite><em>Placeholder</em> — udfyldes med faktisk kunde + lokation når sitet går live</cite>
-      </div>
-    </div>
+<!-- ================== TESTIMONIAL ================== -->
+<section class="testimonial">
+  <div class="container container-tight">
+    <span class="kicker">Hvad kunderne siger</span>
+    <blockquote>[Citat fra en konkret kunde indsættes her — typisk en privatkunde der beskriver hvordan I løste deres haveprojekt.]</blockquote>
+    <cite><em>Placeholder</em> — udfyldes med faktisk kunde + lokation når sitet går live</cite>
   </div>
 </section>
 
-<section class="cta" id="kontakt">
-  <div class="wrap cta-grid">
-    <div class="cta-text">
-      <span class="label">Næste skridt</span>
-      <h2 style="margin-top:12px;">Beskriv dit projekt — vi vender tilbage inden for 24 timer.</h2>
-      <p>Et par linjer om hvad I tænker er nok. Vi ringer tilbage med spørgsmål og et oplæg I kan bruge til budget.</p>
-      <div class="cta-actions">
-        <a href="https://peteragger.com/din-opgave/" class="btn btn-fill">Beskriv dit projekt</a>
-        <a href="mailto:peter@peteragger.com" class="btn btn-ghost">Send en mail</a>
+<!-- ================== KOLOFON / KONTAKT ================== -->
+<section class="kolofon" id="kontakt">
+  <div class="container">
+    <header class="kolofon-head">
+      <div>
+        <span class="kicker">Næste skridt</span>
+        <h2 style="margin-top:14px;">Beskriv dit projekt — vi vender tilbage inden for 24 timer.</h2>
       </div>
-    </div>
+      <p class="meta">Et par linjer om hvad I tænker er nok. Vi ringer tilbage med spørgsmål og et oplæg I kan bruge til budget. Eller ring direkte — vi tager telefonen selv.</p>
+    </header>
 
-    <aside class="cta-card">
-      <h3 class="micro" style="color:var(--ink-mute);">Direkte kontakt</h3>
-      <div class="cta-contacts">
-        <div class="cta-contact">
-          <div class="role">Anlægsopgaver · tilbud</div>
-          <div class="name">Peter Agger</div>
+    <div class="kolofon-cards">
+      <article class="kolofon-card">
+        <span class="num">№ 01</span>
+        <h3>Beskriv jeres projekt online</h3>
+        <p>Send et par linjer + gerne et foto af området. Vi vender tilbage med spørgsmål eller et tidspunkt for besøg.</p>
+        <p class="contact-line">
+          <a href="https://peteragger.com/din-opgave/">Gå til formularen →</a>
+        </p>
+      </article>
+
+      <article class="kolofon-card">
+        <span class="num">№ 02</span>
+        <h3>Ring eller skriv direkte</h3>
+        <p>Begge ejere tager personligt kontakten. Peter på anlægsopgaver, Joyce på vedligeholdelse og planter.</p>
+        <div class="contact-line">
+          <span class="role">Peter Agger</span>
           <a href="tel:+4528355113">+45 28 35 51 13</a>
           <a href="mailto:peter@peteragger.com">peter@peteragger.com</a>
-        </div>
-        <div class="cta-contact">
-          <div class="role">Vedligeholdelse · planter</div>
-          <div class="name">Joyce Agger</div>
+          <span class="role">Joyce Agger</span>
           <a href="tel:+4528359594">+45 28 35 95 94</a>
           <a href="mailto:joyce@peteragger.com">joyce@peteragger.com</a>
         </div>
-      </div>
-    </aside>
+      </article>
+
+      <article class="kolofon-card">
+        <span class="num">№ 03</span>
+        <h3>Besøg eller udsigt</h3>
+        <p>Vi holder til på Bygvangen i Aarhus N. Det meste af arbejdet foregår dog hos jer — vi kommer forbi med skitseblok.</p>
+        <p class="contact-line">
+          Bygvangen 24<br>
+          8200 Aarhus N<br>
+          <a href="https://www.houzz.dk/pro/peteragger" style="margin-top: 10px; display: inline-block;">Houzz-profil →</a>
+        </p>
+      </article>
+    </div>
+
+    <div class="kolofon-actions">
+      <a href="https://peteragger.com/din-opgave/" class="btn btn-fill">Beskriv dit projekt</a>
+      <a href="tel:+4528355113" class="btn">Ring 28 35 51 13</a>
+    </div>
   </div>
 </section>
 
+<!-- ================== FOOTER COLOPHON ================== -->
 <footer>
-  <div class="wrap footer-row">
-    <div>
-      <div class="brand">
-        <span class="monogram">PA</span>
-        <span>
-          <span class="brand-name">Peter Agger</span>
-          <span class="brand-tag">Anlægsgartner · 1987</span>
-        </span>
-      </div>
-      <p style="margin-top: 18px; max-width: 30em;">Anlæg, vedligeholdelse og havekonsulent i Aarhus og Østjylland. Et lille familie­firma drevet af Peter og Joyce.</p>
+  <div class="container">
+    <div class="footer-row">
+      <span class="footer-mark">PETER<span class="amp">&amp;</span>JOYCE AGGER</span>
+      <span class="footer-meta">
+        <span>Anlægsgartner</span>
+        <span>Aarhus &amp; Østjylland</span>
+        <span>Etableret 1987</span>
+        <span>CVR 15348445</span>
+      </span>
+      <span class="footer-cred">Udkast af <a href="https://ajjalytics.dev">Ajjalytics</a></span>
     </div>
-
-    <div>
-      <div class="footer-col-title">Adresse</div>
-      <address>
-        Bygvangen 24<br>
-        8200 Aarhus N<br>
-        CVR 15348445
-      </address>
+    <div class="container" style="text-align:center; padding: 0;">
+      <span class="mono" style="display:block;">© Peter Agger Anlægsgartner · alle projekt­fotos tilhører firmaet</span>
     </div>
-
-    <div>
-      <div class="footer-col-title">Tilknytning</div>
-      <ul>
-        <li>DAG-medlem</li>
-        <li>Håndværkergaranti</li>
-        <li>FACET-tilknyttet</li>
-        <li><a href="https://www.houzz.dk/pro/peteragger">Houzz-profil</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="wrap footer-meta">
-    <span>© Peter Agger Anlægsgartner</span>
-    <span>Udkast af Ajjalytics — <a href="https://ajjalytics.dev">ajjalytics.dev</a></span>
   </div>
 </footer>
 
