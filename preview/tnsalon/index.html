@@ -241,38 +241,36 @@ nav {
 .btn-ghost svg { width: 16px; height: 16px; }
 .btn-ghost .num { font-variant-numeric: tabular-nums; }
 
-/* Hero photo placeholder */
+/* Hero photo */
 .hero-photo {
   position: relative;
   aspect-ratio: 4 / 5;
   background: var(--rose-soft);
   border-radius: 18px;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
-.hero-photo::after {
-  content: '';
+.hero-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-photo-tag {
   position: absolute;
-  top: 18px; right: 18px;
-  width: 56px; height: 56px;
-  border-radius: 50%;
-  background: var(--sage-soft);
-}
-.placeholder-tag {
+  bottom: 14px; left: 14px;
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(255, 255, 255, 0.85);
-  padding: 8px 14px;
+  background: rgba(250, 247, 242, 0.92);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 7px 12px;
   border-radius: 999px;
-  font-size: 0.78rem; font-weight: 500;
-  color: var(--rose-deep);
-  letter-spacing: 0.04em;
+  font-size: 0.72rem; font-weight: 500;
+  color: var(--ink-2);
+  letter-spacing: 0.03em;
   z-index: 1;
 }
-.placeholder-tag::before {
+.hero-photo-tag::before {
   content: '';
-  width: 8px; height: 8px; border-radius: 50%;
+  width: 6px; height: 6px; border-radius: 50%;
   background: var(--rose-deep);
 }
 
@@ -361,24 +359,31 @@ nav {
   background: var(--bg-card);
   border: 1px solid var(--rule);
   border-radius: 16px;
-  padding: 32px 28px;
+  overflow: hidden;
   display: flex; flex-direction: column;
-  gap: 14px;
   transition: border-color 0.2s, transform 0.2s;
 }
 .service-card:hover {
   border-color: var(--sage);
   transform: translateY(-2px);
 }
-.service-icon {
-  width: 44px; height: 44px;
-  display: flex; align-items: center; justify-content: center;
-  background: var(--sage-soft);
-  border-radius: 12px;
-  color: var(--sage-deep);
-  margin-bottom: 6px;
+.service-photo {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--bg-soft);
 }
-.service-icon svg { width: 22px; height: 22px; }
+.service-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.service-card:hover .service-photo img { transform: scale(1.04); }
+.service-body {
+  padding: 24px 26px 28px;
+  display: flex; flex-direction: column;
+  gap: 10px;
+}
 .service-name {
   font-weight: 500;
   font-size: 1.18rem;
@@ -565,6 +570,55 @@ nav {
   border-bottom-color: var(--ink);
 }
 .review-foot svg { width: 14px; height: 14px; }
+
+/* ============================================================
+   ATMOSPHERE STRIP
+============================================================ */
+.atmosphere {
+  padding: clamp(56px, 7vw, 80px) 0 0;
+}
+.atmosphere-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 14px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.atmosphere-tile {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--bg-soft);
+  aspect-ratio: 4 / 3;
+}
+.atmosphere-tile.tall { aspect-ratio: 3 / 4; }
+.atmosphere-tile img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.atmosphere-tile:hover img { transform: scale(1.04); }
+.atmosphere-side {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 14px;
+}
+.atmosphere-side .atmosphere-tile { aspect-ratio: auto; }
+.atmosphere-note {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--ink-3);
+}
+@media (max-width: 720px) {
+  .atmosphere-grid {
+    grid-template-columns: 1fr;
+  }
+  .atmosphere-tile, .atmosphere-side .atmosphere-tile { aspect-ratio: 4 / 3; }
+  .atmosphere-tile.tall { aspect-ratio: 4 / 3; }
+  .atmosphere-side { grid-template-rows: auto auto; }
+}
 
 /* ============================================================
    BOOKING — den vigtigste sektion
@@ -920,8 +974,9 @@ footer {
           </a>
         </div>
       </div>
-      <div class="hero-photo" aria-hidden="true">
-        <span class="placeholder-tag">Foto fra Tramanh — udfyldes</span>
+      <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1525828676209-855204720969?w=900&q=75&auto=format&fit=crop" alt="" loading="eager" decoding="async" width="600" height="750">
+        <span class="hero-photo-tag">Stemningsbillede · erstattes med dit eget</span>
       </div>
     </div>
   </div>
@@ -950,41 +1005,33 @@ footer {
 
     <div class="service-grid">
       <div class="service-card">
-        <div class="service-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="6" cy="6" r="3"/>
-            <circle cx="6" cy="18" r="3"/>
-            <line x1="20" y1="4" x2="8.12" y2="15.88"/>
-            <line x1="14.47" y1="14.48" x2="20" y2="20"/>
-            <line x1="8.12" y1="8.12" x2="12" y2="12"/>
-          </svg>
+        <div class="service-photo">
+          <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=600&q=70&auto=format&fit=crop" alt="" loading="lazy" decoding="async" width="400" height="300">
         </div>
-        <h3 class="service-name">Klip & lag</h3>
-        <p class="service-desc">Klassisk damefrisør-klip og bløde lag der falder naturligt. Sara fik Jennifer Aniston-lag — du kan også få det look du drømmer om.</p>
+        <div class="service-body">
+          <h3 class="service-name">Klip & lag</h3>
+          <p class="service-desc">Klassisk damefrisør-klip og bløde lag der falder naturligt. Sara fik Jennifer Aniston-lag — du kan også få det look du drømmer om.</p>
+        </div>
       </div>
 
       <div class="service-card">
-        <div class="service-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C8 6 6 9 6 12a6 6 0 0 0 12 0c0-3-2-6-6-10z"/>
-            <path d="M9 14c0 1.5 1.3 3 3 3s3-1.5 3-3"/>
-          </svg>
+        <div class="service-photo">
+          <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=600&q=70&auto=format&fit=crop" alt="" loading="lazy" decoding="async" width="400" height="300">
         </div>
-        <h3 class="service-name">Opsat hår</h3>
-        <p class="service-desc">Til fest, bryllup eller bare en aften der skal være lidt mere. Tramanh "makes the wildest curls" — sagde Marianne på Google.</p>
+        <div class="service-body">
+          <h3 class="service-name">Opsat hår</h3>
+          <p class="service-desc">Til fest, bryllup eller bare en aften der skal være lidt mere. Tramanh "makes the wildest curls" — sagde Marianne på Google.</p>
+        </div>
       </div>
 
       <div class="service-card">
-        <div class="service-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 12c0-5 4-9 9-9s9 4 9 9-4 9-9 9"/>
-            <path d="M3 12h6"/>
-            <path d="M12 3v6"/>
-            <circle cx="12" cy="12" r="2"/>
-          </svg>
+        <div class="service-photo">
+          <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&q=70&auto=format&fit=crop" alt="" loading="lazy" decoding="async" width="400" height="300">
         </div>
-        <h3 class="service-name">Farve & styling</h3>
-        <p class="service-desc">Skånsom farvebehandling og styling der passer til dit hår og din hverdag. Ring inden besøg så vi finder det rigtige produkt sammen.</p>
+        <div class="service-body">
+          <h3 class="service-name">Farve & styling</h3>
+          <p class="service-desc">Skånsom farvebehandling og styling der passer til dit hår og din hverdag. Ring inden besøg så vi finder det rigtige produkt sammen.</p>
+        </div>
       </div>
     </div>
 
@@ -1088,6 +1135,26 @@ footer {
         </svg>
       </a>
     </div>
+  </div>
+</section>
+
+<!-- ATMOSPHERE -->
+<section class="atmosphere" aria-label="Stemningsbilleder">
+  <div class="wrap">
+    <div class="atmosphere-grid">
+      <div class="atmosphere-tile tall">
+        <img src="https://images.unsplash.com/photo-1496440737103-cd596325d314?w=900&q=70&auto=format&fit=crop" alt="" loading="lazy" decoding="async" width="600" height="800">
+      </div>
+      <div class="atmosphere-side">
+        <div class="atmosphere-tile">
+          <img src="https://images.unsplash.com/photo-1595475884562-073c30d45670?w=600&q=70&auto=format&fit=crop" alt="" loading="lazy" decoding="async" width="400" height="300">
+        </div>
+        <div class="atmosphere-tile">
+          <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&q=70&auto=format&fit=crop" alt="" loading="lazy" decoding="async" width="400" height="300">
+        </div>
+      </div>
+    </div>
+    <p class="atmosphere-note">Stemningsbilleder — erstattes med fotos fra TN Salon når Tramanh sender dem.</p>
   </div>
 </section>
 
