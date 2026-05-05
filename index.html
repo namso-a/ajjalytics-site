@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajjalytics | Hjemmesider der skaffer kunder</title>
-    <meta name="description" content="Professionelle hjemmesider til lokale virksomheder i Danmark. Landingsside fra 2.500 kr. fast pris, eller skræddersyet løsning efter aftale. Gratis udkast inden for 12 timer.">
-    <meta property="og:title" content="Ajjalytics | Hjemmesider til lokale virksomheder">
-    <meta property="og:description" content="Hjemmesider til lokale virksomheder i Danmark. Fast pris aftalt på forhånd — ingen timepriser. Gratis udkast inden for 12 timer.">
+    <title>Ajjalytics | Hjemmesiden er gratis. Hosting fra 299 kr/md.</title>
+    <meta name="description" content="Hjemmesider, webshops og konverterings-fix til lokale virksomheder. Selve hjemmesiden bygger jeg gratis — I betaler kun den månedlige drift fra 299 kr/md (hosting, opdateringer, support). Gratis udkast inden for 12 timer.">
+    <meta property="og:title" content="Ajjalytics | Hjemmesiden er gratis. Hosting fra 299 kr/md.">
+    <meta property="og:description" content="Hjemmesider, webshops og konverterings-fix til lokale virksomheder i Danmark. 0 kr setup. Drift fra 299 kr/md — alt inkluderet. Gratis udkast inden for 12 timer.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ajjalytics.dev">
     <meta property="og:locale" content="da_DK">
@@ -17,7 +17,7 @@
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         "name": "Ajjalytics",
-        "description": "Professionelle hjemmesider til lokale virksomheder i Danmark",
+        "description": "Hjemmesider, webshops og konverterings-fix til lokale virksomheder. Gratis setup, månedlig drift fra 299 kr.",
         "url": "https://ajjalytics.dev",
         "email": "othman@ajjalytics.dev",
         "address": {
@@ -25,29 +25,52 @@
             "addressLocality": "Aarhus",
             "addressCountry": "DK"
         },
-        "priceRange": "2500-15000 DKK",
+        "priceRange": "299-799 DKK/month",
         "areaServed": "Denmark"
     },
     {
         "@context": "https://schema.org",
         "@type": "Service",
-        "serviceType": "Webdesign",
+        "serviceType": "Webdesign og hosting",
         "provider": {"@type": "ProfessionalService", "name": "Ajjalytics"},
         "offers": [
             {
                 "@type": "Offer",
-                "price": "2500",
-                "priceCurrency": "DKK",
-                "description": "Landingsside inkl. opsætning af domæne, hosting og HTTPS"
+                "name": "Hjemmeside",
+                "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "299",
+                    "priceCurrency": "DKK",
+                    "unitCode": "MON",
+                    "referenceQuantity": {
+                        "@type": "QuantitativeValue",
+                        "value": "1",
+                        "unitCode": "MON"
+                    }
+                },
+                "description": "Landingsside eller simpel hjemmeside — gratis at bygge. Månedlig drift dækker hosting, domæne, SSL, smårettelser og support."
             },
             {
                 "@type": "Offer",
+                "name": "Hjemmeside+",
                 "priceSpecification": {
-                    "@type": "PriceSpecification",
+                    "@type": "UnitPriceSpecification",
+                    "price": "499",
                     "priceCurrency": "DKK",
-                    "minPrice": "5000"
+                    "unitCode": "MON"
                 },
-                "description": "Skræddersyede løsninger: webshop, flere undersider, integrationer, migrering — pris aftales individuelt"
+                "description": "Multi-side hjemmeside med op til 5 undersider, månedlig content-update, SEO-basics og analytics-rapport. Gratis at bygge."
+            },
+            {
+                "@type": "Offer",
+                "name": "Shop / Custom",
+                "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "799",
+                    "priceCurrency": "DKK",
+                    "unitCode": "MON"
+                },
+                "description": "Webshop med checkout, custom integrationer og løbende konverterings-optimering. Pris fra 799 kr/md afhængigt af omfang. Gratis at bygge."
             }
         ]
     },
@@ -55,12 +78,14 @@
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
+            {"@type": "Question", "name": "Er hjemmesiden virkelig gratis?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Selve designet og udviklingen koster jer 0 kr. I betaler kun den månedlige drift (hosting, domæne, opdateringer, support) fra 299 kr/md. Sætter I det aldrig live, betaler I aldrig noget."}},
             {"@type": "Question", "name": "Hvor lang tid tager det?", "acceptedAnswer": {"@type": "Answer", "text": "I får et udkast inden for 12 timer, og den færdige side er typisk klar inden for 24 timer efter godkendelse."}},
             {"@type": "Question", "name": "Skal jeg selv gøre noget teknisk?", "acceptedAnswer": {"@type": "Answer", "text": "Nej. Jeg sætter det hele op: domæne, hosting, email og HTTPS."}},
             {"@type": "Question", "name": "Hvad hvis jeg ikke er tilfreds med udkastet?", "acceptedAnswer": {"@type": "Answer", "text": "Udkastet er gratis og uforpligtende. Kan vi ikke finde et design I er glade for, skylder I ingenting."}},
-            {"@type": "Question", "name": "Hvad dækker de 300 kr. om måneden?", "acceptedAnswer": {"@type": "Answer", "text": "Hosting, domænefornyelse, teknisk vedligeholdelse, sikkerhedsopdateringer og support."}},
+            {"@type": "Question", "name": "Hvad er inkluderet i 299 kr/md?", "acceptedAnswer": {"@type": "Answer", "text": "Hosting, domæne, SSL, sikkerhedsopdateringer, smårettelser og direkte support fra mig. Ingen ekstraregninger."}},
+            {"@type": "Question", "name": "Kan jeg opsige?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Måneds-til-måned, ingen lang binding. Ved opsigelse ejer I designet og kan tage det med til en anden host."}},
             {"@type": "Question", "name": "Hvorfor er det billigere end et bureau?", "acceptedAnswer": {"@type": "Answer", "text": "Jeg arbejder alene uden kontorleje og salgsafdeling, og bruger moderne værktøjer der gør processen hurtigere."}},
-            {"@type": "Question", "name": "Kan I lave mere end en landingsside?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Til webshops, flere undersider, integrationer eller migrering fra andre platforme aftaler vi en skræddersyet pris der passer til omfanget — typisk 5.000–15.000 kr. Stadig fast pris, stadig ingen timepriser."}}
+            {"@type": "Question", "name": "Kan I lave mere end en landingsside?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Webshops, multi-side hjemmesider og konverterings-fix på eksisterende sites er en del af tilbuddet. Større omfang lander på Hjemmeside+ (499 kr/md) eller Shop/Custom (fra 799 kr/md)."}}
         ]
     }]
     </script>
@@ -841,6 +866,125 @@
         }
 
         /* ============================================================
+           SERVICES GRID
+        ============================================================ */
+
+        .services-section {
+            padding: 80px 0 56px;
+            background: var(--paper-sage);
+            border-top: 1px solid rgba(31, 122, 74, 0.08);
+        }
+
+        .services-heading {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 48px;
+        }
+
+        .services-heading .section-eyebrow {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--green);
+            background: var(--green-soft);
+            padding: 4px 12px;
+            border-radius: 100px;
+            margin-bottom: 14px;
+        }
+
+        .services-heading h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(1.7rem, 3vw, 2.2rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            color: var(--ink);
+            margin-bottom: 12px;
+        }
+
+        .services-heading h2 em {
+            font-style: italic;
+            font-weight: 300;
+            color: var(--green);
+        }
+
+        .services-heading p {
+            font-size: 0.98rem;
+            color: var(--ink-2);
+            line-height: 1.65;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: #fff;
+            border: 1px solid rgba(31, 122, 74, 0.12);
+            border-radius: var(--r-lg);
+            padding: 28px 26px 24px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--green);
+        }
+
+        .service-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: var(--green-soft);
+            color: var(--green);
+            display: grid;
+            place-items: center;
+            margin-bottom: 18px;
+        }
+
+        .service-card h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.18rem;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 0.92rem;
+            color: var(--ink-2);
+            line-height: 1.6;
+            margin-bottom: 18px;
+            flex: 1;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.15s ease, gap 0.15s ease;
+        }
+
+        .service-link:hover {
+            color: var(--accent-dk);
+            gap: 10px;
+        }
+
+        /* ============================================================
            PROBLEMS
         ============================================================ */
 
@@ -1507,9 +1651,82 @@
 
         .pricing-cards-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 28px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
             align-items: stretch;
+        }
+
+        .pricing-card.popular {
+            border-top: 3px solid var(--accent);
+            box-shadow: var(--shadow-lg), 0 0 80px var(--accent-soft);
+            position: relative;
+            transform: translateY(-6px);
+        }
+
+        .pricing-card .popular-badge {
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 100px;
+            box-shadow: 0 4px 12px rgba(61, 82, 213, 0.3);
+            white-space: nowrap;
+        }
+
+        .price-monthly {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .price-monthly .price-num {
+            font-family: 'Fraunces', serif;
+            font-size: 2.8rem;
+            font-weight: 300;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            color: var(--ink);
+        }
+
+        .pricing-card.popular .price-monthly .price-num {
+            background: linear-gradient(135deg, var(--accent), #7c6dd8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .price-monthly .price-unit {
+            font-size: 0.92rem;
+            color: var(--ink-3);
+            font-weight: 500;
+        }
+
+        .price-setup {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--green-soft);
+            color: var(--green);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            padding: 5px 11px;
+            border-radius: 6px;
+            margin-bottom: 6px;
+        }
+
+        .price-setup svg {
+            width: 13px;
+            height: 13px;
+            stroke-width: 2.4;
         }
 
         .pricing-left {}
@@ -1900,6 +2117,21 @@
            RESPONSIVE
         ============================================================ */
 
+        @media (max-width: 1100px) {
+            .pricing-cards-grid {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+                margin: 0 auto;
+                gap: 28px;
+            }
+            .pricing-card.popular {
+                transform: none;
+            }
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
         @media (max-width: 900px) {
             .container { padding: 0 24px; }
 
@@ -1928,10 +2160,6 @@
                 gap: 24px;
             }
 
-            .pricing-cards-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
             .faq-layout {
                 grid-template-columns: 1fr;
                 gap: 36px;
@@ -1944,6 +2172,8 @@
             .comparison-grid {
                 grid-template-columns: 1fr;
             }
+
+            .services-section { padding: 64px 0 40px; }
 
             .nav-links a:not(.nav-cta) { display: none; }
             .nav-burger { display: inline-flex; }
@@ -1959,6 +2189,8 @@
             .hero-h1 { font-size: 2rem; }
             .price-main { font-size: 2.6rem; }
             .bottom-cta-section { padding: 72px 0; }
+            .services-grid { grid-template-columns: 1fr; }
+            .services-heading h2 { font-size: 1.5rem; }
         }
 
     </style>
@@ -2015,7 +2247,7 @@
                     <em class="rotator" id="hero-rotator" data-phrases='["I aldrig fik lavet","I altid har drømt om","der skaffer kunder"]'>I aldrig fik lavet</em>
                 </h1>
                 <p class="hero-sub reveal reveal-delay-2">
-                    De fleste lokale virksomheder ved godt at deres hjemmeside trænger til en opdatering, men det bliver aldrig til noget. Jeg gør det nemt: fast pris aftalt på forhånd, ingen teknisk snak, og en færdig landingsside inden for 24 timer.
+                    Setup er gratis — I betaler kun den månedlige drift fra <strong>299 kr/md</strong>. Hosting, hjælp og opdateringer er inkluderet. Ingen timepriser, ingen overraskelser. Udkast inden for 12 timer.
                 </p>
                 <div class="hero-actions reveal reveal-delay-3">
                     <a href="mailto:othman@ajjalytics.dev?subject=Ny%20hjemmeside&body=Hej%20Othman%2C%0A%0AJeg%20er%20interesseret%20i%20at%20h%C3%B8re%20mere%20om%20en%20ny%20hjemmeside%20til%20min%20virksomhed.%0A%0AVirksomhed%3A%20%0ANuv%C3%A6rende%20hjemmeside%3A%20%0A%0AMvh" class="btn-primary">
@@ -2099,6 +2331,70 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     SERVICES GRID
+============================================================ -->
+<section class="services-section">
+    <div class="container">
+        <div class="services-heading reveal">
+            <span class="section-eyebrow">Hvad jeg laver</span>
+            <h2>Mere end <em>landingssider</em>.</h2>
+            <p>Hjemmesider, webshops eller redesign af et site der ikke konverterer. Hele leverancen er gratis — I betaler først, når sitet er live.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card reveal reveal-delay-1">
+                <div class="service-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="4" width="18" height="14" rx="2"/>
+                        <line x1="3" y1="9" x2="21" y2="9"/>
+                        <circle cx="6" cy="6.5" r="0.5" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h3>Hjemmesider</h3>
+                <p>Landingsside, multi-side eller hele jeres online tilstedeværelse. Mobile-first, hurtigt, SEO-klart og bygget på et fundament der holder.</p>
+                <a href="#priser" class="service-link">
+                    Se pris
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+                </a>
+            </div>
+
+            <div class="service-card reveal reveal-delay-2">
+                <div class="service-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M3 6h18l-2 11a2 2 0 0 1-2 1.7H7a2 2 0 0 1-2-1.7L3 6z"/>
+                        <path d="M3 6L1.5 2.5h-1"/>
+                        <circle cx="9" cy="22" r="1"/>
+                        <circle cx="17" cy="22" r="1"/>
+                    </svg>
+                </div>
+                <h3>Webshops</h3>
+                <p>Webshop med checkout, betaling (Stripe/MobilePay) og produkt-katalog. Bygget til at få færdig en ordre, ikke bare se godt ud.</p>
+                <a href="#priser" class="service-link">
+                    Se pris
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+                </a>
+            </div>
+
+            <div class="service-card reveal reveal-delay-3">
+                <div class="service-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M3 13l4-4 4 4 7-7"/>
+                        <polyline points="14 6 21 6 21 13"/>
+                    </svg>
+                </div>
+                <h3>Konverterings-fix</h3>
+                <p>Har I et site der får trafik men ikke kunder? Jeg laver en konkret diagnose og bygger redesign'et. I beholder jeres eksisterende platform — vi fikser kun det der ikke virker.</p>
+                <a href="#priser" class="service-link">
+                    Se pris
+                    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+                </a>
             </div>
         </div>
     </div>
@@ -2366,19 +2662,19 @@
             <div class="about-content">
                 <h2 class="reveal">Hej, jeg hedder Othman</h2>
                 <p class="reveal reveal-delay-1">Jeg er webudvikler i Aarhus og hjælper lokale virksomheder med at få en online tilstedeværelse der matcher kvaliteten af det arbejde de allerede laver.</p>
-                <p class="reveal reveal-delay-2">De fleste bureauer tager 10.000–25.000 kr. for en hjemmeside og sender jer en faktura med timer I ikke forstår. Jeg gør det anderledes: fast pris aftalt på forhånd, direkte kommunikation, og en landingsside der er klar inden for 24 timer.</p>
+                <p class="reveal reveal-delay-2">De fleste bureauer tager 10.000–25.000 kr. op-front for en hjemmeside og sender jer en faktura med timer I ikke forstår. Jeg gør det anderledes: hjemmesiden er gratis at bygge, I betaler kun den månedlige drift, og I kan opsige måneds-til-måned hvis det ikke virker for jer.</p>
                 <div class="about-stats reveal reveal-delay-3">
                     <div class="about-stat">
-                        <div class="about-stat-num">24t</div>
-                        <div class="about-stat-label">til færdig side</div>
+                        <div class="about-stat-num">0 kr</div>
+                        <div class="about-stat-label">setup-omkostning</div>
                     </div>
                     <div class="about-stat">
                         <div class="about-stat-num">12t</div>
                         <div class="about-stat-label">til første udkast</div>
                     </div>
                     <div class="about-stat">
-                        <div class="about-stat-num">Fra 2.500 kr.</div>
-                        <div class="about-stat-label">fast pris, ingen timer</div>
+                        <div class="about-stat-num">Fra 299 kr/md</div>
+                        <div class="about-stat-label">drift, alt inkluderet</div>
                     </div>
                 </div>
             </div>
@@ -2394,116 +2690,145 @@
     <div class="container">
         <div class="pricing-layout">
             <div class="pricing-heading reveal">
-                <h2 class="section-h2">Fast pris.<br>Ingen overraskelser.</h2>
-                <p class="section-sub">To pakker, aftalt på forhånd. Ingen timepriser, ingen skjulte gebyrer, ingen kontrakter med lange bindingsperioder. Vælg den der passer jeres projekt.</p>
+                <h2 class="section-h2">Hjemmesiden er gratis.<br>I betaler kun den månedlige drift.</h2>
+                <p class="section-sub">Tre niveauer afhængigt af hvad I har brug for. Ingen setup-omkostning, ingen lang binding, ingen timepriser. Opsig måned-til-måned hvis det ikke virker for jer.</p>
             </div>
 
             <div class="pricing-cards-grid">
                 <div class="pricing-card reveal reveal-delay-1">
                     <div class="pricing-card-top">
-                        <span class="pricing-eyebrow">Landingsside</span>
-                        <div class="price-main">2.500 kr.</div>
-                        <div class="price-sub">Engangsbeløb &middot; Færdig landingsside inkl. opsætning</div>
-                        <div class="price-secondary">
-                            <strong>+ 300 kr.</strong>
-                            <span>/ md. for drift og support</span>
+                        <span class="pricing-eyebrow">Hjemmeside</span>
+                        <div class="price-setup">
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8l4 4 7-7"/></svg>
+                            0 kr setup
                         </div>
+                        <div class="price-monthly">
+                            <span class="price-num">299</span>
+                            <span class="price-unit">kr/md</span>
+                        </div>
+                        <div class="price-sub">Til lokale virksomheder der vil være synlige online uden bøvl.</div>
                     </div>
                     <div class="pricing-card-features">
                         <ul>
                             <li>
-                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                Moderne, mobilvenligt design
+                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                Hjemmesiden bygget gratis
                             </li>
                             <li>
-                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                HTTPS og hurtig loadtid
+                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                Domæne (fx jeres.dk) + SSL
                             </li>
                             <li>
-                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                SEO-optimeret, nemmere at finde på Google
+                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                Hosting på dansk infrastruktur
                             </li>
                             <li>
-                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                Online booking, kontaktformular og Google Maps
+                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                Smårettelser uden ekstraregning
                             </li>
                             <li>
-                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                Løbende opdateringer og teknisk support
+                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                Direkte support fra mig
                             </li>
                         </ul>
                     </div>
                     <div class="pricing-card-cta">
-                        <a href="mailto:othman@ajjalytics.dev?subject=Ny%20hjemmeside&body=Hej%20Othman%2C%0A%0AJeg%20er%20interesseret%20i%20at%20h%C3%B8re%20mere%20om%20en%20ny%20hjemmeside%20til%20min%20virksomhed.%0A%0AVirksomhed%3A%20%0ANuv%C3%A6rende%20hjemmeside%3A%20%0A%0AMvh" class="btn-cta-full">
-                            Skriv til mig
-                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M2 7h10M8 3l4 4-4 4"/>
-                            </svg>
+                        <a href="mailto:othman@ajjalytics.dev?subject=Ny%20hjemmeside%20%E2%80%94%20Hjemmeside-pakken&body=Hej%20Othman%2C%0A%0AJeg%20er%20interesseret%20i%20Hjemmeside-pakken%20(299%20kr%2Fmd).%0A%0AVirksomhed%3A%20%0ANuv%C3%A6rende%20hjemmeside%3A%20%0A%0AMvh" class="btn-cta-full">
+                            Få et gratis udkast
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
                         </a>
                         <div class="pricing-card-note">Udkast inden for 12 timer</div>
                     </div>
                 </div>
 
-                <div class="pricing-card alt reveal reveal-delay-2">
+                <div class="pricing-card popular reveal reveal-delay-2">
+                    <div class="popular-badge">Mest populær</div>
                     <div class="pricing-card-top">
-                        <span class="pricing-eyebrow">Skræddersyet</span>
-                        <div class="price-main">Aftalt pris</div>
-                        <div class="price-sub">Til projekter der er mere end en landingsside</div>
-                        <div class="price-secondary">
-                            <strong>5.000–15.000 kr.</strong>
-                            <span>&middot; afhængigt af omfang</span>
+                        <span class="pricing-eyebrow">Hjemmeside+</span>
+                        <div class="price-setup">
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8l4 4 7-7"/></svg>
+                            0 kr setup
                         </div>
+                        <div class="price-monthly">
+                            <span class="price-num">499</span>
+                            <span class="price-unit">kr/md</span>
+                        </div>
+                        <div class="price-sub">Til virksomheder der vil have flere sider, SEO og løbende drift.</div>
                     </div>
                     <div class="pricing-card-features">
                         <ul>
                             <li>
-                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                Webshop med produkter og checkout
+                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <strong>Alt i Hjemmeside</strong>, plus:
                             </li>
                             <li>
-                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                Flere undersider og navigation
+                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                Op til 5 undersider
                             </li>
                             <li>
-                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                Integrationer (booking, CRM, betaling)
+                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                Månedlig content-update
                             </li>
                             <li>
-                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                Migrering fra Wix, WordPress eller Squarespace
+                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                SEO-basics + analytics-rapport
                             </li>
                             <li>
-                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                Custom CSS-polering på eksisterende platform
+                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                Booking, kontaktformular, Google Maps
                             </li>
                         </ul>
                     </div>
                     <div class="pricing-card-cta">
-                        <a href="mailto:othman@ajjalytics.dev?subject=St%C3%B8rre%20projekt&body=Hej%20Othman%2C%0A%0AJeg%20har%20et%20projekt%20der%20er%20mere%20end%20en%20landingsside.%0A%0AKort%20om%20projektet%3A%20%0ANuv%C3%A6rende%20hjemmeside%3A%20%0A%C3%98nsket%20omfang%3A%20%0A%0AMvh" class="btn-cta-full">
+                        <a href="mailto:othman@ajjalytics.dev?subject=Ny%20hjemmeside%20%E2%80%94%20Hjemmeside%2B&body=Hej%20Othman%2C%0A%0AJeg%20er%20interesseret%20i%20Hjemmeside%2B-pakken%20(499%20kr%2Fmd).%0A%0AVirksomhed%3A%20%0ANuv%C3%A6rende%20hjemmeside%3A%20%0AAntal%20sider%20%2F%20funktioner%3A%20%0A%0AMvh" class="btn-cta-full">
+                            Få et gratis udkast
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+                        </a>
+                        <div class="pricing-card-note">Udkast inden for 12 timer</div>
+                    </div>
+                </div>
+
+                <div class="pricing-card reveal reveal-delay-3">
+                    <div class="pricing-card-top">
+                        <span class="pricing-eyebrow">Shop / Custom</span>
+                        <div class="price-setup">
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8l4 4 7-7"/></svg>
+                            0 kr setup
+                        </div>
+                        <div class="price-monthly">
+                            <span class="price-num">fra 799</span>
+                            <span class="price-unit">kr/md</span>
+                        </div>
+                        <div class="price-sub">Til webshops, custom integrationer og løbende konverterings-arbejde.</div>
+                    </div>
+                    <div class="pricing-card-features">
+                        <ul>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <strong>Alt i Hjemmeside+</strong>, plus:
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                Webshop med checkout (Stripe / MobilePay)
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                Custom integrationer (CRM, fragt, betaling)
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                Løbende konverterings-optimering
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 8l4 4 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                Migrering fra Wix, WordPress, Shopify
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pricing-card-cta">
+                        <a href="mailto:othman@ajjalytics.dev?subject=St%C3%B8rre%20projekt%20%E2%80%94%20Shop%2FCustom&body=Hej%20Othman%2C%0A%0AJeg%20har%20et%20st%C3%B8rre%20projekt%20(webshop%20%2F%20custom).%0A%0AKort%20om%20projektet%3A%20%0ANuv%C3%A6rende%20platform%3A%20%0A%C3%98nsket%20omfang%3A%20%0A%0AMvh" class="btn-cta-full">
                             Fortæl mig om projektet
-                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M2 7h10M8 3l4 4-4 4"/>
-                            </svg>
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
                         </a>
                         <div class="pricing-card-note">Aftale på 20 minutters opkald</div>
                     </div>
@@ -2532,28 +2857,36 @@
             </div>
             <div class="faq-items">
                 <div class="faq-item reveal">
-                    <div class="faq-q" onclick="toggleFaq(this)">Hvor lang tid tager det?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-                    <div class="faq-a">I får et udkast inden for 12 timer, og den færdige side er typisk klar inden for 24 timer efter godkendelse. Større projekter kan tage lidt længere, men vi aftaler altid en konkret tidsramme på forhånd, og jeg holder den.</div>
+                    <div class="faq-q" onclick="toggleFaq(this)">Er hjemmesiden virkelig gratis?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+                    <div class="faq-a">Ja. Selve designet og udviklingen koster jer 0 kr. I betaler kun den månedlige drift (hosting, domæne, opdateringer, support) fra 299 kr/md. Sætter I aldrig sitet live, betaler I aldrig noget. Udkastet er også gratis og uforpligtende.</div>
                 </div>
                 <div class="faq-item reveal reveal-delay-1">
+                    <div class="faq-q" onclick="toggleFaq(this)">Hvor lang tid tager det?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+                    <div class="faq-a">I får et udkast inden for 12 timer, og den færdige side er typisk klar inden for 24 timer efter godkendelse. Større projekter (webshops, custom integrationer) kan tage lidt længere, men vi aftaler altid en konkret tidsramme på forhånd, og jeg holder den.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-2">
                     <div class="faq-q" onclick="toggleFaq(this)">Skal jeg selv gøre noget teknisk?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
                     <div class="faq-a">Nej. Jeg sætter det hele op: domæne, hosting, email og HTTPS. I skal bare fortælle mig hvad I har brug for og godkende resultatet.</div>
                 </div>
-                <div class="faq-item reveal reveal-delay-2">
+                <div class="faq-item reveal reveal-delay-3">
                     <div class="faq-q" onclick="toggleFaq(this)">Hvad hvis jeg ikke er tilfreds med udkastet?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
                     <div class="faq-a">Udkastet er gratis og uforpligtende. Kan vi ikke finde et design I er glade for, skylder I ingenting. Ingen regning, ingen dårlig samvittighed.</div>
                 </div>
-                <div class="faq-item reveal reveal-delay-3">
-                    <div class="faq-q" onclick="toggleFaq(this)">Hvad dækker de 300 kr. om måneden?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-                    <div class="faq-a">Hosting, domænefornyelse, teknisk vedligeholdelse, sikkerhedsopdateringer og support. Har I brug for tekstændringer eller mindre justeringer, klarer jeg det uden ekstraregning.</div>
+                <div class="faq-item reveal">
+                    <div class="faq-q" onclick="toggleFaq(this)">Hvad er inkluderet i 299 kr/md?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+                    <div class="faq-a">Hosting på dansk infrastruktur, domæne (fx jeres.dk), SSL/HTTPS, sikkerhedsopdateringer og smårettelser. Har I brug for tekstændringer eller mindre justeringer, klarer jeg det uden ekstraregning. Hjemmeside+ (499 kr/md) tilføjer flere undersider, månedlig content-update og analytics-rapport.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-1">
+                    <div class="faq-q" onclick="toggleFaq(this)">Kan jeg opsige?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+                    <div class="faq-a">Ja. Måneds-til-måned, ingen lang binding. Ved opsigelse ejer I designet og kan tage det med til en anden host eller bureau. Domænet beholder I selvfølgelig også.</div>
                 </div>
                 <div class="faq-item reveal">
                     <div class="faq-q" onclick="toggleFaq(this)">Hvorfor er det billigere end et bureau?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-                    <div class="faq-a">Jeg arbejder alene uden kontorleje og salgsafdeling, og jeg bruger moderne værktøjer der gør processen hurtigere. I betaler for resultatet, ikke for overhead.</div>
+                    <div class="faq-a">Jeg arbejder alene uden kontorleje og salgsafdeling, og jeg bruger moderne værktøjer der gør processen hurtigere. I betaler for resultatet, ikke for overhead. Plus: ingen setup-fee — I prøver først, betaler først hvis det rammer.</div>
                 </div>
                 <div class="faq-item reveal">
                     <div class="faq-q" onclick="toggleFaq(this)">Kan I lave mere end en landingsside?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-                    <div class="faq-a">Ja. Til webshops, flere undersider, integrationer (booking, CRM, betaling) eller migrering fra andre platforme aftaler vi en skræddersyet pris der passer til omfanget — typisk 5.000–15.000 kr. Stadig fast pris, stadig ingen timepriser. Skriv til mig og beskriv projektet.</div>
+                    <div class="faq-a">Ja. Webshops med checkout (Stripe/MobilePay), multi-side hjemmesider og konverterings-fix på eksisterende sites er en del af tilbuddet. Større omfang lander på Hjemmeside+ (499 kr/md) eller Shop/Custom (fra 799 kr/md). Stadig 0 kr setup. Skriv til mig og beskriv projektet.</div>
                 </div>
             </div>
         </div>
@@ -2567,8 +2900,8 @@
 <section class="bottom-cta-section">
     <div class="container">
         <div class="bottom-cta-inner reveal">
-            <h2 class="section-h2 serif">Fast pris. Aftalt på forhånd.<br><em>Udkast på 12 timer. Uforpligtende.</em></h2>
-            <p class="bottom-cta-sub">Skriv til mig, så har I et gratis udkast inden for 12 timer. Ingen forpligtelse, ingen faktura.</p>
+            <h2 class="section-h2 serif">0 kr setup. Fast månedlig pris.<br><em>Udkast på 12 timer. Uforpligtende.</em></h2>
+            <p class="bottom-cta-sub">Skriv til mig, så har I et gratis udkast inden for 12 timer. Ingen forpligtelse, ingen faktura — først når I siger ja, starter abonnementet.</p>
             <div class="bottom-cta-actions">
                 <a href="mailto:othman@ajjalytics.dev?subject=Ny%20hjemmeside&body=Hej%20Othman%2C%0A%0AJeg%20er%20interesseret%20i%20at%20h%C3%B8re%20mere%20om%20en%20ny%20hjemmeside%20til%20min%20virksomhed.%0A%0AVirksomhed%3A%20%0ANuv%C3%A6rende%20hjemmeside%3A%20%0A%0AMvh" class="btn-cta-email">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
