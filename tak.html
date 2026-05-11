@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tak — Ajjalytics</title>
+    <meta name="description" content="Tak for din henvendelse. Du hører fra Othman inden for 12 timer.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg:        #fafaf8;
+            --bg-soft:   #f4f3ef;
+            --surface:   #ffffff;
+            --ink:       #0a0a0a;
+            --ink-2:     #4a4a48;
+            --ink-3:     #8a8a86;
+            --rule:      #e5e3dd;
+            --accent:    #C73E1D;
+            --accent-strong: #A02E14;
+            --accent-soft: rgba(199, 62, 29, 0.08);
+
+            --r: 4px;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Inter var", Inter, "Segoe UI Variable", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, Menlo, monospace;
+        }
+
+        html { -webkit-text-size-adjust: 100%; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--ink-2);
+            font-size: 17px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+        }
+        ::selection { background: var(--accent); color: #fff; }
+
+        a { color: var(--ink); border-bottom: 1px solid var(--accent); padding-bottom: 1px; transition: color 160ms ease, border-color 160ms ease; }
+        a:hover { color: var(--accent); }
+        a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
+        .container-wide { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+
+        /* NAV — matcher forsiden */
+        .nav {
+            border-bottom: 1px solid var(--rule);
+            background: var(--bg);
+        }
+        .nav-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 16px 0;
+        }
+        .nav-logo {
+            font-size: 18px; font-weight: 800; letter-spacing: -0.025em;
+            color: var(--ink); border-bottom: 0;
+            display: inline-flex; align-items: baseline; gap: 2px;
+        }
+        .nav-logo .dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--accent); display: inline-block;
+            margin-left: 4px; transform: translateY(-2px);
+        }
+        .nav-meta {
+            font-family: var(--font-mono); font-size: 11px;
+            letter-spacing: 0.14em; text-transform: uppercase;
+            color: var(--ink-3); font-weight: 500;
+        }
+
+        /* HERO — centreret tak-besked */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 0;
+        }
+        .tak-inner {
+            max-width: 580px;
+            text-align: center;
+        }
+        .tak-mark {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--accent-soft);
+            color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+        .kicker {
+            display: inline-block;
+            font-family: var(--font-mono); font-size: 11px;
+            font-weight: 500; letter-spacing: 0.16em;
+            text-transform: uppercase; color: var(--accent);
+            margin-bottom: 18px;
+        }
+        h1 {
+            font-size: clamp(2.2rem, 4.6vw, 3.4rem);
+            font-weight: 800; line-height: 1.05;
+            letter-spacing: -0.025em; color: var(--ink);
+            margin-bottom: 20px;
+            max-width: 18ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .lede {
+            color: var(--ink-2);
+            font-size: 1.08rem;
+            line-height: 1.6;
+            max-width: 32em;
+            margin: 0 auto 36px;
+        }
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 22px;
+            min-height: 48px;
+            background: transparent;
+            color: var(--ink);
+            border: 1.5px solid var(--ink);
+            border-radius: var(--r);
+            font-weight: 600;
+            font-size: 14.5px;
+            transition: background 160ms ease, color 160ms ease;
+        }
+        .btn-ghost:hover { background: var(--ink); color: var(--bg); }
+
+        /* FOOTER */
+        footer {
+            background: var(--bg-soft);
+            border-top: 1px solid var(--rule);
+            padding: 28px 0;
+            font-size: 13px;
+            color: var(--ink-3);
+        }
+        .footer-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 16px; flex-wrap: wrap;
+        }
+        .footer-inner a {
+            color: var(--ink-2); border-bottom: 0;
+            font-family: var(--font-mono); font-size: 11px;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            font-weight: 500;
+        }
+        .footer-inner a:hover { color: var(--accent); }
+        .footer-inner > div { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
+        .footer-meta {
+            font-family: var(--font-mono); font-size: 11px;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--ink-3); font-weight: 500;
+        }
+
+        @media (max-width: 720px) {
+            .container-wide { padding: 0 22px; }
+            main { padding: 56px 0; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="nav">
+    <div class="container-wide nav-inner">
+        <a href="/" class="nav-logo">ajjalytics<span class="dot"></span></a>
+        <span class="nav-meta">Bekræftelse</span>
+    </div>
+</header>
+
+<main>
+    <div class="container-wide">
+        <div class="tak-inner">
+            <span class="tak-mark" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span class="kicker">Tak</span>
+            <h1>Din besked er sendt.</h1>
+            <p class="lede">Jeg har modtaget din henvendelse og vender tilbage inden for 12 timer — som regel hurtigere. Tjek din indbakke (også spam) for mit svar.</p>
+            <div class="actions">
+                <a href="/" class="btn-ghost">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7H2M6 3L2 7l4 4"/></svg>
+                    Tilbage til forsiden
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container-wide footer-inner">
+        <span class="footer-meta">© 2026 Ajjalytics · Aarhus</span>
+        <div>
+            <a href="/privatlivspolitik.html">Privatlivspolitik</a>
+            <a href="/handelsbetingelser.html">Handelsbetingelser</a>
+            <a href="mailto:othman@ajjalytics.dev">Kontakt</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
