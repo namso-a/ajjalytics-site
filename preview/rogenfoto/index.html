@@ -67,26 +67,35 @@ img { display: block; max-width: 100%; }
 }
 .nav-logo {
   display: flex;
-  align-items: center;
+  align-items: baseline;
+  gap: 1px;
   text-decoration: none;
   flex-shrink: 0;
   min-width: 0;
-}
-.nav-logo img {
-  height: 30px;
-  width: auto;
-  max-width: 180px;
-  display: block;
-}
-.nav-logo-text {
-  display: none;
   font-size: 17px;
   font-weight: 600;
   color: var(--navy);
-  letter-spacing: -0.3px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+.nav-logo .logo-mark {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border: 1.5px solid var(--peach);
+  border-radius: 50%;
+  margin: 0 6px;
+  position: relative;
+  top: -2px;
+}
+.nav-logo .logo-foto {
+  font-weight: 300;
+  letter-spacing: 1px;
 }
 @media (max-width: 480px) {
-  .nav-logo img { height: 26px; max-width: 150px; }
+  .nav-logo { font-size: 15px; }
+  .nav-logo .logo-mark { width: 7px; height: 7px; margin: 0 5px; }
 }
 .nav-links {
   display: none;
@@ -777,14 +786,9 @@ img { display: block; max-width: 100%; }
 <nav class="nav">
   <div class="nav-inner">
     <a href="#" class="nav-logo" aria-label="Røgen Foto — forside">
-      <img
-        src="https://images.squarespace-cdn.com/content/v1/676c5a0dda77210a7f3458c9/c33bc705-5986-45ef-8c4e-2cfb100f3311/Logo_R%C3%B8gen-04.png?format=300w"
-        alt="Røgen Foto"
-        height="30"
-        width="180"
-        onerror="this.style.display='none'; var t=this.nextElementSibling; if(t){t.style.display='inline';}"
-      >
-      <span class="nav-logo-text">Røgen Foto</span>
+      <span>Røgen</span>
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span class="logo-foto">Foto</span>
     </a>
     <nav class="nav-links">
       <a href="#ydelser">Ydelser</a>
