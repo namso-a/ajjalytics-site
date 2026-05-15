@@ -404,6 +404,131 @@ img { display: block; max-width: 100%; }
   .pricing-cards { grid-template-columns: repeat(3, 1fr); }
 }
 
+/* ─── REVIEWS ─── */
+.reviews-bg { background: var(--bg-soft); }
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.review-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  border: 1px solid rgba(30,58,95,0.08);
+  position: relative;
+}
+.review-card .placeholder-tag {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  background: var(--bg-soft);
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+.review-stars {
+  color: var(--peach);
+  font-size: 17px;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+.review-quote {
+  font-size: 14px;
+  color: var(--ink-3);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  font-style: italic;
+  min-height: 67px;
+}
+.review-meta {
+  font-size: 13px;
+  color: var(--ink-2);
+  font-weight: 500;
+}
+.review-meta span { color: var(--ink-3); font-weight: 400; }
+.reviews-note {
+  font-size: 13px;
+  color: var(--ink-2);
+  text-align: center;
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 14px 18px;
+  background: var(--bg-card);
+  border-radius: 10px;
+  border: 1px dashed rgba(30,58,95,0.18);
+}
+
+@media (min-width: 768px) {
+  .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ─── BOOKING ─── */
+.booking-card {
+  background: var(--bg-card);
+  border-radius: 18px;
+  padding: 32px 26px;
+  border: 1px solid rgba(30,58,95,0.08);
+  max-width: 720px;
+  margin: 0 auto;
+}
+.booking-month {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink-3);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.booking-slots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.booking-slot {
+  background: var(--bg-soft);
+  color: var(--navy);
+  border: 1.5px solid transparent;
+  padding: 13px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.booking-slot.selected {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+}
+.booking-cta-row {
+  text-align: center;
+  margin-bottom: 14px;
+}
+.booking-note {
+  font-size: 13px;
+  color: var(--ink-3);
+  text-align: center;
+  margin-top: 6px;
+  padding: 12px 16px;
+  background: var(--bg-soft);
+  border-radius: 10px;
+  line-height: 1.5;
+}
+
+@media (min-width: 640px) {
+  .booking-slots { grid-template-columns: repeat(4, 1fr); }
+}
+
 /* ─── POPUP DEMO ─── */
 .popup-bg { background: var(--peach-soft); }
 .popup-demo-wrap {
@@ -918,6 +1043,42 @@ img { display: block; max-width: 100%; }
   </div>
 </section>
 
+<!-- ─── REVIEWS (placeholder) ─── -->
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label">Anmeldelser</p>
+    <h2 class="section-title">Hvad siger dine kunder?</h2>
+    <p class="section-sub">Når dine kunder skriver en anmeldelse på Google eller Facebook, vises den her automatisk.</p>
+
+    <div class="reviews-grid">
+
+      <div class="review-card">
+        <span class="placeholder-tag">Eksempel</span>
+        <div class="review-stars" aria-label="5 ud af 5 stjerner">★★★★★</div>
+        <p class="review-quote">[Citat fra din kunde — fx "Line var rolig og professionel, og billederne blev præcis som vi havde håbet."]</p>
+        <div class="review-meta">[Kundens navn] <span>· [Måned 2026]</span></div>
+      </div>
+
+      <div class="review-card">
+        <span class="placeholder-tag">Eksempel</span>
+        <div class="review-stars" aria-label="5 ud af 5 stjerner">★★★★★</div>
+        <p class="review-quote">[Citat fra din kunde — anmeldelser hentes automatisk fra Google og Facebook]</p>
+        <div class="review-meta">[Kundens navn] <span>· [Måned 2026]</span></div>
+      </div>
+
+      <div class="review-card">
+        <span class="placeholder-tag">Eksempel</span>
+        <div class="review-stars" aria-label="5 ud af 5 stjerner">★★★★★</div>
+        <p class="review-quote">[Citat fra din kunde — du skal ikke selv opdatere noget]</p>
+        <div class="review-meta">[Kundens navn] <span>· [Måned 2026]</span></div>
+      </div>
+
+    </div>
+
+    <p class="reviews-note">Vi sætter en widget op der henter dine anmeldelser fra Google og Facebook automatisk — du skal ikke selv vedligeholde noget. Når en kunde skriver en ny anmeldelse, dukker den op her af sig selv.</p>
+  </div>
+</section>
+
 <!-- ─── PRICING ─── -->
 <section id="priser" class="section">
   <div class="section-inner">
@@ -970,6 +1131,33 @@ img { display: block; max-width: 100%; }
 
     <div class="price-cta-wrap">
       <a href="mailto:line@rogenfoto.dk?subject=Forespørgsel%20om%20fotografering" class="btn-navy">Send en forespørgsel</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BOOKING (placeholder) ─── -->
+<section id="book" class="section reviews-bg">
+  <div class="section-inner">
+    <p class="section-label">Book direkte</p>
+    <h2 class="section-title">Vælg en tid hos Line</h2>
+    <p class="section-sub">Vælg en ledig tid, og du får en SMS-bekræftelse med det samme. Ingen mails, ingen ventetid.</p>
+
+    <div class="booking-card">
+      <p class="booking-month">Maj — Juni 2026</p>
+      <div class="booking-slots">
+        <div class="booking-slot">Tor 21. · 10:00</div>
+        <div class="booking-slot selected">Fre 22. · 14:00</div>
+        <div class="booking-slot">Tir 26. · 09:30</div>
+        <div class="booking-slot">Ons 27. · 13:00</div>
+        <div class="booking-slot">Tor 28. · 11:00</div>
+        <div class="booking-slot">Fre 29. · 15:00</div>
+        <div class="booking-slot">Man 1. · 10:00</div>
+        <div class="booking-slot">Tir 2. · 14:00</div>
+      </div>
+      <div class="booking-cta-row">
+        <a href="mailto:line@rogenfoto.dk?subject=Book%20fotografering" class="btn-navy">Bekræft tid</a>
+      </div>
+      <p class="booking-note">Booking-systemet kobles på når siden går live. Vi vælger den løsning der passer dig bedst — fx Calendly, Booksy eller SimplyBook. Du administrerer det selv direkte fra din telefon.</p>
     </div>
   </div>
 </section>
