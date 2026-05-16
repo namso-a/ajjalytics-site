@@ -1,0 +1,1321 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>BC Rengøring — Udkast til ny hjemmeside</title>
+<style>
+:root {
+  --bg:           #F8F6F1;
+  --bg-soft:      #EFEAE0;
+  --bg-card:      #FFFFFF;
+  --ink:          #1A1F1F;
+  --ink-2:        #3F4747;
+  --ink-3:        #5C6262;
+  --teal:         #0F4F50;
+  --teal-deep:    #093839;
+  --teal-soft:    #C8DCDC;
+  --yellow:       #F5C547;
+  --yellow-soft:  #FAEBC0;
+  --radius-card:  14px;
+  --max-w:        1160px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+
+/* ─── DRAFT BANNER ─── */
+.draft-banner {
+  background: #1a1a1a;
+  color: rgba(255,255,255,0.78);
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+}
+.draft-banner strong { color: #fff; }
+
+/* ─── NAV ─── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(248,246,241,0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(15,79,80,0.1);
+}
+.nav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  text-decoration: none;
+  flex-shrink: 0;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--teal);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+.nav-logo .logo-light {
+  font-weight: 400;
+  letter-spacing: 1.2px;
+}
+.nav-logo .logo-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--yellow);
+  border-radius: 50%;
+  margin: 0 6px 0 4px;
+  position: relative;
+  top: -2px;
+}
+.nav-links {
+  display: none;
+  gap: 26px;
+  flex: 1;
+  margin-left: 8px;
+}
+.nav-links a {
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: var(--teal); }
+.nav-call {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--teal);
+  color: #fff;
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.nav-call:hover { background: var(--teal-deep); }
+.nav-call svg { flex-shrink: 0; }
+.nav-call-num {
+  font-size: 13px;
+  opacity: 0.85;
+  font-weight: 500;
+}
+.nav-call-placeholder {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-3);
+  background: var(--yellow-soft);
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-left: 4px;
+}
+
+@media (min-width: 720px) {
+  .nav-links { display: flex; }
+  .nav-inner { padding: 0 28px; }
+}
+@media (max-width: 480px) {
+  .nav-call { padding: 9px 14px; font-size: 13px; }
+  .nav-call-num, .nav-call-placeholder { display: none; }
+}
+
+/* ─── HERO ─── */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(9,56,57,0.92) 0%,
+    rgba(9,56,57,0.58) 45%,
+    rgba(9,56,57,0.15) 100%
+  );
+}
+.hero-stock-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 3;
+  background: rgba(0,0,0,0.55);
+  color: rgba(255,255,255,0.92);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 64px 24px;
+  width: 100%;
+}
+.hero h1 {
+  font-size: clamp(32px, 6vw, 60px);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+  max-width: 620px;
+}
+.hero h1 em {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--yellow);
+}
+.hero-sub {
+  font-size: clamp(15px, 2vw, 18px);
+  color: rgba(255,255,255,0.85);
+  max-width: 480px;
+  margin-bottom: 32px;
+  line-height: 1.55;
+}
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.btn-yellow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--yellow);
+  color: var(--ink);
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, transform 0.15s;
+  white-space: nowrap;
+}
+.btn-yellow:hover { background: #E6B62E; }
+.btn-teal {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--teal);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.btn-teal:hover { background: var(--teal-deep); }
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid rgba(255,255,255,0.55);
+  color: #fff;
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.15s;
+  white-space: nowrap;
+}
+.btn-outline-white:hover { border-color: #fff; }
+.btn-outline-teal {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid var(--teal);
+  color: var(--teal);
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+.btn-outline-teal:hover { background: var(--teal); color: #fff; }
+
+@media (min-width: 768px) {
+  .hero-overlay {
+    background: linear-gradient(
+      to right,
+      rgba(9,56,57,0.88) 0%,
+      rgba(9,56,57,0.55) 55%,
+      rgba(9,56,57,0.10) 100%
+    );
+  }
+  .hero { align-items: center; }
+  .hero-content { padding: 80px 48px; }
+}
+
+/* ─── TRUST STRIP ─── */
+.trust-strip {
+  background: var(--teal);
+  padding: 14px 24px;
+}
+.trust-strip-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px 0;
+  font-size: 13px;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.3px;
+}
+.trust-item { padding: 0 18px; display: inline-flex; align-items: center; gap: 6px; }
+.trust-item svg { color: var(--yellow); flex-shrink: 0; }
+.trust-sep { color: rgba(255,255,255,0.3); display: none; }
+@media (min-width: 600px) {
+  .trust-sep { display: inline; }
+}
+
+/* ─── SECTION COMMON ─── */
+.section { padding: 72px 24px; }
+.section-inner { max-width: var(--max-w); margin: 0 auto; }
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 12px;
+  opacity: 0.75;
+}
+.section-title {
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 300;
+  color: var(--teal);
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.section-title strong { font-weight: 600; }
+.section-sub {
+  font-size: 16px;
+  color: var(--ink-3);
+  margin-bottom: 48px;
+  max-width: 540px;
+  line-height: 1.6;
+}
+
+/* ─── SERVICES ─── */
+.services-bg { background: var(--bg-soft); }
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.service-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-card);
+  padding: 26px 24px;
+  border: 1px solid rgba(15,79,80,0.08);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.service-card:hover {
+  box-shadow: 0 6px 24px rgba(15,79,80,0.1);
+  transform: translateY(-2px);
+}
+.service-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--teal-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--teal);
+  margin-bottom: 16px;
+}
+.service-icon-wrap svg { width: 26px; height: 26px; }
+.service-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--teal);
+  margin-bottom: 6px;
+}
+.service-card p {
+  font-size: 14px;
+  color: var(--ink-3);
+  line-height: 1.55;
+  margin-bottom: 14px;
+  flex: 1;
+}
+.service-card a {
+  font-size: 13px;
+  color: var(--teal);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--yellow);
+  padding-bottom: 1px;
+  align-self: flex-start;
+}
+.services-note {
+  text-align: center;
+  font-size: 14px;
+  color: var(--ink-2);
+  padding: 16px 20px;
+  background: var(--bg-card);
+  border-radius: 10px;
+  border: 1px dashed rgba(15,79,80,0.2);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media (min-width: 560px) {
+  .services-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 900px) {
+  .services-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ─── BEFORE/AFTER ─── */
+.beforeafter-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+.ba-pair {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 18px;
+  border: 1px solid rgba(15,79,80,0.08);
+}
+.ba-pair-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.ba-pair-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--teal);
+}
+.ba-pair-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: var(--yellow-soft);
+  color: var(--ink);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.ba-pair-tag.placeholder {
+  background: var(--bg-soft);
+  color: var(--ink-3);
+}
+.ba-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  position: relative;
+}
+.ba-image {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-soft);
+}
+.ba-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ba-image-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: rgba(0,0,0,0.65);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  z-index: 2;
+}
+.ba-image.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-3);
+  font-size: 13px;
+  text-align: center;
+  padding: 16px;
+  border: 2px dashed rgba(15,79,80,0.2);
+}
+.ba-image.placeholder svg {
+  margin-bottom: 8px;
+  opacity: 0.5;
+  color: var(--teal);
+}
+.ba-note {
+  text-align: center;
+  font-size: 14px;
+  color: var(--ink-2);
+  padding: 16px 20px;
+  background: var(--yellow-soft);
+  border-radius: 10px;
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.55;
+}
+
+@media (min-width: 768px) {
+  .beforeafter-grid { grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+}
+
+/* ─── HOW TO BOOK (3 steps) ─── */
+.steps-bg { background: var(--bg-soft); }
+.steps-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 36px;
+}
+.step-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-card);
+  padding: 28px 24px;
+  border: 1px solid rgba(15,79,80,0.08);
+  position: relative;
+}
+.step-num {
+  position: absolute;
+  top: -16px;
+  left: 24px;
+  width: 36px;
+  height: 36px;
+  background: var(--teal);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  border: 4px solid var(--bg-soft);
+}
+.step-card h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--teal);
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.step-card p {
+  font-size: 14px;
+  color: var(--ink-3);
+  line-height: 1.55;
+}
+.steps-cta-wrap {
+  text-align: center;
+}
+
+@media (min-width: 720px) {
+  .steps-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+}
+
+/* ─── REVIEWS ─── */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.review-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  border: 1px solid rgba(15,79,80,0.08);
+  position: relative;
+}
+.review-card .placeholder-tag {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  background: var(--bg-soft);
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+.review-stars {
+  color: var(--yellow);
+  font-size: 17px;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+.review-quote {
+  font-size: 14px;
+  color: var(--ink-3);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  font-style: italic;
+  min-height: 67px;
+}
+.review-meta {
+  font-size: 13px;
+  color: var(--ink-2);
+  font-weight: 500;
+}
+.review-meta span { color: var(--ink-3); font-weight: 400; }
+.reviews-note {
+  font-size: 13px;
+  color: var(--ink-2);
+  text-align: center;
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 14px 18px;
+  background: var(--bg-card);
+  border-radius: 10px;
+  border: 1px dashed rgba(15,79,80,0.18);
+}
+
+@media (min-width: 768px) {
+  .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ─── CONTACT FORM ─── */
+.contact-bg { background: var(--bg-soft); }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.contact-info h2 { margin-bottom: 14px; }
+.contact-info p {
+  font-size: 15px;
+  color: var(--ink-2);
+  margin-bottom: 14px;
+  line-height: 1.65;
+}
+.contact-direct {
+  margin-top: 20px;
+  padding: 20px;
+  background: var(--teal);
+  border-radius: 14px;
+  color: #fff;
+}
+.contact-direct h4 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 8px;
+}
+.contact-direct p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 14px;
+}
+.contact-direct .phone-display {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+}
+.contact-direct .phone-placeholder-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: var(--yellow);
+  color: var(--ink);
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.contact-form {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 28px 26px;
+  border: 1px solid rgba(15,79,80,0.08);
+}
+.field { margin-bottom: 16px; }
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--teal);
+  margin-bottom: 6px;
+}
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid rgba(15,79,80,0.15);
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--ink);
+  background: var(--bg);
+  transition: border-color 0.15s;
+}
+.field input:focus,
+.field textarea:focus {
+  outline: 0;
+  border-color: var(--teal);
+}
+.field textarea { min-height: 96px; resize: vertical; }
+.form-submit-wrap { margin-top: 22px; text-align: center; }
+.form-note {
+  font-size: 12px;
+  color: var(--ink-3);
+  text-align: center;
+  margin-top: 14px;
+  font-style: italic;
+}
+
+@media (min-width: 840px) {
+  .contact-grid { grid-template-columns: 1fr 1.1fr; gap: 56px; }
+}
+
+/* ─── ABOUT ─── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: center;
+}
+.about-photo-wrap {
+  aspect-ratio: 4 / 5;
+  background: var(--teal-soft);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--teal-deep);
+  font-size: 13px;
+  text-align: center;
+  padding: 32px;
+}
+.about-photo-wrap svg {
+  opacity: 0.4;
+  color: var(--teal);
+}
+.about-text .section-title { margin-bottom: 14px; }
+.about-text p {
+  font-size: 15px;
+  color: var(--ink-2);
+  margin-bottom: 14px;
+  line-height: 1.7;
+}
+.about-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: var(--yellow-soft);
+  color: var(--ink);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-top: 16px;
+}
+
+@media (min-width: 768px) {
+  .about-grid { grid-template-columns: 320px 1fr; gap: 56px; }
+}
+
+/* ─── FOOTER ─── */
+.footer-bg { background: var(--teal-deep); }
+.footer-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 56px 24px 36px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+}
+.footer-brand-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.footer-brand-text .logo-light { font-weight: 400; letter-spacing: 1.2px; }
+.footer-brand-text .logo-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--yellow);
+  border-radius: 50%;
+  margin: 0 6px 0 4px;
+  position: relative;
+  top: -3px;
+}
+.footer-brand p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+}
+.footer-col h4 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 16px;
+}
+.footer-col a,
+.footer-col p {
+  display: block;
+  font-size: 14px;
+  color: rgba(255,255,255,0.78);
+  text-decoration: none;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.footer-col a:hover { color: #fff; }
+.footer-cta {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--ink);
+  padding: 11px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  margin-top: 6px;
+}
+.footer-cta:hover { background: #E6B62E; color: var(--ink); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  padding: 20px 24px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+}
+
+@media (min-width: 640px) {
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 960px) {
+  .footer-inner { grid-template-columns: 2fr 1fr 1fr; gap: 56px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── DRAFT BANNER ─── -->
+<div class="draft-banner">
+  <strong>Udkast til Jeff — BC Rengøring</strong> · Foreløbigt forslag. Tekst, billeder, telefon og priser tilrettes inden go-live.
+</div>
+
+<!-- ─── NAV ─── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="BC Rengøring — forside">
+      <span>BC</span>
+      <span class="logo-dot" aria-hidden="true"></span>
+      <span class="logo-light">Rengøring</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#ydelser">Ydelser</a>
+      <a href="#foer-efter">Før/Efter</a>
+      <a href="#book">Sådan booker du</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a href="tel:" class="nav-call" aria-label="Ring til BC Rengøring">
+      <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3.5 5.2c0-1 .8-1.7 1.7-1.7h2c.7 0 1.4.4 1.6 1.1l.9 2.5c.2.7 0 1.5-.6 2L8 9.9c.9 1.9 2.4 3.4 4.3 4.3l.8-1.1c.5-.6 1.3-.8 2-.6l2.5.9c.7.2 1.1.9 1.1 1.6v2c0 1-.8 1.7-1.7 1.7h-1.5C7.7 18.7 1.3 12.3 1.3 5z"/>
+      </svg>
+      Ring nu
+      <span class="nav-call-placeholder">Telefon udfyldes</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <img
+    class="hero-img"
+    src="https://images.unsplash.com/photo-1649083048597-d7b4f1e8a386?w=2400&q=80&fit=crop"
+    alt="Lyst og rent køkken — stemningsbillede"
+    fetchpriority="high"
+  >
+  <div class="hero-overlay"></div>
+  <div class="hero-stock-badge">Stemningsbillede · erstattes med dit eget</div>
+  <div class="hero-content">
+    <h1>Rengøring du <em>kan stole på</em></h1>
+    <p class="hero-sub">Erhverv og privat. Vi kommer ud, vurderer opgaven og giver dig en fast pris — så du ved hvad det koster, før vi går i gang.</p>
+    <div class="hero-ctas">
+      <a href="tel:" class="btn-yellow">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3.5 5.2c0-1 .8-1.7 1.7-1.7h2c.7 0 1.4.4 1.6 1.1l.9 2.5c.2.7 0 1.5-.6 2L8 9.9c.9 1.9 2.4 3.4 4.3 4.3l.8-1.1c.5-.6 1.3-.8 2-.6l2.5.9c.7.2 1.1.9 1.1 1.6v2c0 1-.8 1.7-1.7 1.7h-1.5C7.7 18.7 1.3 12.3 1.3 5z"/>
+        </svg>
+        Ring og få et tilbud
+      </a>
+      <a href="#kontakt" class="btn-outline-white">Send en besked</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRUST STRIP ─── -->
+<div class="trust-strip">
+  <div class="trust-strip-inner">
+    <span class="trust-item">
+      <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10l3 3 7-7"/></svg>
+      Fast pris efter opmåling
+    </span>
+    <span class="trust-sep">·</span>
+    <span class="trust-item">
+      <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10l3 3 7-7"/></svg>
+      Vi kommer ud uden beregning
+    </span>
+    <span class="trust-sep">·</span>
+    <span class="trust-item">
+      <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10l3 3 7-7"/></svg>
+      Erhverv · Privat · Fritidshus
+    </span>
+  </div>
+</div>
+
+<!-- ─── SERVICES ─── -->
+<section id="ydelser" class="section services-bg">
+  <div class="section-inner">
+    <p class="section-label">Ydelser</p>
+    <h2 class="section-title">Hvad <strong>kan vi</strong> gøre for dig?</h2>
+    <p class="section-sub">Vi løser de fleste rengøringsopgaver — fra ugentlig kontorrengøring til den store flytterengøring.</p>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="13" height="20" rx="0.5"/>
+            <rect x="16" y="9" width="7" height="14" rx="0.5"/>
+            <path d="M6 7h2M11 7h2M6 11h2M11 11h2M6 15h2M11 15h2M6 19h2M11 19h2M19 13h2M19 17h2M19 21h2"/>
+          </svg>
+        </div>
+        <h3>Kontorrengøring</h3>
+        <p>Daglig, ugentlig eller månedlig rengøring af kontorer, lokaler og fællesarealer. Fast aftale, fast pris.</p>
+        <a href="#kontakt">Få et tilbud →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 12l10-8 10 8"/>
+            <path d="M5 11v12h16V11"/>
+            <path d="M10 23v-6h6v6"/>
+          </svg>
+        </div>
+        <h3>Hovedrengøring privat</h3>
+        <p>Den grundige rengøring fra top til bund. Køkken, badeværelse, vinduer, fuger — det hele.</p>
+        <a href="#kontakt">Få et tilbud →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 8l10-5 10 5v10l-10 5-10-5z"/>
+            <path d="M3 8l10 5 10-5M13 13v10"/>
+          </svg>
+        </div>
+        <h3>Flytterengøring</h3>
+        <p>Når du fraflytter eller overtager — så det møder boligens krav. Vi sikrer at du får dit depositum tilbage.</p>
+        <a href="#kontakt">Få et tilbud →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="14" height="18" rx="0.5"/>
+            <path d="M10 3v18M3 12h14"/>
+            <path d="M19 5l4 4-9 9-4-4z"/>
+          </svg>
+        </div>
+        <h3>Vinduepudsning</h3>
+        <p>Indvendigt og udvendigt. Erhverv og privat. Vi kommer fast eller ad hoc — som det passer dig.</p>
+        <a href="#kontakt">Få et tilbud →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 14v-2a2 2 0 0 1 2-2h1v6H5a2 2 0 0 1-2-2z"/>
+            <path d="M23 14v-2a2 2 0 0 0-2-2h-1v6h1a2 2 0 0 0 2-2z"/>
+            <path d="M6 10h14v6H6z"/>
+            <path d="M3 16h20v4H3zM6 20v2M20 20v2"/>
+          </svg>
+        </div>
+        <h3>Tæpper &amp; polstring</h3>
+        <p>Dybderens af tæpper, sofaer og stole. Pletter, lugte og slid forsvinder — møblerne holder længere.</p>
+        <a href="#kontakt">Få et tilbud →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 9h8v14a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 9 23z"/>
+            <path d="M11 9V4h4v5"/>
+            <path d="M15 6h4M15 4l3-1.5M15 9l3 1.5"/>
+            <circle cx="13" cy="14" r="0.7" fill="currentColor"/>
+            <circle cx="13" cy="18" r="0.7" fill="currentColor"/>
+          </svg>
+        </div>
+        <h3>Special-opgaver</h3>
+        <p>Byggerengøring, sygdomsrengøring, ovne og emhætter — eller noget helt andet. Spørg, så finder vi en løsning.</p>
+        <a href="#kontakt">Få et tilbud →</a>
+      </div>
+
+    </div>
+
+    <p class="services-note">Priser aftales individuelt efter opmåling — ring eller skriv, så kommer vi ud og giver dig en fast pris uden beregning.</p>
+  </div>
+</section>
+
+<!-- ─── BEFORE / AFTER ─── -->
+<section id="foer-efter" class="section">
+  <div class="section-inner">
+    <p class="section-label">Før / Efter</p>
+    <h2 class="section-title">Se <strong>forskellen</strong></h2>
+    <p class="section-sub">Den bedste måde at vise vores arbejde på er at sammenligne før og efter. Send dine egne billeder fra opgaver, så bytter vi dem ind her.</p>
+
+    <div class="beforeafter-grid">
+
+      <div class="ba-pair">
+        <div class="ba-pair-header">
+          <span class="ba-pair-title">Kontorrengøring</span>
+          <span class="ba-pair-tag">Eksempel</span>
+        </div>
+        <div class="ba-images">
+          <div class="ba-image">
+            <span class="ba-image-label">Før</span>
+            <img src="https://images.unsplash.com/photo-1566699270403-3f7e3f340664?w=800&q=80&fit=crop" alt="Rodet kontor før rengøring — stemningsbillede" loading="lazy">
+          </div>
+          <div class="ba-image">
+            <span class="ba-image-label">Efter</span>
+            <img src="https://images.unsplash.com/photo-1718220216044-006f43e3a9b1?w=800&q=80&fit=crop" alt="Rent kontor efter rengøring — stemningsbillede" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="ba-pair">
+        <div class="ba-pair-header">
+          <span class="ba-pair-title">Hovedrengøring</span>
+          <span class="ba-pair-tag placeholder">Dit foto her</span>
+        </div>
+        <div class="ba-images">
+          <div class="ba-image placeholder">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <rect x="4" y="6" width="24" height="20" rx="2"/>
+              <circle cx="16" cy="16" r="5"/>
+              <circle cx="23" cy="11" r="1" fill="currentColor"/>
+            </svg>
+            <span>[Dit før-foto]</span>
+          </div>
+          <div class="ba-image placeholder">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <rect x="4" y="6" width="24" height="20" rx="2"/>
+              <circle cx="16" cy="16" r="5"/>
+              <circle cx="23" cy="11" r="1" fill="currentColor"/>
+            </svg>
+            <span>[Dit efter-foto]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ba-pair">
+        <div class="ba-pair-header">
+          <span class="ba-pair-title">Flytterengøring</span>
+          <span class="ba-pair-tag placeholder">Dit foto her</span>
+        </div>
+        <div class="ba-images">
+          <div class="ba-image placeholder">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <rect x="4" y="6" width="24" height="20" rx="2"/>
+              <circle cx="16" cy="16" r="5"/>
+              <circle cx="23" cy="11" r="1" fill="currentColor"/>
+            </svg>
+            <span>[Dit før-foto]</span>
+          </div>
+          <div class="ba-image placeholder">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <rect x="4" y="6" width="24" height="20" rx="2"/>
+              <circle cx="16" cy="16" r="5"/>
+              <circle cx="23" cy="11" r="1" fill="currentColor"/>
+            </svg>
+            <span>[Dit efter-foto]</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="ba-note"><strong>Dine egne før/efter-billeder er stærkere end stemningsbilleder.</strong> Selv et par hurtige telefonbilleder fra dine opgaver gør en kæmpe forskel — send dem til mig, så bytter vi dem ind.</p>
+  </div>
+</section>
+
+<!-- ─── HOW TO BOOK (3 steps) ─── -->
+<section id="book" class="section steps-bg">
+  <div class="section-inner">
+    <p class="section-label">Sådan booker du</p>
+    <h2 class="section-title">Tre skridt — og <strong>vi er i gang</strong></h2>
+    <p class="section-sub">Vi gør det nemt at komme i gang. Du behøver ikke at vide præcis hvad du skal bestille.</p>
+
+    <div class="steps-grid">
+
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>Ring eller skriv</h3>
+        <p>Fortæl os hvor og hvornår — privat, kontor eller noget tredje. Vi finder en tid der passer dig.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>Vi kommer ud</h3>
+        <p>Vi ser opgaven an, taler om dine ønsker og giver dig en fast pris uden beregning.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>Vi går i gang</h3>
+        <p>Når du har sagt ja, går vi i gang. Du betaler først når opgaven er løst.</p>
+      </div>
+
+    </div>
+
+    <div class="steps-cta-wrap">
+      <a href="tel:" class="btn-teal">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3.5 5.2c0-1 .8-1.7 1.7-1.7h2c.7 0 1.4.4 1.6 1.1l.9 2.5c.2.7 0 1.5-.6 2L8 9.9c.9 1.9 2.4 3.4 4.3 4.3l.8-1.1c.5-.6 1.3-.8 2-.6l2.5.9c.7.2 1.1.9 1.1 1.6v2c0 1-.8 1.7-1.7 1.7h-1.5C7.7 18.7 1.3 12.3 1.3 5z"/>
+        </svg>
+        Ring nu
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── REVIEWS PLACEHOLDER ─── -->
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label">Anmeldelser</p>
+    <h2 class="section-title">Hvad <strong>siger dine</strong> kunder?</h2>
+    <p class="section-sub">Når dine kunder skriver en anmeldelse på Google eller Facebook, vises den her automatisk.</p>
+
+    <div class="reviews-grid">
+
+      <div class="review-card">
+        <span class="placeholder-tag">Eksempel</span>
+        <div class="review-stars" aria-label="5 ud af 5 stjerner">★★★★★</div>
+        <p class="review-quote">[Citat fra din kunde — fx "De kom til tiden, prisen passede, og resultatet var i top. Anbefales klart."]</p>
+        <div class="review-meta">[Kundens navn] <span>· [Måned 2026]</span></div>
+      </div>
+
+      <div class="review-card">
+        <span class="placeholder-tag">Eksempel</span>
+        <div class="review-stars" aria-label="5 ud af 5 stjerner">★★★★★</div>
+        <p class="review-quote">[Citat fra din kunde — anmeldelser hentes automatisk fra Google og Facebook]</p>
+        <div class="review-meta">[Kundens navn] <span>· [Måned 2026]</span></div>
+      </div>
+
+      <div class="review-card">
+        <span class="placeholder-tag">Eksempel</span>
+        <div class="review-stars" aria-label="5 ud af 5 stjerner">★★★★★</div>
+        <p class="review-quote">[Citat fra din kunde — du skal ikke selv vedligeholde noget]</p>
+        <div class="review-meta">[Kundens navn] <span>· [Måned 2026]</span></div>
+      </div>
+
+    </div>
+
+    <p class="reviews-note">Vi sætter en widget op der henter dine anmeldelser fra Google og Facebook automatisk — du skal ikke selv opdatere noget. Når en kunde skriver en ny anmeldelse, dukker den op her af sig selv.</p>
+  </div>
+</section>
+
+<!-- ─── CONTACT FORM ─── -->
+<section id="kontakt" class="section contact-bg">
+  <div class="section-inner">
+
+    <div class="contact-grid">
+
+      <div class="contact-info">
+        <p class="section-label">Kontakt</p>
+        <h2 class="section-title">Få et <strong>tilbud</strong> i dag</h2>
+        <p>Skriv kort hvad du har brug for, så ringer vi tilbage samme dag og finder en tid hvor vi kan komme ud.</p>
+        <p>Vi dækker [område — udfyldes] og kommer gerne både til erhverv, private hjem og fritidshuse.</p>
+
+        <div class="contact-direct">
+          <h4>Hellere ringe?</h4>
+          <p>Du kan altid fange os direkte på telefonen — det er som regel den hurtigste vej.</p>
+          <a href="tel:" class="phone-display">[Telefon — udfyldes]</a>
+          <span class="phone-placeholder-tag">Placeholder</span>
+        </div>
+      </div>
+
+      <form class="contact-form" action="mailto:post@bc-ren.dk" method="post" enctype="text/plain">
+        <div class="field">
+          <label for="cf-navn">Navn</label>
+          <input id="cf-navn" name="navn" type="text" placeholder="Dit navn" required>
+        </div>
+        <div class="field">
+          <label for="cf-tlf">Telefon</label>
+          <input id="cf-tlf" name="telefon" type="tel" placeholder="Vi ringer tilbage" required>
+        </div>
+        <div class="field">
+          <label for="cf-omr">Adresse eller område</label>
+          <input id="cf-omr" name="omraade" type="text" placeholder="Hvor skal vi komme hen?" required>
+        </div>
+        <div class="field">
+          <label for="cf-besked">Hvad skal vi hjælpe med?</label>
+          <textarea id="cf-besked" name="besked" placeholder="Fortæl kort om opgaven — fx kontor 80 m², ugentlig rengøring" required></textarea>
+        </div>
+        <div class="form-submit-wrap">
+          <button type="submit" class="btn-teal">Send beskeden</button>
+        </div>
+        <p class="form-note">Formularen kobles på når siden går live — beskederne kommer direkte til din indbakke.</p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section class="section">
+  <div class="section-inner">
+    <div class="about-grid">
+
+      <div class="about-photo-wrap">
+        <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true">
+          <circle cx="28" cy="20" r="10"/>
+          <path d="M8 50c0-11 9-20 20-20s20 9 20 20"/>
+        </svg>
+        <span>[Foto af Jeff — udfyldes]</span>
+      </div>
+
+      <div class="about-text">
+        <p class="section-label">Om os</p>
+        <h2 class="section-title">Lille nok til <strong>at kende dig</strong></h2>
+        <p>Hos BC Rengøring er vi små nok til at du altid taler med samme person — og store nok til at vi løser opgaven til tiden, hver gang.</p>
+        <p>Vi laver rengøring for private, virksomheder og fritidshuse. Det vigtigste for os er at du ved hvad du betaler for, og at du kan stole på at det bliver gjort ordentligt.</p>
+        <p>Hvis noget ikke lever op til aftalen, ringer du bare — så kommer vi tilbage og retter det.</p>
+        <span class="about-tag">[Tekst til godkendelse — Jeff retter til]</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer-bg">
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+      <div class="footer-brand-text">
+        <span>BC</span><span class="logo-dot" aria-hidden="true"></span><span class="logo-light">Rengøring</span>
+      </div>
+      <p>Erhverv · Privat · Fritidshus<br>[Område — udfyldes]</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <a href="tel:">[Telefon — udfyldes]</a>
+      <a href="mailto:post@bc-ren.dk">post@bc-ren.dk</a>
+      <p>[Adresse — udfyldes]</p>
+      <a href="#kontakt" class="footer-cta">Få et tilbud</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Ydelser</h4>
+      <a href="#ydelser">Kontorrengøring</a>
+      <a href="#ydelser">Hovedrengøring</a>
+      <a href="#ydelser">Flytterengøring</a>
+      <a href="#ydelser">Vinduepudsning</a>
+      <a href="#ydelser">Special-opgaver</a>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    © BC Rengøring · CVR [udfyldes] · bc-ren.dk
+  </div>
+</footer>
+
+</body>
+</html>
